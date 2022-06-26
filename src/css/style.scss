@@ -1,0 +1,40 @@
+$font-stack: Calibri, sans-serif;
+$primary-color: firebrick;
+$secondary-color: firebrick;
+$primary-dark: #000;
+$secondary-dark: #000;
+$primary-light: #FAF9F6;
+$secondary-light: rgb(168, 168, 168);
+
+// MIX IN EXAMPLE
+// @mixin headerAlign($align: left) {
+//     display: flex;
+//     text-align: $align;
+// }
+// @include headerAlign;
+
+// NESTING EXAMPLE
+// .header-nav {
+// 	>a {
+// 		font-size: .9rem;
+// 		padding-right: 10px;
+// 		text-decoration: none;
+// 		transition: all 0.5s;
+// 		-webkit-transition: all 0.5s;
+// 		&:link {
+// 			color: #000;
+// 		}
+// 		&:visited {
+// 			color: rgb(56, 40, 40);
+// 		}
+// 		&:active {
+// 			font-size: 0.95rem;
+// 		}
+// 	}
+// }
+
+// EXTENSION EXAMPLE
+// %parallax-menu-hero {
+//     // code
+// }
+// @extend %parallax-menu-hero;
