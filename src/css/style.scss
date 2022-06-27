@@ -38,3 +38,18 @@ $secondary-light: rgb(168, 168, 168);
 //     // code
 // }
 // @extend %parallax-menu-hero;
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: $font-stack;
+}
+
+#header {
+    background-color: $primary-color;
+}
