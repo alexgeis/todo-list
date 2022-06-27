@@ -85,6 +85,8 @@ style="display: block;
 ### Built With
 
 - [Webpack](https://webpack.js.org/)
+- [SCSS](https://sass-lang.com/)
+- Vanilla JS and HTML
 <!-- - [React.js](https://reactjs.org/)
 - [Bootstrap](https://getbootstrap.com)
 - [Node.js](https://nodejs.dev/)
