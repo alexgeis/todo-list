@@ -85,13 +85,13 @@ style="display: block;
 ### Built With
 
 - [Webpack](https://webpack.js.org/)
-- [React.js](https://reactjs.org/)
+<!-- - [React.js](https://reactjs.org/)
 - [Bootstrap](https://getbootstrap.com)
 - [Node.js](https://nodejs.dev/)
 - [Express](https://expressjs.com/)
 - [MongoDB](https://www.mongodb.com/)
 - [MySQL](https://www.mysql.com/)
-- [JQuery](https://jquery.com)
+- [JQuery](https://jquery.com) -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
