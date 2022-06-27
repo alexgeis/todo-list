@@ -4,7 +4,7 @@ $secondary-color: firebrick;
 $primary-dark: #000;
 $secondary-dark: #000;
 $primary-light: #FAF9F6;
-$secondary-light: rgb(168, 168, 168);
+$secondary-light: rgb(225, 225, 225);
 
 // MIX IN EXAMPLE
 // @mixin headerAlign($align: left) {
@@ -63,4 +63,16 @@ body {
     @include flexJustify;
     gap: 20px;
 }
-
+#main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: minmax(calc(100vh - 38px),1fr)
+}
+#main-aside {
+    grid-column: 1 / 2;
+    background-color: $secondary-light;
+}
+#main-content {
+    grid-column: 2 / 5;
+    background-color: $primary-light;
+}
