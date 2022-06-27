@@ -49,7 +49,18 @@ $secondary-light: rgb(168, 168, 168);
 body {
     font-family: $font-stack;
 }
-
+@mixin flexJustify($spacing: space-between) {
+        display: flex;
+        justify-content: $spacing;
+    }
+    
 #header {
     background-color: $primary-color;
+    @include flexJustify;
+    padding: 10px 20px;
 }
+#headerRight {
+    @include flexJustify;
+    gap: 20px;
+}
+
