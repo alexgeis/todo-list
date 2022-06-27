@@ -58,6 +58,7 @@ body {
     background-color: $primary-color;
     @include flexJustify;
     padding: 10px 20px;
+    color: $primary-light
 }
 #headerRight {
     @include flexJustify;
@@ -72,7 +73,20 @@ body {
     grid-column: 1 / 2;
     background-color: $secondary-light;
 }
-#main-content {
+#main-section {
     grid-column: 2 / 5;
     background-color: $primary-light;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+}
+#main-aside {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    gap: 20px;
+}
+#main-header {
+    padding-bottom: 20px;
 }
