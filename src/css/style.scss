@@ -73,6 +73,8 @@ body {
     grid-column: 1 / 2;
     background-color: $secondary-light;
 }
+
+
 #main-section {
     grid-column: 2 / 5;
     background-color: $primary-light;
@@ -88,5 +90,7 @@ body {
     gap: 20px;
 }
 #main-header {
+    font-size: 1.5rem;
     padding-bottom: 20px;
+    border-bottom: #000 2px solid;
 }
