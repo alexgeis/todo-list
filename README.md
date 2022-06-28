@@ -1,4 +1,4 @@
-Search and replace keywords: `deployed_link`, `product-screenshot`
+Search and replace keywords: `product-screenshot`
 
 <div id="top"></div>
 
