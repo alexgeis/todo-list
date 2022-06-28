@@ -1,4 +1,4 @@
-Search and replace keywords: `product-screenshot`
+Search and replace keyword: `product-screenshot`
 
 <div id="top"></div>
 
