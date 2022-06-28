@@ -33,7 +33,7 @@ Search and replace keywords: `deployed_link`, `product-screenshot`
     <a href="https://github.com/alexgeis/todo-list"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a class="deployed_link" href="https://github.com/alexgeis/todo-list">View Demo</a>
+    <a class="deployed_link" href="https://alexgeis.github.io/todo-list/">View Demo</a>
     ·
     <a href="https://github.com/alexgeis/todo-list/issues">Report Bug</a>
     ·
@@ -72,7 +72,7 @@ Search and replace keywords: `deployed_link`, `product-screenshot`
 ## About The Project
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
-<a class="deployed_link" href="https://example.com">
+<a class="deployed_link" href="https://alexgeis.github.io/todo-list/">
 <p align="center">
 <img id="product-screenshot" src="images/screenshot.png" alt="Product Name Screen Shot"
 style="display: block;
