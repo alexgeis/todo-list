@@ -89,6 +89,12 @@ body {
     padding: 40px;
     gap: 20px;
 }
+#main-content {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
 #main-header {
     font-size: 1.5rem;
     padding-bottom: 20px;
