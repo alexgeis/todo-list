@@ -36,9 +36,7 @@ function domCreate(arg1, arg2, arg3) {
 	// return element;
 }
 domCreate("div", ["task-card"], { "data-attribute-test": "heybuddy!" });
-// console.log(
-// 	domCreate("div", ["task-card"], { "data-attribute-test": "heybuddy!" })
-// );
+
 // taskCardsNodeList = document.getElementsByClassName("task-card");
 // for (let i = 0; i < taskCardsNodeList.length; i++) {
 // 	taskCardsNodeList[i].style.gridColumn = "1/3";
@@ -47,3 +45,24 @@ domCreate("div", ["task-card"], { "data-attribute-test": "heybuddy!" });
 // document.addEventListener("click", function (event) {
 // 	console.log(event);
 // });
+
+const date = new Date();
+const createTask = ({ title, description, dueDate, priority, notes }) => ({
+	title,
+	description,
+	dueDate,
+	priority,
+	notes,
+	printTask() {
+		return `${this.title}: ${this.description}`;
+	},
+});
+
+const taskDemo1 = createTask({
+	title: "Walk the Dog",
+	description: "take the doggo on a lil stroll",
+	dueDate: date,
+	priority: "high",
+	notes: "avoid 9th and Elm - aggressive dog",
+});
+console.log(taskDemo1);
