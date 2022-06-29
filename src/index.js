@@ -19,6 +19,9 @@ task2.addEventListener("click", function (event) {
 const mainContentEl = document.querySelector("#main-content");
 
 //add to DOM function
+//arg 1 = name of HTML element
+// arg 2 = class names to add
+// arg 3 = object - attributes to add -> attribute : value
 function domCreate(arg1, arg2, arg3) {
 	//arg 1 = name of HTML element
 	const element = document.createElement(arg1);
@@ -65,4 +68,23 @@ const taskDemo1 = createTask({
 	priority: "high",
 	notes: "avoid 9th and Elm - aggressive dog",
 });
-console.log(taskDemo1);
+// console.log(taskDemo1);
+
+const createProject = ({ title, description }) => ({
+	title,
+	description,
+	tasks: [],
+	printProject() {
+		return `Project ${this.title}: ${this.description}`;
+	},
+	addTasktoProject(task) {
+		this.tasks.push(task);
+	},
+});
+
+const projectDemo1 = createProject({
+	title: "Personal",
+	description: "pleasure, not business",
+});
+projectDemo1.addTasktoProject(taskDemo1);
+console.log(projectDemo1.tasks);
