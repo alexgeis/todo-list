@@ -22,7 +22,7 @@ Search and replace keyword: `product-screenshot`
 <br />
 <div align="center">
   <a href="https://github.com/alexgeis/todo-list">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="./src/assets/checkbox-marked-circle.png" alt="Logo" width="40" height="40">
   </a>
 
 <h3 align="center">Todo List</h3>
@@ -74,7 +74,7 @@ Search and replace keyword: `product-screenshot`
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 <a class="deployed_link" href="https://alexgeis.github.io/todo-list/">
 <p align="center">
-<img id="product-screenshot" src="images/screenshot.png" alt="Product Name Screen Shot"
+<img id="product-screenshot" src="./src/assets/temp-screenshot.png" alt="Product Name Screen Shot"
 style="display: block;
     margin-left: auto;
     margin-right: auto;
