@@ -62,6 +62,7 @@ body {
 }
 #headerRight {
     @include flexJustify;
+    align-items: center;
     gap: 20px;
 }
 #main {
