@@ -67,15 +67,17 @@ body {
 }
 #main {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: minmax(150px,1fr) 4fr;
     grid-template-rows: minmax(calc(100vh - 38px),1fr)
 }
 #main-aside {
     grid-column: 1 / 2;
     background-color: $secondary-light;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 20px;
 }
-
-
 #main-section {
     grid-column: 2 / 5;
     background-color: $primary-light;
@@ -83,12 +85,6 @@ body {
     flex-direction: column;
     gap: 20px;
     padding: 40px;
-}
-#main-aside {
-    display: flex;
-    flex-direction: column;
-    padding: 40px;
-    gap: 20px;
 }
 #main-content {
     display: grid;
