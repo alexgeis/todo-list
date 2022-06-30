@@ -1,5 +1,3 @@
-Search and replace keyword: `product-screenshot`
-
 <div id="top"></div>
 
 <!-- PROJECT SHIELDS -->
