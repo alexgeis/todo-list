@@ -103,3 +103,20 @@ closeFormBtn.addEventListener("click", closeForm);
 function closeForm() {
 	addTaskFormEl.setAttribute("style", "display: none;");
 }
+
+const taskTitleEl = document.querySelector("#t-title");
+const taskDescEl = document.querySelector("#t-desc");
+const taskDateEl = document.querySelector("#t-date");
+const taskPriorityEl = document.querySelector("#t-priority");
+const taskNotesEl = document.querySelector("#t-notes");
+
+const clearFormBtn = document.querySelector(".clear");
+clearFormBtn.addEventListener("click", clearForm);
+function clearForm() {
+	taskTitleEl.value = "";
+	taskDescEl.value = "";
+	taskDateEl.value = "";
+	taskPriorityEl.value = "";
+	taskNotesEl.value = "";
+	// bookReadStatusForm.options.selectedIndex = 0;
+}
