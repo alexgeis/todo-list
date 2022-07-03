@@ -88,3 +88,12 @@ const projectDemo1 = createProject({
 });
 projectDemo1.addTasktoProject(taskDemo1);
 console.log(projectDemo1.tasks);
+
+const addTaskFormEl = document.querySelector(".add_task_section");
+const addTaskHeaderBtn = document.querySelector("#addTask");
+addTaskHeaderBtn.addEventListener("click", renderTaskForm);
+
+function renderTaskForm() {
+	console.log("hello");
+	addTaskFormEl.setAttribute("style", "display: block;");
+}
