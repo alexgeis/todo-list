@@ -109,6 +109,7 @@ const taskDescEl = document.querySelector("#t-desc");
 const taskDateEl = document.querySelector("#t-date");
 const taskPriorityEl = document.querySelector("#t-priority");
 const taskNotesEl = document.querySelector("#t-notes");
+const projectTaskAddEl = document.querySelector("#project-task-add");
 
 const clearFormBtn = document.querySelector(".clear");
 clearFormBtn.addEventListener("click", clearForm);
@@ -118,5 +119,5 @@ function clearForm() {
 	taskDateEl.value = "";
 	taskPriorityEl.value = "";
 	taskNotesEl.value = "";
-	// bookReadStatusForm.options.selectedIndex = 0;
+	projectTaskAddEl.options.selectedIndex = 0;
 }
