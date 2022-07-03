@@ -97,3 +97,9 @@ function renderTaskForm() {
 	console.log("hello");
 	addTaskFormEl.setAttribute("style", "display: block;");
 }
+
+const closeFormBtn = document.querySelector("#close-form");
+closeFormBtn.addEventListener("click", closeForm);
+function closeForm() {
+	addTaskFormEl.setAttribute("style", "display: none;");
+}
