@@ -146,6 +146,9 @@ body {
     background-color: #fff;
     overflow-y: scroll;
 }
+.new-task-form > * {
+    padding-bottom: 1rem;
+}
 .close-form {
     position: absolute;
     right: 5px;
@@ -153,7 +156,6 @@ body {
 .close-form:hover {
       cursor: pointer;
 }
-
 .form_title {
     font-size: 1.5rem;
     text-align: center;
@@ -161,4 +163,10 @@ body {
     text-transform: capitalize;
     color: #000;
     font-weight: 500;
-  }
+}
+.new-task-buttons {
+    margin: 0 auto;
+}
+.new-task-buttons > * {
+    padding: .5rem;
+}
