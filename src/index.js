@@ -122,9 +122,10 @@ function clearForm() {
 	projectTaskAddEl.options.selectedIndex = 0;
 }
 
+let currentTasks = [];
 const addTaskFormBtn = document.querySelector(".add-task");
-addTaskFormBtn.addEventListener("click", addTaskToLibrary);
-function addTaskToLibrary() {
+addTaskFormBtn.addEventListener("click", addTaskSubmit);
+function addTaskSubmit() {
 	const newTask = createTask({
 		title: taskTitleEl.value,
 		description: taskDescEl.value,
@@ -132,4 +133,11 @@ function addTaskToLibrary() {
 		priority: taskPriorityEl.value,
 		notes: taskNotesEl.value,
 	});
+
+	currentTasks.push(newTask);
+	// setCurrentTasks(currentTasks);
+	console.log(currentTasks);
+	localStorage.setItem("tasks", JSON.stringify(currentTasks));
+	closeForm();
+	// renderTasks();
 }
