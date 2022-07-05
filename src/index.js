@@ -121,3 +121,6 @@ function clearForm() {
 	taskNotesEl.value = "";
 	projectTaskAddEl.options.selectedIndex = 0;
 }
+
+const addTaskFormBtn = document.querySelector(".add-task");
+addTaskFormBtn.addEventListener("click", addBookToLibrary);
