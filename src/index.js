@@ -123,4 +123,13 @@ function clearForm() {
 }
 
 const addTaskFormBtn = document.querySelector(".add-task");
-addTaskFormBtn.addEventListener("click", addBookToLibrary);
+addTaskFormBtn.addEventListener("click", addTaskToLibrary);
+function addTaskToLibrary() {
+	const newTask = createTask({
+		title: taskTitleEl.value,
+		description: taskDescEl.value,
+		dueDate: taskDateEl.value,
+		priority: taskPriorityEl.value,
+		notes: taskNotesEl.value,
+	});
+}
