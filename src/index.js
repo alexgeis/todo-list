@@ -141,3 +141,47 @@ function addTaskSubmit() {
 	closeForm();
 	// renderTasks();
 }
+
+const taskContainer = document.querySelector("#main-content");
+
+function renderTasks() {
+	//clear current tasks
+	taskContainer.innerhtml = "";
+	for (let i = 0; i < currentTasks.length; i++) {
+		const task = currentTasks[i];
+
+		//task card containing div
+		const taskCard = document.createElement("div");
+		taskCard.classList.add("task-card");
+		taskCard.setAttribute("id", `task-${i}`);
+		//maybe use data attributes?
+
+		//inner task card div items
+		//TITLE
+		const taskTitle = document.createElement("div");
+		taskTitle.classList.add("task-title");
+		taskTitle.textContent = "Title";
+		//DESCRIPTION
+		const taskDesc = document.createElement("div");
+		taskDesc.classList.add("task-description");
+		taskDesc.textContent = "Description";
+		//DUE DATE
+		const taskDate = document.createElement("div");
+		taskDate.classList.add("task-date");
+		taskDate.textContent = "Due Date";
+		//PRIORITY
+		const taskPriority = document.createElement("div");
+		taskPriority.classList.add("task-priority");
+		taskPriority.textContent = "Priority";
+		//NOTES
+		const taskNotes = document.createElement("div");
+		taskNotes.classList.add("task-notes");
+		taskNotes.textContent = "Notes";
+	}
+}
+
+// window.onload = () => {
+// 	// setCurrentTheme(DEFAULT_THEME);
+// 	setCurrentTasks(currentTasks);
+// 	// renderTasks();
+// };
