@@ -80,6 +80,11 @@ body {
 }
 .aside-item {
     padding: .5rem;
+    transition: all 300ms;
+    &:hover {
+        background-image: linear-gradient(to left, rgba(255,0,0,0), $primary-color);
+        color: white;
+      }
 }
 .aside-selected {
     background-image: linear-gradient(to left, rgba(255,0,0,0), $primary-color);
