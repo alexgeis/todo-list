@@ -78,6 +78,13 @@ body {
     padding: 30px;
     gap: 20px;
 }
+.aside-item {
+    padding: .5rem;
+}
+.aside-selected {
+    background-image: linear-gradient(to left, rgba(255,0,0,0), $primary-color);
+    color: white;
+}
 #main-section {
     grid-column: 2 / 5;
     background-color: $primary-light;
@@ -152,9 +159,9 @@ body {
 .close-form {
     position: absolute;
     right: 5px;
-}
-.close-form:hover {
-      cursor: pointer;
+    &:hover {
+        cursor: pointer;
+      }
 }
 .form_title {
     font-size: 1.5rem;
