@@ -77,6 +77,8 @@ body {
     flex-direction: column;
     padding: 30px;
     gap: 20px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 2px 4px 2px;
+    z-index: 3;
 }
 .aside-item {
     padding: .5rem;
@@ -145,7 +147,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 9999;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
     align-items: center;

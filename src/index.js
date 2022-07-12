@@ -1,15 +1,18 @@
 import deleteIcon from "./assets/trash-can-outline.png";
 import { createTask, createProject } from "./js/create";
-import { renderTaskForm, closeForm } from "./js/taskForm";
+import { renderTaskForm, closeForm, clearForm } from "./js/taskForm";
+import { domCreate } from "./js/DOM";
 import "./css/style.scss";
 // import { } from "./js/";
 
 //DEFAULTS
 const DEFAULT_THEME = localStorage.getItem("theme") || "light";
 // const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-// const currentlyRead = savedBooks.filter((book) => book.readStatus === true);
-// const DEFAULT_BOOKS_READ = currentlyRead.length;
-// const DEFAULT_BOOKS_TOTAL = savedBooks.length;
+
+//filter example
+// const currentlyDone = savedTasks.filter((task) => task.complete === true);
+// const DEFAULT_TASKS_DONE = currentlyDone.length;
+// const DEFAULT_TASKS_TOTAL = savedBooks.length;
 
 //TEST DATA
 const savedTasks = [
@@ -66,28 +69,9 @@ function setCurrentTasks(newTasks) {
 // }
 const taskContainer = document.querySelector("#main-content");
 
-// DOM FUNCTION
-
-//arg 1 = name of HTML element
+// arg 1 = name of HTML element
 // arg 2 = class names to add
 // arg 3 = object - attributes to add -> attribute : value
-function domCreate(arg1, arg2, arg3) {
-	//arg 1 = name of HTML element
-	const element = document.createElement(arg1);
-	// arg 2 = class names to add
-	for (let i = 0; i < arg2.length; i++) {
-		const className = arg2[i];
-		element.classList.add(className);
-		// //set data attribute "data-index" to the current index
-		// element.dataset.index = i;
-	}
-	// arg 3 = object - attribute : value
-	for (const attribute in arg3) {
-		element.setAttribute(attribute, arg3[attribute]);
-	}
-	// return taskContainer.appendChild(element);
-	// return element;
-}
 domCreate("div", ["task-card"], { "data-attribute-test": "heybuddy!" });
 
 const date = new Date();
@@ -114,44 +98,19 @@ addTaskHeaderBtn.addEventListener("click", renderTaskForm);
 const closeFormBtn = document.querySelector("#close-form");
 closeFormBtn.addEventListener("click", closeForm);
 
-const taskTitleEl = document.querySelector("#t-title");
-const taskDescEl = document.querySelector("#t-desc");
-const taskDateEl = document.querySelector("#t-date");
-const taskPriorityEl = document.querySelector("#t-priority");
-const taskNotesEl = document.querySelector("#t-notes");
-const projectTaskAddEl = document.querySelector("#project-task-add");
-
 const clearFormBtn = document.querySelector(".clear");
 clearFormBtn.addEventListener("click", clearForm);
-function clearForm() {
-	taskTitleEl.value = "";
-	taskDescEl.value = "";
-	taskDateEl.value = "";
-	taskPriorityEl.value = "";
-	taskNotesEl.value = "";
-	projectTaskAddEl.options.selectedIndex = 0;
-}
 
-// let currentTasks = [
-// 	{
-// 		title: "Walk the Dog",
-// 		description: "take the doggo on a lil stroll",
-// 		dueDate: "2022-07-12T13:27:19.568Z",
-// 		priority: "high",
-// 		notes: "avoid 9th and Elm - aggressive dog",
-// 	},
-// ];
 const addTaskFormBtn = document.querySelector(".add-task");
 addTaskFormBtn.addEventListener("click", addTaskSubmit);
 function addTaskSubmit() {
 	const newTask = createTask({
-		title: taskTitleEl.value,
-		description: taskDescEl.value,
-		dueDate: taskDateEl.value,
-		priority: taskPriorityEl.value,
-		notes: taskNotesEl.value,
+		title: document.querySelector("#t-title").value.value,
+		description: document.querySelector("#t-desc").value.value,
+		dueDate: document.querySelector("#t-date").value.value,
+		priority: document.querySelector("#t-priority").value.value,
+		notes: document.querySelector("#t-notes").value.value,
 	});
-
 	currentTasks.push(newTask);
 	setCurrentTasks(currentTasks);
 	console.log(currentTasks);
