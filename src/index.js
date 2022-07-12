@@ -1,4 +1,5 @@
 import deleteIcon from "./assets/trash-can-outline.png";
+import { createTask, createProject } from "./js/create";
 import "./css/style.scss";
 // import { } from "./js/";
 
@@ -24,7 +25,8 @@ function setCurrentTasks(newTasks) {
 // }
 const taskContainer = document.querySelector("#main-content");
 
-//add to DOM function
+// DOM FUNCTION
+
 //arg 1 = name of HTML element
 // arg 2 = class names to add
 // arg 3 = object - attributes to add -> attribute : value
@@ -47,23 +49,6 @@ function domCreate(arg1, arg2, arg3) {
 }
 domCreate("div", ["task-card"], { "data-attribute-test": "heybuddy!" });
 
-// taskCardsNodeList = document.getElementsByClassName("task-card");
-// for (let i = 0; i < taskCardsNodeList.length; i++) {
-// 	taskCardsNodeList[i].style.gridColumn = "1/3";
-// }
-
-const date = new Date();
-const createTask = ({ title, description, dueDate, priority, notes }) => ({
-	title,
-	description,
-	dueDate,
-	priority,
-	notes,
-	printTask() {
-		return `${this.title}: ${this.description}`;
-	},
-});
-
 const taskDemo1 = createTask({
 	title: "Walk the Dog",
 	description: "take the doggo on a lil stroll",
@@ -72,18 +57,6 @@ const taskDemo1 = createTask({
 	notes: "avoid 9th and Elm - aggressive dog",
 });
 // console.log(taskDemo1);
-
-const createProject = ({ title, description }) => ({
-	title,
-	description,
-	tasks: [],
-	printProject() {
-		return `Project ${this.title}: ${this.description}`;
-	},
-	addTasktoProject(task) {
-		this.tasks.push(task);
-	},
-});
 
 const projectDemo1 = createProject({
 	title: "Personal",
@@ -214,3 +187,8 @@ function renderTasks() {
 // 	// squaresGrid = document.getElementsByClassName("grid-squares");
 // 	// squaresGrid[0].style.gridTemplateColumns = "1000px";
 // });
+
+// taskCardsNodeList = document.getElementsByClassName("task-card");
+// for (let i = 0; i < taskCardsNodeList.length; i++) {
+// 	taskCardsNodeList[i].style.gridColumn = "1/3";
+// }
