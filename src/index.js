@@ -55,7 +55,7 @@ const taskDemo1 = createTask({
 	title: "Walk the Dog",
 	description: "take the doggo on a lil stroll",
 	dueDate: date,
-	priority: "high",
+	priority: 3,
 	notes: "avoid 9th and Elm - aggressive dog",
 });
 // console.log(taskDemo1);
@@ -117,8 +117,8 @@ function addTaskSubmit() {
 	setCurrentTasks(currentTasks);
 	console.log(currentTasks);
 	localStorage.setItem("tasks", JSON.stringify(currentTasks));
-	closeForm();
 	renderTasks();
+	closeForm();
 }
 
 function renderTasks() {
@@ -150,6 +150,7 @@ function renderTasks() {
 		const taskPriority = document.createElement("div");
 		taskPriority.classList.add("task-priority");
 		taskPriority.textContent = task.priority;
+		console.log(task.priority);
 		//NOTES
 		const taskNotes = document.createElement("div");
 		taskNotes.classList.add("task-notes");
@@ -157,7 +158,7 @@ function renderTasks() {
 		//DELETE ICON
 		const taskDeleteIcon = document.createElement("img");
 		taskDeleteIcon.classList.add("task-delete");
-		taskDeleteIcon.setAttribute("src", "./assets/trash-can-outline.png");
+		taskDeleteIcon.setAttribute("src", deleteIcon);
 		taskDeleteIcon.setAttribute("alt", "trash can delete icon");
 
 		//APPEND ELEMENTS
