@@ -6,10 +6,50 @@ import "./css/style.scss";
 
 //DEFAULTS
 const DEFAULT_THEME = localStorage.getItem("theme") || "light";
-const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+// const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 // const currentlyRead = savedBooks.filter((book) => book.readStatus === true);
 // const DEFAULT_BOOKS_READ = currentlyRead.length;
 // const DEFAULT_BOOKS_TOTAL = savedBooks.length;
+
+//TEST DATA
+const savedTasks = [
+	{
+		title: "Mow the lawn",
+		description:
+			"get out there with the dang mower and mow that there lawn there",
+		dueDate: "2022-07-29",
+		priority: "1",
+		notes: "Return mower to neighbor when finished",
+	},
+	{
+		title: "Walk the dog",
+		description: "leash, open door, walk around, come back",
+		dueDate: "2022-08-12",
+		priority: "2",
+		notes: "avoid other dogs!",
+	},
+	{
+		title: "Cook dinner",
+		description: "chicken tikka masala, w/ jasmine rice, and samosas",
+		dueDate: "2022-06-12",
+		priority: "3",
+		notes: "no peanuts!",
+	},
+	{
+		title: "Read October Book",
+		description: "read at least 40 pages today",
+		dueDate: "2022-08-12",
+		priority: "5",
+		notes: "",
+	},
+	{
+		title: "Buy roses",
+		description: "2 dozen roses from Safeway",
+		dueDate: "2022-08-12",
+		priority: "5",
+		notes: "red roses",
+	},
+];
 
 //state variables
 let currentTasks = savedTasks;
@@ -65,7 +105,6 @@ const projectDemo1 = createProject({
 	description: "pleasure, not business",
 });
 projectDemo1.addTasktoProject(taskDemo1);
-console.log(projectDemo1.tasks);
 
 //TASK FORM
 
@@ -122,16 +161,17 @@ function addTaskSubmit() {
 }
 
 function renderTasks() {
+	console.log("enter render task f(n)");
 	//clear current tasks
-	taskContainer.innerhtml = "";
+	taskContainer.innerHTML = "";
 	for (let i = 0; i < currentTasks.length; i++) {
 		const task = currentTasks[i];
 
 		//task card containing div
 		const taskCard = document.createElement("div");
 		taskCard.classList.add("task-card");
-		taskCard.setAttribute("id", `task-${i}`);
-		//maybe use data attributes?
+		taskCard.setAttribute("data-index", i);
+		// taskCard.setAttribute("id", `task-${i}`);
 
 		//inner task card div items
 		//TITLE
@@ -157,11 +197,17 @@ function renderTasks() {
 		taskNotes.textContent = task.notes;
 		//DELETE ICON
 		const taskDeleteIcon = document.createElement("img");
+		console.log({ taskDeleteIcon });
 		taskDeleteIcon.classList.add("task-delete");
 		taskDeleteIcon.setAttribute("src", deleteIcon);
 		taskDeleteIcon.setAttribute("alt", "trash can delete icon");
 		taskDeleteIcon.addEventListener("click", function () {
 			taskDeleteIcon.parentElement.remove(taskCard);
+			let index = taskDeleteIcon.parentElement.getAttribute("data-index");
+			currentTasks.splice(index, 1);
+			setCurrentTasks(currentTasks);
+			localStorage.setItem("tasks", JSON.stringify(currentTasks));
+			renderTasks();
 		});
 
 		//APPEND ELEMENTS
