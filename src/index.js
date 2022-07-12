@@ -127,39 +127,31 @@ function renderTasks() {
 		const task = currentTasks[i];
 
 		//task card containing div
-		const taskCard = document.createElement("div");
-		taskCard.classList.add("task-card");
-		taskCard.setAttribute("data-index", i);
+		const taskCard = domCreate("div", ["task-card"], { "data-index": i });
 		// taskCard.setAttribute("id", `task-${i}`);
 
 		//inner task card div items
 		//TITLE
-		const taskTitle = document.createElement("div");
-		taskTitle.classList.add("task-title");
+		const taskTitle = domCreate("div", ["task-title"]);
 		taskTitle.textContent = task.title;
 		//DESCRIPTION
-		const taskDesc = document.createElement("div");
-		taskDesc.classList.add("task-description");
+		const taskDesc = domCreate("div", ["task-description"]);
 		taskDesc.textContent = task.description;
 		//DUE DATE
-		const taskDate = document.createElement("div");
-		taskDate.classList.add("task-date");
+		const taskDate = domCreate("div", ["task-date"]);
 		taskDate.textContent = task.dueDate;
 		//PRIORITY
-		const taskPriority = document.createElement("div");
-		taskPriority.classList.add("task-priority");
+		const taskPriority = domCreate("div", ["task-priority"]);
 		taskPriority.textContent = task.priority;
 		console.log(task.priority);
 		//NOTES
-		const taskNotes = document.createElement("div");
-		taskNotes.classList.add("task-notes");
+		const taskNotes = domCreate("div", ["task-notes"]);
 		taskNotes.textContent = task.notes;
 		//DELETE ICON
-		const taskDeleteIcon = document.createElement("img");
-		console.log({ taskDeleteIcon });
-		taskDeleteIcon.classList.add("task-delete");
-		taskDeleteIcon.setAttribute("src", deleteIcon);
-		taskDeleteIcon.setAttribute("alt", "trash can delete icon");
+		const taskDeleteIcon = domCreate("img", ["task-delete"], {
+			src: deleteIcon,
+			alt: "trash can delete icon",
+		});
 		taskDeleteIcon.addEventListener("click", function () {
 			taskDeleteIcon.parentElement.remove(taskCard);
 			let index = taskDeleteIcon.parentElement.getAttribute("data-index");
