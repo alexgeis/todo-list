@@ -113,7 +113,6 @@ const addTaskHeaderBtn = document.querySelector("#addTask");
 addTaskHeaderBtn.addEventListener("click", renderTaskForm);
 
 function renderTaskForm() {
-	console.log("hello");
 	addTaskFormEl.setAttribute("style", "display: block;");
 }
 
