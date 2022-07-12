@@ -116,12 +116,17 @@ body {
     border-radius: 10px;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     position: relative;
+    transition: all 250ms;
+    &:hover{
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px 3px, rgba(9, 30, 66, 0.08) 0px 0px 0px 3px;
+    }
 }
 .task-card > * {
     padding-bottom: 5px;
 }
 .task-title {
     font-size: 1.2rem;
+    font-weight: bold;
     border-bottom: $primary-dark 1px solid;
     margin-bottom: 10px;
 }

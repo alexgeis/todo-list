@@ -36,7 +36,7 @@ const savedTasks = [
 		notes: "no peanuts!",
 	},
 	{
-		title: "Read October Book",
+		title: "Read 'October' Book",
 		description: "read at least 40 pages today",
 		dueDate: "2022-08-12",
 		priority: "5",
