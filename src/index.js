@@ -2,6 +2,27 @@ import deleteIcon from "./assets/trash-can-outline.png";
 import "./css/style.scss";
 // import { } from "./js/";
 
+//DEFAULTS
+const DEFAULT_THEME = localStorage.getItem("theme") || "light";
+const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+// const currentlyRead = savedBooks.filter((book) => book.readStatus === true);
+// const DEFAULT_BOOKS_READ = currentlyRead.length;
+// const DEFAULT_BOOKS_TOTAL = savedBooks.length;
+
+//state variables
+let currentTasks = savedTasks;
+let currentTheme = DEFAULT_THEME;
+// let currentBooksReadCount = DEFAULT_BOOKS_READ;
+// let currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
+//state variable updates
+function setCurrentTasks(newTasks) {
+	currentTasks = newTasks;
+}
+// function setBookReadTotals() {
+// 	currentBooksReadCount = DEFAULT_BOOKS_READ;
+// 	currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
+// }
+
 const task1 = document.querySelector("#task-1");
 const task2 = document.querySelector("#task-2");
 
@@ -17,7 +38,7 @@ task2.addEventListener("click", function (event) {
 	// squaresGrid[0].style.gridTemplateColumns = "1000px";
 });
 
-const mainContentEl = document.querySelector("#main-content");
+// const mainContentEl = document.querySelector("#main-content");
 
 //add to DOM function
 //arg 1 = name of HTML element
@@ -30,13 +51,14 @@ function domCreate(arg1, arg2, arg3) {
 	for (let i = 0; i < arg2.length; i++) {
 		const className = arg2[i];
 		element.classList.add(className);
-		element.dataset.index = i;
+		// //set data attribute "data-index" to the current index
+		// element.dataset.index = i;
 	}
 	// arg 3 = object - attribute : value
 	for (const attribute in arg3) {
 		element.setAttribute(attribute, arg3[attribute]);
 	}
-	return mainContentEl.appendChild(element);
+	// return mainContentEl.appendChild(element);
 	// return element;
 }
 domCreate("div", ["task-card"], { "data-attribute-test": "heybuddy!" });
@@ -45,10 +67,6 @@ domCreate("div", ["task-card"], { "data-attribute-test": "heybuddy!" });
 // for (let i = 0; i < taskCardsNodeList.length; i++) {
 // 	taskCardsNodeList[i].style.gridColumn = "1/3";
 // }
-
-// document.addEventListener("click", function (event) {
-// 	console.log(event);
-// });
 
 const date = new Date();
 const createTask = ({ title, description, dueDate, priority, notes }) => ({
@@ -123,7 +141,15 @@ function clearForm() {
 	projectTaskAddEl.options.selectedIndex = 0;
 }
 
-let currentTasks = [];
+// let currentTasks = [
+// 	{
+// 		title: "Walk the Dog",
+// 		description: "take the doggo on a lil stroll",
+// 		dueDate: "2022-07-12T13:27:19.568Z",
+// 		priority: "high",
+// 		notes: "avoid 9th and Elm - aggressive dog",
+// 	},
+// ];
 const addTaskFormBtn = document.querySelector(".add-task");
 addTaskFormBtn.addEventListener("click", addTaskSubmit);
 function addTaskSubmit() {
