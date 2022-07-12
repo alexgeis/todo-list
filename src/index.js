@@ -160,6 +160,9 @@ function renderTasks() {
 		taskDeleteIcon.classList.add("task-delete");
 		taskDeleteIcon.setAttribute("src", deleteIcon);
 		taskDeleteIcon.setAttribute("alt", "trash can delete icon");
+		taskDeleteIcon.addEventListener("click", function () {
+			taskDeleteIcon.parentElement.remove(taskCard);
+		});
 
 		//APPEND ELEMENTS
 		taskCard.append(
