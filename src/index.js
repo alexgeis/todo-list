@@ -22,23 +22,7 @@ function setCurrentTasks(newTasks) {
 // 	currentBooksReadCount = DEFAULT_BOOKS_READ;
 // 	currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
 // }
-
-const task1 = document.querySelector("#task-1");
-const task2 = document.querySelector("#task-2");
-
-task1.addEventListener("click", function (event) {
-	console.log(event);
-});
-task2.addEventListener("click", function (event) {
-	console.log(event);
-	console.log(event.target.id);
-	let id1 = event.target.id;
-	let id2 = id1.console.log();
-	// squaresGrid = document.getElementsByClassName("grid-squares");
-	// squaresGrid[0].style.gridTemplateColumns = "1000px";
-});
-
-// const mainContentEl = document.querySelector("#main-content");
+const taskContainer = document.querySelector("#main-content");
 
 //add to DOM function
 //arg 1 = name of HTML element
@@ -58,7 +42,7 @@ function domCreate(arg1, arg2, arg3) {
 	for (const attribute in arg3) {
 		element.setAttribute(attribute, arg3[attribute]);
 	}
-	// return mainContentEl.appendChild(element);
+	// return taskContainer.appendChild(element);
 	// return element;
 }
 domCreate("div", ["task-card"], { "data-attribute-test": "heybuddy!" });
@@ -168,8 +152,6 @@ function addTaskSubmit() {
 	// renderTasks();
 }
 
-const taskContainer = document.querySelector("#main-content");
-
 function renderTasks() {
 	//clear current tasks
 	taskContainer.innerhtml = "";
@@ -216,3 +198,19 @@ function renderTasks() {
 // 	setCurrentTasks(currentTasks);
 // 	// renderTasks();
 // };
+
+//TASK GRID RESPONSIVENESS
+// const task1 = document.querySelector("#task-1");
+// const task2 = document.querySelector("#task-2");
+
+// task1.addEventListener("click", function (event) {
+// 	console.log(event);
+// });
+// task2.addEventListener("click", function (event) {
+// 	console.log(event);
+// 	console.log(event.target.id);
+// 	let id1 = event.target.id;
+// 	let id2 = id1.console.log();
+// 	// squaresGrid = document.getElementsByClassName("grid-squares");
+// 	// squaresGrid[0].style.gridTemplateColumns = "1000px";
+// });
