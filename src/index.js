@@ -1,5 +1,6 @@
 import deleteIcon from "./assets/trash-can-outline.png";
 import { createTask, createProject } from "./js/create";
+import { renderTaskForm, closeForm } from "./js/taskForm";
 import "./css/style.scss";
 // import { } from "./js/";
 
@@ -65,19 +66,13 @@ const projectDemo1 = createProject({
 projectDemo1.addTasktoProject(taskDemo1);
 console.log(projectDemo1.tasks);
 
-const addTaskFormEl = document.querySelector(".add_task_section");
+//TASK FORM
+
 const addTaskHeaderBtn = document.querySelector("#addTask");
 addTaskHeaderBtn.addEventListener("click", renderTaskForm);
 
-function renderTaskForm() {
-	addTaskFormEl.setAttribute("style", "display: block;");
-}
-
 const closeFormBtn = document.querySelector("#close-form");
 closeFormBtn.addEventListener("click", closeForm);
-function closeForm() {
-	addTaskFormEl.setAttribute("style", "display: none;");
-}
 
 const taskTitleEl = document.querySelector("#t-title");
 const taskDescEl = document.querySelector("#t-desc");
