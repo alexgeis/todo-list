@@ -1,7 +1,7 @@
-import deleteIcon from "./assets/trash-can-outline.png";
 import { createTask, createProject } from "./js/create";
 import { renderTaskForm, closeForm, clearForm } from "./js/taskForm";
 import { domCreate } from "./js/DOM";
+import { renderTasks } from "./js/render";
 import "./css/style.scss";
 // import { } from "./js/";
 
@@ -62,12 +62,12 @@ let currentTheme = DEFAULT_THEME;
 //state variable updates
 function setCurrentTasks(newTasks) {
 	currentTasks = newTasks;
+	localStorage.setItem("tasks", JSON.stringify(currentTasks));
 }
 // function setBookReadTotals() {
 // 	currentBooksReadCount = DEFAULT_BOOKS_READ;
 // 	currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
 // }
-const taskContainer = document.querySelector("#main-content");
 
 // arg 1 = name of HTML element
 // arg 2 = class names to add
@@ -117,61 +117,6 @@ function addTaskSubmit() {
 	localStorage.setItem("tasks", JSON.stringify(currentTasks));
 	renderTasks();
 	closeForm();
-}
-
-function renderTasks() {
-	console.log("enter render task f(n)");
-	//clear current tasks
-	taskContainer.innerHTML = "";
-	for (let i = 0; i < currentTasks.length; i++) {
-		const task = currentTasks[i];
-
-		//task card containing div
-		const taskCard = domCreate("div", ["task-card"], { "data-index": i });
-		// taskCard.setAttribute("id", `task-${i}`);
-
-		//inner task card div items
-		//TITLE
-		const taskTitle = domCreate("div", ["task-title"]);
-		taskTitle.textContent = task.title;
-		//DESCRIPTION
-		const taskDesc = domCreate("div", ["task-description"]);
-		taskDesc.textContent = task.description;
-		//DUE DATE
-		const taskDate = domCreate("div", ["task-date"]);
-		taskDate.textContent = task.dueDate;
-		//PRIORITY
-		const taskPriority = domCreate("div", ["task-priority"]);
-		taskPriority.textContent = task.priority;
-		console.log(task.priority);
-		//NOTES
-		const taskNotes = domCreate("div", ["task-notes"]);
-		taskNotes.textContent = task.notes;
-		//DELETE ICON
-		const taskDeleteIcon = domCreate("img", ["task-delete"], {
-			src: deleteIcon,
-			alt: "trash can delete icon",
-		});
-		taskDeleteIcon.addEventListener("click", function () {
-			taskDeleteIcon.parentElement.remove(taskCard);
-			let index = taskDeleteIcon.parentElement.getAttribute("data-index");
-			currentTasks.splice(index, 1);
-			setCurrentTasks(currentTasks);
-			localStorage.setItem("tasks", JSON.stringify(currentTasks));
-			renderTasks();
-		});
-
-		//APPEND ELEMENTS
-		taskCard.append(
-			taskTitle,
-			taskDesc,
-			taskDate,
-			taskPriority,
-			taskNotes,
-			taskDeleteIcon
-		);
-		taskContainer.appendChild(taskCard);
-	}
 }
 
 window.onload = () => {
