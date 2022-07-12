@@ -1,3 +1,4 @@
+import deleteIcon from "./assets/trash-can-outline.png";
 import "./css/style.scss";
 // import { } from "./js/";
 
@@ -177,6 +178,11 @@ function renderTasks() {
 		const taskNotes = document.createElement("div");
 		taskNotes.classList.add("task-notes");
 		taskNotes.textContent = "Notes";
+		//DELETE ICON
+		const taskDeleteIcon = document.createElement("img");
+		taskDeleteIcon.classList.add("task-delete");
+		taskDeleteIcon.setAttribute("src", "./assets/trash-can-outline.png");
+		taskDeleteIcon.setAttribute("alt", "trash can delete icon");
 	}
 }
 
