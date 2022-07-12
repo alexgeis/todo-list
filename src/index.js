@@ -113,7 +113,7 @@ function addTaskSubmit() {
 	});
 
 	currentTasks.push(newTask);
-	// setCurrentTasks(currentTasks);
+	setCurrentTasks(currentTasks);
 	console.log(currentTasks);
 	localStorage.setItem("tasks", JSON.stringify(currentTasks));
 	closeForm();
@@ -136,23 +136,23 @@ function renderTasks() {
 		//TITLE
 		const taskTitle = document.createElement("div");
 		taskTitle.classList.add("task-title");
-		taskTitle.textContent = "Title";
+		taskTitle.textContent = task.title;
 		//DESCRIPTION
 		const taskDesc = document.createElement("div");
 		taskDesc.classList.add("task-description");
-		taskDesc.textContent = "Description";
+		taskDesc.textContent = task.description;
 		//DUE DATE
 		const taskDate = document.createElement("div");
 		taskDate.classList.add("task-date");
-		taskDate.textContent = "Due Date";
+		taskDate.textContent = task.dueDate;
 		//PRIORITY
 		const taskPriority = document.createElement("div");
 		taskPriority.classList.add("task-priority");
-		taskPriority.textContent = "Priority";
+		taskPriority.textContent = task.priority;
 		//NOTES
 		const taskNotes = document.createElement("div");
 		taskNotes.classList.add("task-notes");
-		taskNotes.textContent = "Notes";
+		taskNotes.textContent = task.notes;
 		//DELETE ICON
 		const taskDeleteIcon = document.createElement("img");
 		taskDeleteIcon.classList.add("task-delete");
