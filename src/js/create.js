@@ -1,4 +1,3 @@
-const date = new Date();
 const createTask = ({ title, description, dueDate, priority, notes }) => ({
 	title,
 	description,

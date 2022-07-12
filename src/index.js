@@ -50,6 +50,7 @@ function domCreate(arg1, arg2, arg3) {
 }
 domCreate("div", ["task-card"], { "data-attribute-test": "heybuddy!" });
 
+const date = new Date();
 const taskDemo1 = createTask({
 	title: "Walk the Dog",
 	description: "take the doggo on a lil stroll",
@@ -117,7 +118,7 @@ function addTaskSubmit() {
 	console.log(currentTasks);
 	localStorage.setItem("tasks", JSON.stringify(currentTasks));
 	closeForm();
-	// renderTasks();
+	renderTasks();
 }
 
 function renderTasks() {
@@ -158,14 +159,25 @@ function renderTasks() {
 		taskDeleteIcon.classList.add("task-delete");
 		taskDeleteIcon.setAttribute("src", "./assets/trash-can-outline.png");
 		taskDeleteIcon.setAttribute("alt", "trash can delete icon");
+
+		//APPEND ELEMENTS
+		taskCard.append(
+			taskTitle,
+			taskDesc,
+			taskDate,
+			taskPriority,
+			taskNotes,
+			taskDeleteIcon
+		);
+		taskContainer.appendChild(taskCard);
 	}
 }
 
-// window.onload = () => {
-// 	// setCurrentTheme(DEFAULT_THEME);
-// 	setCurrentTasks(currentTasks);
-// 	// renderTasks();
-// };
+window.onload = () => {
+	// setCurrentTheme(DEFAULT_THEME);
+	setCurrentTasks(currentTasks);
+	renderTasks();
+};
 
 //TASK GRID RESPONSIVENESS
 // const task1 = document.querySelector("#task-1");
