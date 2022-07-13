@@ -76,6 +76,17 @@ function setCurrentTasks(newTasks) {
 // 	currentTasksTotalCount = DEFAULT_TASKS_TOTAL;
 // }
 
+const acc = document.querySelector("#project-accordion");
+const accPanel = document.querySelector("#project-panel-display");
+acc.addEventListener("click", function () {
+	acc.classList.toggle("active");
+	if (accPanel.style.display === "block") {
+		accPanel.style.display = "none";
+	} else {
+		accPanel.style.display = "block";
+	}
+});
+
 // arg 1 = name of HTML element
 // arg 2 = class names to add
 // arg 3 = object - attributes to add -> attribute : value
