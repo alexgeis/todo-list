@@ -1,5 +1,12 @@
 import { createTask, createProject } from "./js/create";
-import { renderTaskForm, closeForm, clearForm } from "./js/taskForm";
+import {
+	renderTaskForm,
+	renderProjectForm,
+	clearTaskForm,
+	closeTaskForm,
+	clearProjectForm,
+	closeProjectForm,
+} from "./js/taskForm";
 import { domCreate } from "./js/DOM";
 import { renderTasks } from "./js/render";
 import "./css/style.scss";
@@ -92,19 +99,24 @@ projectDemo1.addTasktoProject(taskDemo1);
 
 //TASK/PROJECT FORMS
 document.querySelector("#add-icon").addEventListener("click", renderAddMenu);
-
 function renderAddMenu() {
 	const addIconMenu = document.querySelector("#add-icon-menu");
 	addIconMenu.classList.toggle("icon-menu-toggle");
 }
+//render forms
 document
 	.querySelector("#add-task-form")
 	.addEventListener("click", renderTaskForm);
-// document.querySelector("#add-icon").addEventListener("click", renderTaskForm);
-document.querySelector("#close-form").addEventListener("click", closeForm);
-document.querySelector(".clear").addEventListener("click", clearForm);
+document
+	.querySelector("#add-project-form")
+	.addEventListener("click", renderProjectForm);
+//task form
+document
+	.querySelector("#close-task-form")
+	.addEventListener("click", closeTaskForm);
+document.querySelector("#task-clear").addEventListener("click", clearTaskForm);
 
-const addTaskFormBtn = document.querySelector(".add-task");
+const addTaskFormBtn = document.querySelector("#add-task-btn");
 addTaskFormBtn.addEventListener("click", addTaskSubmit);
 function addTaskSubmit() {
 	const newTask = createTask({
@@ -118,7 +130,30 @@ function addTaskSubmit() {
 	setCurrentTasks(currentTasks);
 	localStorage.setItem("tasks", JSON.stringify(currentTasks));
 	renderTasks();
-	closeForm();
+	closeTaskForm();
+}
+//project form
+document
+	.querySelector("#close-project-form")
+	.addEventListener("click", closeProjectForm);
+document
+	.querySelector("#project-clear")
+	.addEventListener("click", clearProjectForm);
+
+const addProjectFormBtn = document.querySelector("#add-project-btn");
+addProjectFormBtn.addEventListener("click", addProjectSubmit);
+function addProjectSubmit() {
+	const newProject = createProject({
+		title: document.querySelector("#p-title").value,
+		description: document.querySelector("#p-desc").value,
+	});
+	//FIGURE OUT STATE FOR PROJECTS /////
+	//TODO
+	// currentTasks.push(newTask);
+	// setCurrentTasks(currentTasks);
+	localStorage.setItem("projects", JSON.stringify(currentTasks));
+	renderTasks();
+	closeProjectForm();
 }
 
 window.onload = () => {

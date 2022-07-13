@@ -167,7 +167,8 @@ body {
 }
 
 
-.add_task_section {
+.add_task_section,
+.add_project_section {
     display: none;
     /* hide for now */
     width: 100vw;

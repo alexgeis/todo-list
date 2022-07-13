@@ -2,6 +2,10 @@ const addTaskFormEl = document.querySelector(".add_task_section");
 function renderTaskForm() {
 	addTaskFormEl.setAttribute("style", "display: block;");
 }
+const addProjectFormEl = document.querySelector(".add_project_section");
+function renderProjectForm() {
+	addProjectFormEl.setAttribute("style", "display: block;");
+}
 
 function addTaskSubmit() {
 	const newTask = createTask({
@@ -19,7 +23,7 @@ function addTaskSubmit() {
 	closeForm();
 }
 
-function clearForm() {
+function clearTaskForm() {
 	document.querySelector("#t-title").value = "";
 	document.querySelector("#t-desc").value = "";
 	document.querySelector("#t-date").value = "";
@@ -28,8 +32,24 @@ function clearForm() {
 	document.querySelector("#project-task-add").options.selectedIndex = 0;
 }
 
-function closeForm() {
+function closeTaskForm() {
 	addTaskFormEl.setAttribute("style", "display: none;");
 }
 
-export { renderTaskForm, closeForm, clearForm };
+function clearProjectForm() {
+	document.querySelector("#p-title").value = "";
+	document.querySelector("#p-desc").value = "";
+}
+
+function closeProjectForm() {
+	addProjectFormEl.setAttribute("style", "display: none;");
+}
+
+export {
+	renderTaskForm,
+	renderProjectForm,
+	clearTaskForm,
+	closeTaskForm,
+	clearProjectForm,
+	closeProjectForm,
+};
