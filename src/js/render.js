@@ -10,8 +10,6 @@ function renderTasks() {
 	for (let i = 0; i < currentTasks.length; i++) {
 		const task = currentTasks[i];
 		const taskCard = domCreate("div", ["task-card"], { "data-index": i });
-		// taskCard.setAttribute("id", `task-${i}`);
-
 		//inner task card div items
 		//TITLE
 		const taskTitle = domCreate("div", ["task-title"]);
@@ -25,7 +23,6 @@ function renderTasks() {
 		//PRIORITY
 		const taskPriority = domCreate("div", ["task-priority"]);
 		taskPriority.textContent = task.priority;
-		console.log(task.priority);
 		//NOTES
 		const taskNotes = domCreate("div", ["task-notes"]);
 		taskNotes.textContent = task.notes;

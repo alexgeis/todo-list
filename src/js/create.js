@@ -16,6 +16,9 @@ const createProject = ({ title, description }) => ({
 	printProject() {
 		return `Project ${this.title}: ${this.description}`;
 	},
+	printTasks() {
+		console.log(this.tasks);
+	},
 	addTasktoProject(task) {
 		this.tasks.push(task);
 	},

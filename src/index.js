@@ -57,16 +57,16 @@ const savedTasks = [
 //state variables
 let currentTasks = savedTasks;
 let currentTheme = DEFAULT_THEME;
-// let currentBooksReadCount = DEFAULT_BOOKS_READ;
-// let currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
+// let currentTasksDoneCount = DEFAULT_TASKS_DONE;
+// let currentTasksTotalCount = DEFAULT_TASKS_TOTAL;
 //state variable updates
 function setCurrentTasks(newTasks) {
 	currentTasks = newTasks;
 	localStorage.setItem("tasks", JSON.stringify(currentTasks));
 }
-// function setBookReadTotals() {
-// 	currentBooksReadCount = DEFAULT_BOOKS_READ;
-// 	currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
+// function setTaskCounts() {
+// 	currentTasksDoneCount = DEFAULT_TASKS_DONE;
+// 	currentTasksTotalCount = DEFAULT_TASKS_TOTAL;
 // }
 
 // arg 1 = name of HTML element
@@ -90,30 +90,27 @@ const projectDemo1 = createProject({
 });
 projectDemo1.addTasktoProject(taskDemo1);
 
-//TASK FORM
+//TASK/PROJECT FORMS
+// document.querySelector("#add-icon-menu").addEventListener("click", renderAddMenu);
+// function renderAddMenu() {
 
-const addTaskHeaderBtn = document.querySelector("#addTask");
-addTaskHeaderBtn.addEventListener("click", renderTaskForm);
-
-const closeFormBtn = document.querySelector("#close-form");
-closeFormBtn.addEventListener("click", closeForm);
-
-const clearFormBtn = document.querySelector(".clear");
-clearFormBtn.addEventListener("click", clearForm);
+// }
+// document.querySelector("#add-icon").addEventListener("click", renderTaskForm);
+document.querySelector("#close-form").addEventListener("click", closeForm);
+document.querySelector(".clear").addEventListener("click", clearForm);
 
 const addTaskFormBtn = document.querySelector(".add-task");
 addTaskFormBtn.addEventListener("click", addTaskSubmit);
 function addTaskSubmit() {
 	const newTask = createTask({
-		title: document.querySelector("#t-title").value.value,
-		description: document.querySelector("#t-desc").value.value,
-		dueDate: document.querySelector("#t-date").value.value,
-		priority: document.querySelector("#t-priority").value.value,
-		notes: document.querySelector("#t-notes").value.value,
+		title: document.querySelector("#t-title").value,
+		description: document.querySelector("#t-desc").value,
+		dueDate: document.querySelector("#t-date").value,
+		priority: document.querySelector("#t-priority").value,
+		notes: document.querySelector("#t-notes").value,
 	});
 	currentTasks.push(newTask);
 	setCurrentTasks(currentTasks);
-	console.log(currentTasks);
 	localStorage.setItem("tasks", JSON.stringify(currentTasks));
 	renderTasks();
 	closeForm();
@@ -124,24 +121,3 @@ window.onload = () => {
 	setCurrentTasks(currentTasks);
 	renderTasks();
 };
-
-//TASK GRID RESPONSIVENESS
-// const task1 = document.querySelector("#task-1");
-// const task2 = document.querySelector("#task-2");
-
-// task1.addEventListener("click", function (event) {
-// 	console.log(event);
-// });
-// task2.addEventListener("click", function (event) {
-// 	console.log(event);
-// 	console.log(event.target.id);
-// 	let id1 = event.target.id;
-// 	let id2 = id1.console.log();
-// 	// squaresGrid = document.getElementsByClassName("grid-squares");
-// 	// squaresGrid[0].style.gridTemplateColumns = "1000px";
-// });
-
-// taskCardsNodeList = document.getElementsByClassName("task-card");
-// for (let i = 0; i < taskCardsNodeList.length; i++) {
-// 	taskCardsNodeList[i].style.gridColumn = "1/3";
-// }
