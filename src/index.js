@@ -91,10 +91,15 @@ const projectDemo1 = createProject({
 projectDemo1.addTasktoProject(taskDemo1);
 
 //TASK/PROJECT FORMS
-// document.querySelector("#add-icon-menu").addEventListener("click", renderAddMenu);
-// function renderAddMenu() {
+document.querySelector("#add-icon").addEventListener("click", renderAddMenu);
 
-// }
+function renderAddMenu() {
+	const addIconMenu = document.querySelector("#add-icon-menu");
+	addIconMenu.classList.toggle("icon-menu-toggle");
+}
+document
+	.querySelector("#add-task-form")
+	.addEventListener("click", renderTaskForm);
 // document.querySelector("#add-icon").addEventListener("click", renderTaskForm);
 document.querySelector("#close-form").addEventListener("click", closeForm);
 document.querySelector(".clear").addEventListener("click", clearForm);
