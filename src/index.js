@@ -11,7 +11,6 @@ import { domCreate } from "./js/DOM";
 import { renderTasks } from "./js/render";
 import { accordionToggle } from "./js/projectAcc";
 import "./css/style.scss";
-// import { } from "./js/";
 
 //DEFAULTS
 const DEFAULT_THEME = localStorage.getItem("theme") || "light";
@@ -61,6 +60,10 @@ const savedTasks = [
 ];
 
 //state variables
+//ALL TASKS
+//ALL PROJECTS (FOR PROJECT ACCORDION ASIDE)
+//TASKS FOR EACH PROJECT
+
 let currentTasks = savedTasks;
 let currentTheme = DEFAULT_THEME;
 // let currentTasksDoneCount = DEFAULT_TASKS_DONE;
