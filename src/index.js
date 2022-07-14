@@ -137,8 +137,16 @@ for (let i = 0; i < savedProjects.length; i++) {
 	const project = savedProjects[i];
 	totalProjectNames.push(project.title);
 }
+const projectList = document.querySelector("#project-panel-list");
+for (let i = 0; i < totalProjectNames.length; i++) {
+	const name = totalProjectNames[i];
+	const liEl = domCreate("li", ["project-list-item"]);
+	liEl.textContent = name;
+	projectList.appendChild(liEl);
+}
+// projectList.append()
 //TASKS FOR EACH PROJECT
-projectDemo1.tasks;
+// projectDemo1.tasks;
 
 let currentTasks = savedTasks;
 let currentTheme = DEFAULT_THEME;
