@@ -14,6 +14,7 @@ import "./css/style.scss";
 
 //DEFAULTS
 const DEFAULT_THEME = localStorage.getItem("theme") || "light";
+// const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
 // const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 // const currentlyDone = savedTasks.filter((task) => task.complete === true);
 // const DEFAULT_TASKS_DONE = currentlyDone.length;
@@ -126,8 +127,16 @@ const savedProjects = [
 //state variables
 //ALL TASKS
 const totalTasks = [];
+for (let i = 0; i < savedProjects.length; i++) {
+	const project = savedProjects[i];
+	totalTasks.push(project.tasks);
+}
 //ALL PROJECTS (FOR PROJECT ACCORDION ASIDE)
-const totalProjects = [];
+const totalProjectNames = [];
+for (let i = 0; i < savedProjects.length; i++) {
+	const project = savedProjects[i];
+	totalProjectNames.push(project.title);
+}
 //TASKS FOR EACH PROJECT
 projectDemo1.tasks;
 
