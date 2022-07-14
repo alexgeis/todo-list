@@ -3,6 +3,7 @@ import deleteIcon from "../assets/trash-can-outline.png";
 
 function renderTasks() {
 	const currentTasks = JSON.parse(localStorage.getItem("tasks"));
+	// const currentProjects = JSON.parse(localStorage.getItem("projects"));
 	const taskContainer = document.querySelector("#main-content");
 	//clear current tasks
 	taskContainer.innerHTML = "";

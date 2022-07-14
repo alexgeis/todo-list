@@ -149,6 +149,10 @@ function setCurrentTasks(newTasks) {
 	currentTasks = newTasks;
 	localStorage.setItem("tasks", JSON.stringify(currentTasks));
 }
+function setCurrentProjects(newProjects) {
+	currentProjects = newProjects;
+	localStorage.setItem("projects", JSON.stringify(currentProjects));
+}
 // function setTaskCounts() {
 // 	currentTasksDoneCount = DEFAULT_TASKS_DONE;
 // 	currentTasksTotalCount = DEFAULT_TASKS_TOTAL;
@@ -234,6 +238,8 @@ function addProjectSubmit() {
 	//ADD TO PROJECT SPECIFIC ARRAY
 	//totalProjectsArray.push(project)
 	//ADD TO PROJECT SPECIFIC TASK ARRAY
+	//project.addTasktoProject(task)
+	//I think above is correct, not below
 	//projectTaskArray.push(task)
 
 	// currentTasks.push(newTask);
