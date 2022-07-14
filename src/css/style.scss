@@ -1,5 +1,5 @@
 $font-stack: Calibri, sans-serif;
-$primary-color: firebrick;
+$primary-color: #b22222;
 $secondary-color: firebrick;
 $primary-dark: #000;
 $secondary-dark: #000;
@@ -99,6 +99,7 @@ $shadowColor: $primary-color;
     position: relative;
     border-radius: 4px;
     &:hover {
+        
         background-image: linear-gradient(to left, rgba(255,0,0,0), $primary-color);
         // color: white;
       }
@@ -132,8 +133,11 @@ $shadowColor: $primary-color;
 #project-accordion{
   cursor: pointer;
   background: none;
-  background-image: linear-gradient(to left, rgba(255,0,0,0), $primary-color);
+  background: rgb(178,34,34);
+        background: linear-gradient(90deg, rgba(178,34,34,1) 0%, rgba(178,34,34,1) 80%, rgba(0,0,0,0) 100%);
+//   background-image: linear-gradient(to left, rgba(255,0,0,0), $primary-color);
   color: white;
+  border-radius: 4px;
   width: 100%;
   border: none;
   transition: 0.4s;
