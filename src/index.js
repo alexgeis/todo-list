@@ -149,7 +149,14 @@ function addProjectSubmit() {
 		description: document.querySelector("#p-desc").value,
 	});
 	//FIGURE OUT STATE FOR PROJECTS /////
-	//TODO
+
+	//REFRESH TOTAL TASK ARRAY PULL
+	//getTotalTasks();
+	//ADD TO PROJECT SPECIFIC ARRAY
+	//totalProjectsArray.push(project)
+	//ADD TO PROJECT SPECIFIC TASK ARRAY
+	//projectTaskArray.push(task)
+
 	// currentTasks.push(newTask);
 	// setCurrentTasks(currentTasks);
 	localStorage.setItem("projects", JSON.stringify(currentTasks));
