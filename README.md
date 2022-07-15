@@ -141,7 +141,7 @@ Packages used in this project: -->
    ```
 4. PRODUCTION - run "npm build" to bundle the page per the Webpack settings
    ```sh
-   npm build
+   npm run build
    ```
 
 <!-- API EXAMPLE
@@ -175,10 +175,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [x] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-  - [ ] Nested Feature
+- [ ] Theme toggle
+- [ ] Completed status
+- [ ] Counters for total completed tasks and uncompleted tasks
 
 See the [open issues](https://github.com/alexgeis/todo-list/issues) for a full list of proposed features (and known issues).
 
@@ -233,14 +232,14 @@ Project Link: [https://github.com/alexgeis/todo-list](https://github.com/alexgei
 Helpful resources and kudos.
 
 - [Choose an Open Source License](https://choosealicense.com)
-- [Img Shields](https://shields.io)
+<!-- - [Img Shields](https://shields.io) -->
 - [GitHub Pages](https://pages.github.com)
-- [Font Awesome](https://fontawesome.com)
+<!-- - [Font Awesome](https://fontawesome.com)
 - [React Icons](https://react-icons.github.io/react-icons/search)
 - [Markdown Studio](https://readme.so/editor)
 - []()
 - []()
-- []()
+- []() -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
