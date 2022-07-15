@@ -46,11 +46,11 @@ for (let i = 0; i < totalProjectNames.length; i++) {
 	liEl.textContent = name;
 	projectList.appendChild(liEl);
 }
-// projectList.append()
 //TASKS FOR EACH PROJECT
 // projectDemo1.tasks;
 
 let currentTasks = savedTasks;
+let currentProjects = savedProjects;
 let currentTheme = DEFAULT_THEME;
 // let currentTasksDoneCount = DEFAULT_TASKS_DONE;
 // let currentTasksTotalCount = DEFAULT_TASKS_TOTAL;
@@ -142,25 +142,21 @@ function addProjectSubmit() {
 		description: document.querySelector("#p-desc").value,
 	});
 	//FIGURE OUT STATE FOR PROJECTS /////
-
 	//REFRESH TOTAL TASK ARRAY PULL
 	//getTotalTasks();
 	//ADD TO PROJECT SPECIFIC ARRAY
-	//totalProjectsArray.push(project)
-	//ADD TO PROJECT SPECIFIC TASK ARRAY
-	//project.addTasktoProject(task)
-	//I think above is correct, not below
-	//projectTaskArray.push(task)
+	totalProjectNames.push(newProject.title);
 
-	// currentTasks.push(newTask);
-	// setCurrentTasks(currentTasks);
-	localStorage.setItem("projects", JSON.stringify(currentTasks));
-	renderTasks();
+	currentProjects.push(newProject);
+	setCurrentProjects(currentProjects);
+	localStorage.setItem("projects", JSON.stringify(currentProjects));
+	// renderTasks();
 	closeProjectForm();
 }
 
 window.onload = () => {
 	// setCurrentTheme(DEFAULT_THEME);
 	setCurrentTasks(currentTasks);
+	setCurrentProjects(currentProjects);
 	renderTasks();
 };
