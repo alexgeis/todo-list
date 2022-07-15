@@ -10,9 +10,10 @@ import {
 import { domCreate } from "./js/DOM";
 import { renderTasks } from "./js/render";
 import { accordionToggle } from "./js/projectAcc";
+import "./css/style.scss";
+//Demo data
 import { savedTasks } from "./js/data/taskData";
 import { savedProjects } from "./js/data/projectData";
-import "./css/style.scss";
 
 //DEFAULTS
 const DEFAULT_THEME = localStorage.getItem("theme") || "light";
