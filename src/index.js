@@ -8,7 +8,7 @@ import {
 	closeProjectForm,
 } from "./js/taskForm";
 import { domCreate } from "./js/DOM";
-import { renderAllTasks } from "./js/render";
+import { renderDashboard } from "./js/render/dashboard";
 import { accordionToggle } from "./js/projectAcc";
 import "./css/style.scss";
 //Demo data
@@ -29,12 +29,6 @@ console.log(savedTasks);
 
 //state variables
 //ALL TASKS
-const totalTasks = [];
-for (let i = 0; i < savedProjects.length; i++) {
-	const project = savedProjects[i];
-	totalTasks.push(...project.tasks);
-}
-console.log(totalTasks);
 
 //ALL PROJECTS (FOR PROJECT ACCORDION ASIDE)
 ////names
@@ -128,7 +122,7 @@ function addTaskSubmit() {
 	currentTasks.push(newTask);
 	setCurrentTasks(currentTasks);
 	localStorage.setItem("tasks", JSON.stringify(currentTasks));
-	renderAllTasks();
+	renderDashboard();
 	closeTaskForm();
 }
 //project form
@@ -156,7 +150,7 @@ function addProjectSubmit() {
 	currentProjects.push(newProject);
 	setCurrentProjects(currentProjects);
 	localStorage.setItem("projects", JSON.stringify(currentProjects));
-	// renderAllTasks();
+	// renderDashboard();
 	closeProjectForm();
 }
 
@@ -164,5 +158,5 @@ window.onload = () => {
 	// setCurrentTheme(DEFAULT_THEME);
 	setCurrentTasks(currentTasks);
 	setCurrentProjects(currentProjects);
-	renderAllTasks();
+	renderDashboard();
 };
