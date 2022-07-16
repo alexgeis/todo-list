@@ -32,7 +32,7 @@ console.log(savedTasks);
 const totalTasks = [];
 for (let i = 0; i < savedProjects.length; i++) {
 	const project = savedProjects[i];
-	totalTasks.push(project.tasks);
+	totalTasks.push(...project.tasks);
 }
 console.log(totalTasks);
 
