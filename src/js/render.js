@@ -1,7 +1,7 @@
 import { domCreate } from "./DOM";
 import deleteIcon from "../assets/trash-can-outline.png";
 
-function renderTasks() {
+function renderAllTasks() {
 	const currentTasks = JSON.parse(localStorage.getItem("tasks"));
 	// const currentProjects = JSON.parse(localStorage.getItem("projects"));
 	const taskContainer = document.querySelector("#main-content");
@@ -53,4 +53,4 @@ function renderTasks() {
 	}
 }
 
-export { renderTasks };
+export { renderAllTasks };

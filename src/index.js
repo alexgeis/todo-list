@@ -8,7 +8,7 @@ import {
 	closeProjectForm,
 } from "./js/taskForm";
 import { domCreate } from "./js/DOM";
-import { renderTasks } from "./js/render";
+import { renderAllTasks } from "./js/render";
 import { accordionToggle } from "./js/projectAcc";
 import "./css/style.scss";
 //Demo data
@@ -128,7 +128,7 @@ function addTaskSubmit() {
 	currentTasks.push(newTask);
 	setCurrentTasks(currentTasks);
 	localStorage.setItem("tasks", JSON.stringify(currentTasks));
-	renderTasks();
+	renderAllTasks();
 	closeTaskForm();
 }
 //project form
@@ -156,7 +156,7 @@ function addProjectSubmit() {
 	currentProjects.push(newProject);
 	setCurrentProjects(currentProjects);
 	localStorage.setItem("projects", JSON.stringify(currentProjects));
-	// renderTasks();
+	// renderAllTasks();
 	closeProjectForm();
 }
 
@@ -164,5 +164,5 @@ window.onload = () => {
 	// setCurrentTheme(DEFAULT_THEME);
 	setCurrentTasks(currentTasks);
 	setCurrentProjects(currentProjects);
-	renderTasks();
+	renderAllTasks();
 };
