@@ -9,10 +9,11 @@ import {
 } from "./js/taskForm";
 import { domCreate } from "./js/DOM";
 import { renderDashboard } from "./js/render/dashboard";
+import { renderProjectAsideList } from "./js/render/projectsAside";
 // import { renderProjectsAll } from "./js/render/projectsAll";
 import { accordionToggle } from "./js/projectAcc";
 import "./css/style.scss";
-//Demo data
+//TEST DATA
 // import { savedTasks } from "./js/data/taskData";
 // import { savedProjects } from "./js/data/projectData";
 // localStorage.setItem("tasks", savedTasks);
@@ -26,29 +27,6 @@ const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 // const DEFAULT_TASKS_DONE = currentlyDone.length;
 // const DEFAULT_TASKS_TOTAL = savedBooks.length;
 console.log(savedProjects);
-//TEST DATA
-
-//state variables
-//ALL TASKS
-
-//ALL PROJECTS (FOR PROJECT ACCORDION ASIDE)
-////names
-const totalProjectNames = [];
-for (let i = 0; i < savedProjects.length; i++) {
-	const project = savedProjects[i];
-	totalProjectNames.push(project.title);
-}
-////dom logic
-const projectList = document.querySelector("#project-panel-list");
-for (let i = 0; i < totalProjectNames.length; i++) {
-	const name = totalProjectNames[i];
-	const liEl = domCreate("li", ["project-list-item"]);
-	liEl.textContent = name;
-	projectList.appendChild(liEl);
-}
-
-//TASKS FOR EACH PROJECT
-// projectDemo1.tasks;
 
 let currentTasks = savedTasks;
 let currentProjects = savedProjects;
@@ -159,5 +137,6 @@ window.onload = () => {
 	// setCurrentTheme(DEFAULT_THEME);
 	setCurrentTasks(currentTasks);
 	setCurrentProjects(currentProjects);
+	renderProjectAsideList();
 	renderDashboard();
 };
