@@ -9,6 +9,9 @@ function renderDashboard() {
 		const project = currentProjects[i];
 		currentTasks.push(...project.tasks);
 	}
+	//update main header
+	const mainHeader = document.querySelector("#main-header");
+	mainHeader.textContent = "DASHBOARD";
 	//clear current tasks
 	const taskContainer = document.querySelector("#main-content");
 	taskContainer.innerHTML = "";

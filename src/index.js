@@ -24,7 +24,7 @@ const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 // const currentlyDone = savedTasks.filter((task) => task.complete === true);
 // const DEFAULT_TASKS_DONE = currentlyDone.length;
 // const DEFAULT_TASKS_TOTAL = savedBooks.length;
-console.log(savedTasks);
+console.log(savedProjects);
 //TEST DATA
 
 //state variables

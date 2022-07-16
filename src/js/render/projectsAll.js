@@ -1,43 +1,45 @@
 import { domCreate } from "../DOM";
 import deleteIcon from "../../assets/trash-can-outline.png";
 
-function renderDashboard() {
+function renderProjectsAll() {
 	//get all projects
 	const currentProjects = JSON.parse(localStorage.getItem("projects"));
 	console.log(currentProjects);
 	//update main header
 	const mainHeader = document.querySelector("#main-header");
-	mainHeader.textContent = "DASHBOARD";
-	//clear current tasks
-	const taskContainer = document.querySelector("#main-content");
-	taskContainer.innerHTML = "";
-	//render currentTasks tasks
-	for (let i = 0; i < currentTasks.length; i++) {
-		const task = currentTasks[i];
-		const taskCard = domCreate("div", ["task-card"], { "data-index": i });
-		//inner task card div items
+	mainHeader.textContent = "PROJECTS";
+	//clear current content
+	const projectContainer = document.querySelector("#main-content");
+	projectContainer.innerHTML = "";
+	//render currentProjects projects
+	for (let i = 0; i < currentProjects.length; i++) {
+		const project = currentProjects[i];
+		const projectCard = domCreate("div", ["project-card"], { "data-index": i });
+		//inner project card div items
 		//TITLE
-		const taskTitle = domCreate("div", ["task-title"]);
-		taskTitle.textContent = task.title;
+		const projectTitle = domCreate("div", ["project-title"]);
+		projectTitle.textContent = project.title;
 		//DESCRIPTION
-		const taskDesc = domCreate("div", ["task-description"]);
-		taskDesc.textContent = task.description;
-		//DUE DATE
-		const taskDate = domCreate("div", ["task-date"]);
-		taskDate.textContent = task.dueDate;
-		//PRIORITY
-		const taskPriority = domCreate("div", ["task-priority"]);
-		taskPriority.textContent = task.priority;
-		//NOTES
-		const taskNotes = domCreate("div", ["task-notes"]);
-		taskNotes.textContent = task.notes;
+		const projectDesc = domCreate("div", ["project-description"]);
+		projectDesc.textContent = project.description;
+		//TASKS
+		const projectTasks = domCreate("div", ["project-tasks"]);
+		const projectTasksList = domCreate("ul", ["project-tasks-list"]);
+		let taskArray = project.tasks;
+		for (let i = 0; i < taskArray.length; i++) {
+			const task = taskArray[i];
+			const li = domCreate("li", ["project-task-list-item"]);
+			li.textContent = task.title;
+			projectTasksList.appendChild(li);
+		}
+		projectTasks.appendChild(projectTasksList);
 		//DELETE ICON
-		const taskDeleteIcon = domCreate("img", ["task-delete"], {
+		const projectDeleteIcon = domCreate("img", ["project-delete"], {
 			src: deleteIcon,
 			alt: "trash can delete icon",
 		});
-		taskDeleteIcon.addEventListener("click", function () {
-			taskDeleteIcon.parentElement.remove(taskCard);
+		projectDeleteIcon.addEventListener("click", function () {
+			taskDeleteIcon.parentElement.remove(projectCard);
 			let index = taskDeleteIcon.parentElement.getAttribute("data-index");
 			currentTasks.splice(index, 1);
 			setCurrentTasks(currentTasks);
@@ -45,7 +47,7 @@ function renderDashboard() {
 			renderTasks();
 		});
 		//APPEND ELEMENTS
-		taskCard.append(
+		projectCard.append(
 			taskTitle,
 			taskDesc,
 			taskDate,
@@ -53,8 +55,8 @@ function renderDashboard() {
 			taskNotes,
 			taskDeleteIcon
 		);
-		taskContainer.appendChild(taskCard);
+		projectContainer.appendChild(projectCard);
 	}
 }
 
-export { renderDashboard };
+export { renderProjectsAll };
