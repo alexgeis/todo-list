@@ -138,5 +138,8 @@ window.onload = () => {
 	setCurrentTasks(currentTasks);
 	setCurrentProjects(currentProjects);
 	renderProjectAsideList();
+	document
+		.getElementById("dash-aside")
+		.addEventListener("click", renderDashboard);
 	renderDashboard();
 };

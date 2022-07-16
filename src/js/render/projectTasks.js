@@ -1,24 +1,22 @@
 import { domCreate } from "../DOM";
 import deleteIcon from "../../assets/trash-can-outline.png";
 
-function renderDashboard() {
+function renderProjectTasks(index) {
 	//get all tasks from all projects
 	const currentProjects = JSON.parse(localStorage.getItem("projects"));
-	const currentTasks = [];
-	for (let i = 0; i < currentProjects.length; i++) {
-		const project = currentProjects[i];
-		currentTasks.push(...project.tasks);
-	}
+	const renderProject = currentProjects[index];
+	console.log(renderProject.tasks);
+	const currentTasks = renderProject.tasks || [];
 	//update main header
 	const mainHeader = document.querySelector("#main-header");
-	mainHeader.textContent = "DASHBOARD";
+	mainHeader.textContent = renderProject.title.toUpperCase();
 	//clear current tasks
 	const taskContainer = document.querySelector("#main-content");
 	taskContainer.innerHTML = "";
 	//render currentTasks tasks
 	for (let i = 0; i < currentTasks.length; i++) {
 		const task = currentTasks[i];
-		const taskCard = domCreate("div", ["task-card"], { "data-task-index": i });
+		const taskCard = domCreate("div", ["task-card"], { "data-index": i });
 		//inner task card div items
 		//TITLE
 		const taskTitle = domCreate("div", ["task-title"]);
@@ -42,7 +40,7 @@ function renderDashboard() {
 		});
 		taskDeleteIcon.addEventListener("click", function () {
 			taskDeleteIcon.parentElement.remove(taskCard);
-			let index = taskDeleteIcon.parentElement.getAttribute("data-task-index");
+			let index = taskDeleteIcon.parentElement.getAttribute("data-index");
 			currentTasks.splice(index, 1);
 			setCurrentTasks(currentTasks);
 			localStorage.setItem("tasks", JSON.stringify(currentTasks));
@@ -61,4 +59,4 @@ function renderDashboard() {
 	}
 }
 
-export { renderDashboard };
+export { renderProjectTasks };
