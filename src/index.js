@@ -12,17 +12,19 @@ import { renderTasks } from "./js/render";
 import { accordionToggle } from "./js/projectAcc";
 import "./css/style.scss";
 //Demo data
-import { savedTasks } from "./js/data/taskData";
-import { savedProjects } from "./js/data/projectData";
+// import { savedTasks } from "./js/data/taskData";
+// import { savedProjects } from "./js/data/projectData";
+// localStorage.setItem("tasks", savedTasks);
+// localStorage.setItem("projects", savedProjects);
 
 //DEFAULTS
 const DEFAULT_THEME = localStorage.getItem("theme") || "light";
-// const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
-// const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
+const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 // const currentlyDone = savedTasks.filter((task) => task.complete === true);
 // const DEFAULT_TASKS_DONE = currentlyDone.length;
 // const DEFAULT_TASKS_TOTAL = savedBooks.length;
-
+console.log(savedTasks);
 //TEST DATA
 
 //state variables
@@ -32,6 +34,8 @@ for (let i = 0; i < savedProjects.length; i++) {
 	const project = savedProjects[i];
 	totalTasks.push(project.tasks);
 }
+console.log(totalTasks);
+
 //ALL PROJECTS (FOR PROJECT ACCORDION ASIDE)
 ////names
 const totalProjectNames = [];
@@ -47,6 +51,7 @@ for (let i = 0; i < totalProjectNames.length; i++) {
 	liEl.textContent = name;
 	projectList.appendChild(liEl);
 }
+
 //TASKS FOR EACH PROJECT
 // projectDemo1.tasks;
 
