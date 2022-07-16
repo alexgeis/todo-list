@@ -1,4 +1,4 @@
-// DOM FUNCTION
+// DOM CREATE FUNCTION
 
 //arg 1 = name of HTML element
 // arg 2 = class names to add
