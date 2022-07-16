@@ -72,7 +72,7 @@
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 <a class="deployed_link" href="https://alexgeis.github.io/todo-list/">
 <p align="center">
-<img id="product-screenshot" src="./src/assets/temp-screenshot.png" alt="Product Name Screen Shot"
+<img id="product-screenshot" src="./src/assets/screenshot.png" alt="Product Name Screen Shot"
 style="display: block;
     margin-left: auto;
     margin-right: auto;
