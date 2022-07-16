@@ -9,6 +9,7 @@ import {
 } from "./js/taskForm";
 import { domCreate } from "./js/DOM";
 import { renderDashboard } from "./js/render/dashboard";
+// import { renderProjectsAll } from "./js/render/projectsAll";
 import { accordionToggle } from "./js/projectAcc";
 import "./css/style.scss";
 //Demo data

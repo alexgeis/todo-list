@@ -23,7 +23,6 @@ function renderProjectsAll() {
 		const projectDesc = domCreate("div", ["project-description"]);
 		projectDesc.textContent = project.description;
 		//TASKS
-		const projectTasks = domCreate("div", ["project-tasks"]);
 		const projectTasksList = domCreate("ul", ["project-tasks-list"]);
 		let taskArray = project.tasks;
 		for (let i = 0; i < taskArray.length; i++) {
@@ -32,6 +31,7 @@ function renderProjectsAll() {
 			li.textContent = task.title;
 			projectTasksList.appendChild(li);
 		}
+		const projectTasks = domCreate("div", ["project-tasks"]);
 		projectTasks.appendChild(projectTasksList);
 		//DELETE ICON
 		const projectDeleteIcon = domCreate("img", ["project-delete"], {
@@ -39,21 +39,19 @@ function renderProjectsAll() {
 			alt: "trash can delete icon",
 		});
 		projectDeleteIcon.addEventListener("click", function () {
-			taskDeleteIcon.parentElement.remove(projectCard);
-			let index = taskDeleteIcon.parentElement.getAttribute("data-index");
-			currentTasks.splice(index, 1);
-			setCurrentTasks(currentTasks);
-			localStorage.setItem("tasks", JSON.stringify(currentTasks));
-			renderTasks();
+			projectDeleteIcon.parentElement.remove(projectCard);
+			let index = projectDeleteIcon.parentElement.getAttribute("data-index");
+			currentProjects.splice(index, 1);
+			// setCurrentProjects(currentProjects);
+			localStorage.setItem("projects", JSON.stringify(currentProjects));
+			renderProjectsAll();
 		});
 		//APPEND ELEMENTS
 		projectCard.append(
-			taskTitle,
-			taskDesc,
-			taskDate,
-			taskPriority,
-			taskNotes,
-			taskDeleteIcon
+			projectTitle,
+			projectDesc,
+			projectTasks,
+			projectDeleteIcon
 		);
 		projectContainer.appendChild(projectCard);
 	}
