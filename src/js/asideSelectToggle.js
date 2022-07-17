@@ -1,9 +1,12 @@
 const dash = document.querySelector("#dash-aside");
 const asideNodeList = document.querySelectorAll(".aside-item");
 const asideItems = Array.from(asideNodeList);
-console.log(asideItems);
-const acc = document.querySelector("#project-accordion-btn");
-const accPanel = document.querySelector("#project-panel-display");
+
+// for (let i = 0; i < asideItems.length; i++) {
+// 	const item = asideItems[i];
+// 	item.classList.toggle("aside-selected");
+
+// }
 
 function asideSelectToggle() {
 	acc.classList.toggle("aside-selected");

@@ -3,7 +3,7 @@ $primary-color: #b22222;
 $secondary-color: firebrick;
 $primary-dark: #000;
 $secondary-dark: #000;
-$primary-light: #FAF9F6;
+$primary-light: rgb(250, 249, 246);
 $secondary-light: rgb(225, 225, 225);
 
 // MIX IN EXAMPLE
@@ -157,9 +157,14 @@ background: linear-gradient(90deg, $primary-color 0%, $primary-color 85%, rgba(0
 #project-accordion-btn {
     all:unset;
 }
-div.aside-item#project-panel-display {
+#project-panel-display {
+    display: none;
   padding: 0 8px;
-  display: none;
+  margin-top: 10px;
+  width: 80%;
+  border-radius: 4px;
+  text-overflow: ellipsis;
+  background: rgba(250, 249, 246, .25);
 //   background-color: $primary-light;
 //   color: $primary-dark;
   overflow: hidden;
