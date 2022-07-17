@@ -10,14 +10,17 @@ import {
 import { domCreate } from "./js/DOM";
 import { renderDashboard } from "./js/render/dashboard";
 import { renderProjectAsideList } from "./js/render/projectsAside";
-// import { renderProjectsAll } from "./js/render/projectsAll";
+import { renderProjectsAll } from "./js/render/projectsAll";
+import { seedProjectData } from "./js/data/seed";
 import { accordionToggle } from "./js/projectAcc";
 import "./css/style.scss";
 //TEST DATA
-// import { savedTasks } from "./js/data/taskData";
-// import { savedProjects } from "./js/data/projectData";
-// localStorage.setItem("tasks", savedTasks);
-// localStorage.setItem("projects", savedProjects);
+// import { taskData } from "./js/data/taskData";
+// localStorage.setItem("tasks", taskData);
+//SEED DATA BTN
+document
+	.querySelector("#seed-projects-btn")
+	.addEventListener("click", seedProjectData);
 
 //DEFAULTS
 const DEFAULT_THEME = localStorage.getItem("theme") || "light";
@@ -46,10 +49,12 @@ function setCurrentProjects(newProjects) {
 // 	currentTasksDoneCount = DEFAULT_TASKS_DONE;
 // 	currentTasksTotalCount = DEFAULT_TASKS_TOTAL;
 // }
+const asideItems = document.querySelectorAll(".aside-item");
+console.log(asideItems);
 
 //PROJECT ASIDE ACCORDIAN
 document
-	.querySelector("#project-accordion")
+	.querySelector("#project-accordion-btn")
 	.addEventListener("click", accordionToggle);
 
 const date = new Date();
@@ -141,5 +146,8 @@ window.onload = () => {
 	document
 		.getElementById("dash-aside")
 		.addEventListener("click", renderDashboard);
+	document
+		.getElementById("all-projects-aside")
+		.addEventListener("click", renderProjectsAll);
 	renderDashboard();
 };

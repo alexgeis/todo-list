@@ -1,4 +1,4 @@
-const savedProjects = [
+const projectData = [
 	{
 		title: "Lawnmower",
 		description: "landscaping project",
@@ -63,4 +63,4 @@ const savedProjects = [
 	},
 ];
 
-export { savedProjects };
+export { projectData };

@@ -1,4 +1,4 @@
-const acc = document.querySelector("#project-accordion");
+const acc = document.querySelector("#project-accordion-btn");
 const accPanel = document.querySelector("#project-panel-display");
 function accordionToggle() {
 	acc.classList.toggle("active");
