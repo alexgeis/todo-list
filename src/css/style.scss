@@ -284,7 +284,8 @@ background: linear-gradient(90deg, $primary-color 0%, $primary-color 85%, rgba(0
 }
 .close-form {
     position: absolute;
-    right: 5px;
+    font-size: 1.5rem;
+    right: 8px;
     &:hover {
         cursor: pointer;
       }
@@ -292,14 +293,28 @@ background: linear-gradient(90deg, $primary-color 0%, $primary-color 85%, rgba(0
 .form_title {
     font-size: 1.5rem;
     text-align: center;
-    padding-top: 0;
+    padding: 0;
+    margin: 0 20px;
     text-transform: capitalize;
     color: #000;
     font-weight: 500;
 }
-.new-task-buttons {
+.form_subtitle {
+    font-size: .9rem;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 0;
+}
+.err-msg {
+    display: none;
+    color: $primary-color;
+
+}
+.new-task-buttons,
+.new-project-buttons {
     margin: 0 auto;
 }
-.new-task-buttons > * {
+.new-task-buttons > *,
+.new-project-buttons > * {
     padding: .5rem;
 }

@@ -25,10 +25,8 @@ function renderProjectAsideList() {
 				const item = projectItems[i];
 				item.classList.remove("project-list-selected");
 			}
+			liEl.classList.add("project-list-selected");
 
-			if (!liEl.classList.contains("project-list-selected")) {
-				liEl.classList.add("project-list-selected");
-			}
 			if (!projectListEl.classList.contains("aside-selected")) {
 				projectListEl.classList.add("aside-selected");
 				dashboardEl.classList.remove("aside-selected");

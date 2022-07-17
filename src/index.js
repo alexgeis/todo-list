@@ -6,7 +6,7 @@ import {
 	closeTaskForm,
 	clearProjectForm,
 	closeProjectForm,
-} from "./js/taskForm";
+} from "./js/form";
 import { domCreate } from "./js/DOM";
 import { renderDashboard } from "./js/render/dashboard";
 import { renderProjectAsideList } from "./js/render/projectsAside";
@@ -65,8 +65,6 @@ const taskDemo1 = createTask({
 	priority: 3,
 	notes: "avoid 9th and Elm - aggressive dog",
 });
-// console.log(taskDemo1);
-
 const projectDemo1 = createProject({
 	title: "Personal",
 	description: "pleasure, not business",
@@ -103,6 +101,8 @@ function addTaskSubmit() {
 		priority: document.querySelector("#t-priority").value,
 		notes: document.querySelector("#t-notes").value,
 	});
+	const projectAssociation = document.querySelector("#project-task-add");
+	console.log({ projectAssociation });
 	currentTasks.push(newTask);
 	setCurrentTasks(currentTasks);
 	localStorage.setItem("tasks", JSON.stringify(currentTasks));
