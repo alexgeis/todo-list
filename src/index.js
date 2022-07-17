@@ -94,6 +94,12 @@ document
 	.querySelector("#add-task-btn")
 	.addEventListener("click", addTaskSubmit);
 function addTaskSubmit() {
+	const projectAssociation = document.querySelector("#project-task-add");
+	console.log(savedProjects);
+	if (projectAssociation.value === "null") {
+		document.querySelector("#task-project-err-msg").style.display = "block";
+		return;
+	}
 	const newTask = createTask({
 		title: document.querySelector("#t-title").value,
 		description: document.querySelector("#t-desc").value,
@@ -101,8 +107,6 @@ function addTaskSubmit() {
 		priority: document.querySelector("#t-priority").value,
 		notes: document.querySelector("#t-notes").value,
 	});
-	const projectAssociation = document.querySelector("#project-task-add");
-	console.log({ projectAssociation });
 	currentTasks.push(newTask);
 	setCurrentTasks(currentTasks);
 	localStorage.setItem("tasks", JSON.stringify(currentTasks));
