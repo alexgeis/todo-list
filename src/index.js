@@ -138,16 +138,30 @@ function addProjectSubmit() {
 	closeProjectForm();
 }
 
+const dashboardEl = document.getElementById("dash-aside");
+const allProjectsEl = document.getElementById("all-projects-aside");
+const projectListEl = document.getElementById("project-list-aside");
+
 window.onload = () => {
 	// setCurrentTheme(DEFAULT_THEME);
 	setCurrentTasks(currentTasks);
 	setCurrentProjects(currentProjects);
 	renderProjectAsideList();
-	document
-		.getElementById("dash-aside")
-		.addEventListener("click", renderDashboard);
-	document
-		.getElementById("all-projects-aside")
-		.addEventListener("click", renderProjectsAll);
+	dashboardEl.addEventListener("click", function () {
+		if (!dashboardEl.classList.contains("aside-selected")) {
+			dashboardEl.classList.add("aside-selected");
+			allProjectsEl.classList.remove("aside-selected");
+			projectListEl.classList.remove("aside-selected");
+		}
+		renderDashboard();
+	});
+	allProjectsEl.addEventListener("click", function () {
+		if (!allProjectsEl.classList.contains("aside-selected")) {
+			allProjectsEl.classList.add("aside-selected");
+			dashboardEl.classList.remove("aside-selected");
+			projectListEl.classList.remove("aside-selected");
+		}
+		renderProjectsAll();
+	});
 	renderDashboard();
 };

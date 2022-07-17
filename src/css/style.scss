@@ -178,7 +178,9 @@ background: linear-gradient(90deg, $primary-color 0%, $primary-color 85%, rgba(0
     padding: 8px 0;
     font-size: .9rem;
 }
-
+.project-list-selected {
+    font-weight: bold;
+}
 //MAIN
 #main {
     display: grid;
