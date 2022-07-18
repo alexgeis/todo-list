@@ -8,6 +8,7 @@ import {
 	closeProjectForm,
 } from "./js/form";
 import { domCreate } from "./js/DOM";
+import { renderAddMenu } from "./js/render/header";
 import { renderDashboard } from "./js/render/dashboard";
 import { renderProjectAsideList } from "./js/render/projectsAside";
 import { renderProjectsAll } from "./js/render/projectsAll";
@@ -16,6 +17,7 @@ import {
 	addProjectSubmit,
 	renderAddProjectForm,
 } from "./js/render/addProjectForm";
+import { setCurrentTasks, setCurrentProjects } from "./js/state";
 import { seedProjectData } from "./js/data/seed";
 import { accordionToggle } from "./js/projectAcc";
 import "./css/style.scss";
@@ -27,6 +29,7 @@ document
 	.querySelector("#seed-projects-btn")
 	.addEventListener("click", seedProjectData);
 
+//// STATE ////
 //DEFAULTS
 const DEFAULT_THEME = localStorage.getItem("theme") || "light";
 const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
@@ -34,54 +37,20 @@ const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 // const currentlyDone = savedTasks.filter((task) => task.complete === true);
 // const DEFAULT_TASKS_DONE = currentlyDone.length;
 // const DEFAULT_TASKS_TOTAL = savedBooks.length;
-console.log(savedProjects);
 
 let currentTasks = savedTasks;
 let currentProjects = savedProjects;
 let currentTheme = DEFAULT_THEME;
 // let currentTasksDoneCount = DEFAULT_TASKS_DONE;
 // let currentTasksTotalCount = DEFAULT_TASKS_TOTAL;
-//state variable updates
-function setCurrentTasks(newTasks) {
-	currentTasks = newTasks;
-	localStorage.setItem("tasks", JSON.stringify(currentTasks));
-}
-function setCurrentProjects(newProjects) {
-	currentProjects = newProjects;
-	localStorage.setItem("projects", JSON.stringify(currentProjects));
-}
-// function setTaskCounts() {
-// 	currentTasksDoneCount = DEFAULT_TASKS_DONE;
-// 	currentTasksTotalCount = DEFAULT_TASKS_TOTAL;
-// }
-const asideItems = document.querySelectorAll(".aside-item");
-console.log(asideItems);
 
 //PROJECT ASIDE ACCORDIAN
 document
 	.querySelector("#project-accordion-btn")
 	.addEventListener("click", accordionToggle);
 
-const date = new Date();
-const taskDemo1 = createTask({
-	title: "Walk the Dog",
-	description: "take the doggo on a lil stroll",
-	dueDate: date,
-	priority: 3,
-	notes: "avoid 9th and Elm - aggressive dog",
-});
-const projectDemo1 = createProject({
-	title: "Personal",
-	description: "pleasure, not business",
-});
-projectDemo1.addTasktoProject(taskDemo1);
-
 //TASK/PROJECT FORMS
 document.querySelector("#add-icon").addEventListener("click", renderAddMenu);
-function renderAddMenu() {
-	const addIconMenu = document.querySelector("#add-icon-menu");
-	addIconMenu.classList.toggle("icon-menu-toggle");
-}
 //render forms
 document
 	.querySelector("#add-task-form")

@@ -1,4 +1,5 @@
 import { domCreate } from "../DOM";
+import { setCurrentProjects } from "../state";
 import { closeProjectForm } from "../form";
 import { renderDashboard } from "./dashboard";
 
@@ -9,15 +10,8 @@ function addProjectSubmit() {
 		title: document.querySelector("#p-title").value,
 		description: document.querySelector("#p-desc").value,
 	});
-	//FIGURE OUT STATE FOR PROJECTS /////
-	//REFRESH TOTAL TASK ARRAY PULL
-	//getTotalTasks();
-	//ADD TO PROJECT SPECIFIC ARRAY
-	totalProjectNames.push(newProject.title);
-
-	currentProjects.push(newProject);
-	setCurrentProjects(currentProjects);
-	localStorage.setItem("projects", JSON.stringify(currentProjects));
+	savedProjects.push(newProject);
+	setCurrentProjects(savedProjects);
 	renderDashboard();
 	closeProjectForm();
 }
