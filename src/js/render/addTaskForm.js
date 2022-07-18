@@ -1,13 +1,26 @@
 import { domCreate } from "../DOM";
+import { closeTaskForm } from "../form";
+import { renderDashboard } from "./dashboard";
 
 const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
 
 function addTaskSubmit() {
+	//validation
+	if (document.querySelector("#t-title").value === "") {
+		document.getElementById("task-title-err-msg").style.display = "block";
+		return;
+	}
+	if (document.querySelector("#t-priority").value === "") {
+		document.getElementById("task-priority-err-msg").style.display = "block";
+		return;
+	}
 	const projectAssociation = document.querySelector("#project-task-add");
 	if (projectAssociation.value === "null") {
 		document.querySelector("#task-project-err-msg").style.display = "block";
 		return;
 	}
+
+	//task factory
 	const newTask = createTask({
 		title: document.querySelector("#t-title").value,
 		description: document.querySelector("#t-desc").value,
@@ -15,9 +28,16 @@ function addTaskSubmit() {
 		priority: document.querySelector("#t-priority").value,
 		notes: document.querySelector("#t-notes").value,
 	});
-	currentTasks.push(newTask);
-	setCurrentTasks(currentTasks);
-	localStorage.setItem("tasks", JSON.stringify(currentTasks));
+	for (const project in savedProjects) {
+		const title = savedProjects[project].title;
+
+		if (document.querySelector("#project-task-add").value === title) {
+			savedProjects[project].addTasktoProject(newTask);
+			console.log(savedProjects[project].tasks);
+		}
+	}
+	// setCurrentTasks(currentTasks);
+	localStorage.setItem("projects", JSON.stringify(savedProjects));
 	renderDashboard();
 	closeTaskForm();
 }

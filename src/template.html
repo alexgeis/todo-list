@@ -88,7 +88,7 @@
 						name="task-title"
 						id="t-title"
 						placeholder="Title"
-					/><small class="err-msg"> * Task title is required</small></label
+					/><small class="err-msg" id="task-title-err-msg"> * Task title is required</small></label
 				>
 				<label for="t-desc"
 					>Description
@@ -116,7 +116,7 @@
 					</label
 				>
 				<label for="t-priority"
-					>Priority (1-5 -> 5 is highest)*
+					>Priority* (1-5 -> 5 is highest)
 					<input
 						class="form-control"
 						type="number"
@@ -125,7 +125,7 @@
 						placeholder="3"
 						min="1"
 						max="5"
-					/><small class="err-msg"> * Priority is required</small></label
+					/><small class="err-msg" id="task-priority-err-msg"> * Priority is required</small></label
 				>
 				<label for="t-notes"
 					>Notes
@@ -139,7 +139,7 @@
 				>
 
 				<label for="project-task-add"
-					>Add to Existing Project
+					>Add to Existing Project*
 					<select
 						class="form-control"
 						name="project-task-add"

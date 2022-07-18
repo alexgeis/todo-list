@@ -1,4 +1,8 @@
 import { domCreate } from "../DOM";
+import { closeProjectForm } from "../form";
+import { renderDashboard } from "./dashboard";
+
+const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
 
 function addProjectSubmit() {
 	const newProject = createProject({
@@ -14,7 +18,7 @@ function addProjectSubmit() {
 	currentProjects.push(newProject);
 	setCurrentProjects(currentProjects);
 	localStorage.setItem("projects", JSON.stringify(currentProjects));
-	// renderDashboard();
+	renderDashboard();
 	closeProjectForm();
 }
 
