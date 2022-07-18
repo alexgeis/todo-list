@@ -1,5 +1,27 @@
 import { domCreate } from "../DOM";
 
+const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
+
+function addTaskSubmit() {
+	const projectAssociation = document.querySelector("#project-task-add");
+	if (projectAssociation.value === "null") {
+		document.querySelector("#task-project-err-msg").style.display = "block";
+		return;
+	}
+	const newTask = createTask({
+		title: document.querySelector("#t-title").value,
+		description: document.querySelector("#t-desc").value,
+		dueDate: document.querySelector("#t-date").value,
+		priority: document.querySelector("#t-priority").value,
+		notes: document.querySelector("#t-notes").value,
+	});
+	currentTasks.push(newTask);
+	setCurrentTasks(currentTasks);
+	localStorage.setItem("tasks", JSON.stringify(currentTasks));
+	renderDashboard();
+	closeTaskForm();
+}
+
 function renderAddTaskForm() {
 	//form content
 	const formTitle = domCreate("h2", ["form_title"]);
@@ -84,7 +106,6 @@ function renderAddTaskForm() {
 	projectListOptionDEFAULT.textContent = "--Select existing project--";
 	projectListSelect.appendChild(projectListOptionDEFAULT);
 	////  get names of all projects
-	const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
 	const totalProjectNames = [];
 	for (let i = 0; i < savedProjects.length; i++) {
 		const project = savedProjects[i];
@@ -133,4 +154,4 @@ function renderAddTaskForm() {
 	addTaskSection.appendChild(formContainer);
 }
 
-export { renderAddTaskForm };
+export { addTaskSubmit, renderAddTaskForm };

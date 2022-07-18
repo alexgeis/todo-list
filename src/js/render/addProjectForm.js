@@ -1,5 +1,23 @@
 import { domCreate } from "../DOM";
 
+function addProjectSubmit() {
+	const newProject = createProject({
+		title: document.querySelector("#p-title").value,
+		description: document.querySelector("#p-desc").value,
+	});
+	//FIGURE OUT STATE FOR PROJECTS /////
+	//REFRESH TOTAL TASK ARRAY PULL
+	//getTotalTasks();
+	//ADD TO PROJECT SPECIFIC ARRAY
+	totalProjectNames.push(newProject.title);
+
+	currentProjects.push(newProject);
+	setCurrentProjects(currentProjects);
+	localStorage.setItem("projects", JSON.stringify(currentProjects));
+	// renderDashboard();
+	closeProjectForm();
+}
+
 function renderAddProjectForm() {
 	//form content
 	const formTitle = domCreate("h2", ["form_title"]);
@@ -61,4 +79,4 @@ function renderAddProjectForm() {
 	addProjectSection.appendChild(formContainer);
 }
 
-export { renderAddProjectForm };
+export { addProjectSubmit, renderAddProjectForm };

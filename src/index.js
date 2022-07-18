@@ -11,6 +11,11 @@ import { domCreate } from "./js/DOM";
 import { renderDashboard } from "./js/render/dashboard";
 import { renderProjectAsideList } from "./js/render/projectsAside";
 import { renderProjectsAll } from "./js/render/projectsAll";
+import { addTaskSubmit, renderAddTaskForm } from "./js/render/addTaskForm";
+import {
+	addProjectSubmit,
+	renderAddProjectForm,
+} from "./js/render/addProjectForm";
 import { seedProjectData } from "./js/data/seed";
 import { accordionToggle } from "./js/projectAcc";
 import "./css/style.scss";
@@ -93,26 +98,6 @@ document.querySelector("#task-clear").addEventListener("click", clearTaskForm);
 document
 	.querySelector("#add-task-btn")
 	.addEventListener("click", addTaskSubmit);
-function addTaskSubmit() {
-	const projectAssociation = document.querySelector("#project-task-add");
-	console.log(savedProjects);
-	if (projectAssociation.value === "null") {
-		document.querySelector("#task-project-err-msg").style.display = "block";
-		return;
-	}
-	const newTask = createTask({
-		title: document.querySelector("#t-title").value,
-		description: document.querySelector("#t-desc").value,
-		dueDate: document.querySelector("#t-date").value,
-		priority: document.querySelector("#t-priority").value,
-		notes: document.querySelector("#t-notes").value,
-	});
-	currentTasks.push(newTask);
-	setCurrentTasks(currentTasks);
-	localStorage.setItem("tasks", JSON.stringify(currentTasks));
-	renderDashboard();
-	closeTaskForm();
-}
 //project form
 document
 	.querySelector("#close-project-form")
@@ -124,23 +109,6 @@ document
 document
 	.querySelector("#add-project-btn")
 	.addEventListener("click", addProjectSubmit);
-function addProjectSubmit() {
-	const newProject = createProject({
-		title: document.querySelector("#p-title").value,
-		description: document.querySelector("#p-desc").value,
-	});
-	//FIGURE OUT STATE FOR PROJECTS /////
-	//REFRESH TOTAL TASK ARRAY PULL
-	//getTotalTasks();
-	//ADD TO PROJECT SPECIFIC ARRAY
-	totalProjectNames.push(newProject.title);
-
-	currentProjects.push(newProject);
-	setCurrentProjects(currentProjects);
-	localStorage.setItem("projects", JSON.stringify(currentProjects));
-	// renderDashboard();
-	closeProjectForm();
-}
 
 const dashboardEl = document.getElementById("dash-aside");
 const allProjectsEl = document.getElementById("all-projects-aside");
