@@ -1,6 +1,26 @@
 import { domCreate } from "../../../DOM";
 import { renderProjectTasks } from "./projectTasks";
 
+function asideSelectToggle() {
+	const dashboardEl = document.getElementById("dash-aside");
+	const allProjectsEl = document.getElementById("all-projects-aside");
+	const projectListEl = document.getElementById("project-list-aside");
+	dashboardEl.addEventListener("click", function () {
+		if (!dashboardEl.classList.contains("aside-selected")) {
+			dashboardEl.classList.add("aside-selected");
+			allProjectsEl.classList.remove("aside-selected");
+			projectListEl.classList.remove("aside-selected");
+		}
+	});
+	allProjectsEl.addEventListener("click", function () {
+		if (!allProjectsEl.classList.contains("aside-selected")) {
+			allProjectsEl.classList.add("aside-selected");
+			dashboardEl.classList.remove("aside-selected");
+			projectListEl.classList.remove("aside-selected");
+		}
+	});
+}
+
 function renderAccToggle() {
 	const acc = document.querySelector("#project-accordion-btn");
 	const accPanel = document.querySelector("#project-panel-display");
@@ -12,9 +32,7 @@ function renderAccToggle() {
 			accPanel.style.display = "block";
 		}
 	}
-	document
-		.querySelector("#project-accordion-btn")
-		.addEventListener("click", accordionToggle);
+	acc.addEventListener("click", accordionToggle);
 }
 
 function renderAsideItems() {
@@ -87,6 +105,7 @@ function renderAside() {
 	renderAsideItems();
 	renderProjectAsideList();
 	renderAccToggle();
+	asideSelectToggle();
 }
 
 export { renderAside };
