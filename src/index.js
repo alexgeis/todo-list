@@ -25,7 +25,7 @@ import "./css/style.scss";
 // import { taskData } from "./js/data/taskData";
 // localStorage.setItem("tasks", taskData);
 
-renderHeader();
+// renderHeader();
 
 //SEED DATA BTN
 document
