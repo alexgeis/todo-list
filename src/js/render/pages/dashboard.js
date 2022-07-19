@@ -1,4 +1,4 @@
-import { domCreate } from "../DOM";
+import { domCreate } from "../../DOM";
 import deleteIcon from "../../assets/trash-can-outline.png";
 
 function renderDashboard() {
@@ -59,6 +59,10 @@ function renderDashboard() {
 		);
 		taskContainer.appendChild(taskCard);
 	}
+	// const mainSection = document.getElementById("main-section");
+	// mainSection.append(mainHeader,taskContainer)
+	// const content = document.getElementById("content");
+	// content.appendChild(mainSection)
 }
 
 export { renderDashboard };

@@ -8,19 +8,23 @@ import {
 	closeProjectForm,
 } from "./js/form";
 import { domCreate } from "./js/DOM";
-import { renderAddMenu, renderHeader } from "./js/render/header";
-import { renderDashboard } from "./js/render/dashboard";
-import { renderProjectAsideList } from "./js/render/projectsAside";
+import { renderAddMenu, renderHeader } from "./js/render/components/header";
+import { renderDashboard } from "./js/render/pages/dashboard";
+import { renderProjectAsideList } from "./js/render/components/aside/projectsAside";
 import { renderProjectsAll } from "./js/render/projectsAll";
-import { addTaskSubmit, renderAddTaskForm } from "./js/render/addTaskForm";
+import {
+	addTaskSubmit,
+	renderAddTaskForm,
+} from "./js/render/components/addTaskForm";
 import {
 	addProjectSubmit,
 	renderAddProjectForm,
-} from "./js/render/addProjectForm";
+} from "./js/render/components/addProjectForm";
 import { setCurrentTasks, setCurrentProjects } from "./js/state";
 import { seedProjectData } from "./js/data/seed";
 import { accordionToggle } from "./js/projectAcc";
 import "./css/style.scss";
+import { renderSite } from "./js/render/renderPages";
 //TEST DATA
 // import { taskData } from "./js/data/taskData";
 // localStorage.setItem("tasks", taskData);
@@ -28,9 +32,9 @@ import "./css/style.scss";
 // renderHeader();
 
 //SEED DATA BTN
-document
-	.querySelector("#seed-projects-btn")
-	.addEventListener("click", seedProjectData);
+// document
+// 	.querySelector("#seed-projects-btn")
+// 	.addEventListener("click", seedProjectData);
 
 //// STATE ////
 //DEFAULTS
@@ -49,65 +53,66 @@ let currentTheme = DEFAULT_THEME;
 
 //PAGE RENDERING
 
-//PROJECT ASIDE ACCORDIAN
-document
-	.querySelector("#project-accordion-btn")
-	.addEventListener("click", accordionToggle);
+// //PROJECT ASIDE ACCORDIAN
+// document
+// 	.querySelector("#project-accordion-btn")
+// 	.addEventListener("click", accordionToggle);
 
-//TASK/PROJECT FORMS
-document.querySelector("#add-icon").addEventListener("click", renderAddMenu);
-//render forms
-document
-	.querySelector("#add-task-form")
-	.addEventListener("click", renderTaskForm);
-document
-	.querySelector("#add-project-form")
-	.addEventListener("click", renderProjectForm);
-//task form
-document
-	.querySelector("#close-task-form")
-	.addEventListener("click", closeTaskForm);
-document.querySelector("#task-clear").addEventListener("click", clearTaskForm);
-//// task submit
-document
-	.querySelector("#add-task-btn")
-	.addEventListener("click", addTaskSubmit);
-//project form
-document
-	.querySelector("#close-project-form")
-	.addEventListener("click", closeProjectForm);
-document
-	.querySelector("#project-clear")
-	.addEventListener("click", clearProjectForm);
-////project submit
-document
-	.querySelector("#add-project-btn")
-	.addEventListener("click", addProjectSubmit);
+// //TASK/PROJECT FORMS
+// document.querySelector("#add-icon").addEventListener("click", renderAddMenu);
+// //render forms
+// document
+// 	.querySelector("#add-task-form")
+// 	.addEventListener("click", renderTaskForm);
+// document
+// 	.querySelector("#add-project-form")
+// 	.addEventListener("click", renderProjectForm);
+// //task form
+// document
+// 	.querySelector("#close-task-form")
+// 	.addEventListener("click", closeTaskForm);
+// document.querySelector("#task-clear").addEventListener("click", clearTaskForm);
+// //// task submit
+// document
+// 	.querySelector("#add-task-btn")
+// 	.addEventListener("click", addTaskSubmit);
+// //project form
+// document
+// 	.querySelector("#close-project-form")
+// 	.addEventListener("click", closeProjectForm);
+// document
+// 	.querySelector("#project-clear")
+// 	.addEventListener("click", clearProjectForm);
+// ////project submit
+// document
+// 	.querySelector("#add-project-btn")
+// 	.addEventListener("click", addProjectSubmit);
 
 const dashboardEl = document.getElementById("dash-aside");
 const allProjectsEl = document.getElementById("all-projects-aside");
 const projectListEl = document.getElementById("project-list-aside");
 
 window.onload = () => {
+	renderSite();
 	// setCurrentTheme(DEFAULT_THEME);
-	setCurrentTasks(currentTasks);
-	setCurrentProjects(currentProjects);
-	renderProjectAsideList();
-	dashboardEl.addEventListener("click", function () {
-		if (!dashboardEl.classList.contains("aside-selected")) {
-			dashboardEl.classList.add("aside-selected");
-			allProjectsEl.classList.remove("aside-selected");
-			projectListEl.classList.remove("aside-selected");
-		}
-		renderDashboard();
-	});
-	allProjectsEl.addEventListener("click", function () {
-		if (!allProjectsEl.classList.contains("aside-selected")) {
-			allProjectsEl.classList.add("aside-selected");
-			dashboardEl.classList.remove("aside-selected");
-			projectListEl.classList.remove("aside-selected");
-		}
-		renderProjectsAll();
-	});
-	renderDashboard();
+	// setCurrentTasks(currentTasks);
+	// setCurrentProjects(currentProjects);
+	// renderProjectAsideList();
+	// dashboardEl.addEventListener("click", function () {
+	// 	if (!dashboardEl.classList.contains("aside-selected")) {
+	// 		dashboardEl.classList.add("aside-selected");
+	// 		allProjectsEl.classList.remove("aside-selected");
+	// 		projectListEl.classList.remove("aside-selected");
+	// 	}
+	// 	renderDashboard();
+	// });
+	// allProjectsEl.addEventListener("click", function () {
+	// 	if (!allProjectsEl.classList.contains("aside-selected")) {
+	// 		allProjectsEl.classList.add("aside-selected");
+	// 		dashboardEl.classList.remove("aside-selected");
+	// 		projectListEl.classList.remove("aside-selected");
+	// 	}
+	// 	renderProjectsAll();
+	// });
+	// renderDashboard();
 };

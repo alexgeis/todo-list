@@ -1,7 +1,7 @@
-import { domCreate } from "../DOM";
-import { setCurrentProjects } from "../state";
-import { closeProjectForm } from "../form";
-import { renderDashboard } from "./dashboard";
+import { domCreate } from "../../DOM";
+import { setCurrentProjects } from "../../state";
+import { closeProjectForm } from "../../form";
+import { renderDashboard } from "../pages/dashboard";
 
 const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
 

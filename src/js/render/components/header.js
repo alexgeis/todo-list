@@ -1,4 +1,4 @@
-import { domCreate } from "../DOM";
+import { domCreate } from "../../DOM";
 import checkLogo from "../../assets/checkbox-marked-circle.png";
 import addIcon from "../../assets/plus-circle-outline.png";
 import addTaskIcon from "../../assets/checkbox-marked-circle-plus-outline.png";
