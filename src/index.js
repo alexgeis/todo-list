@@ -25,8 +25,15 @@ import "./css/style.scss";
 //TEST DATA
 // import { taskData } from "./js/data/taskData";
 // localStorage.setItem("tasks", taskData);
+import { renderDashboardPage } from "./js/render/renderPages";
 
-// renderHeader();
+// const content = document.getElementById("content");
+// console.log("before");
+// let el = domCreate("div", "", { id: "example" });
+// console.log("after");
+// console.log({ el });
+// el.textContent = "TEST";
+// content.appendChild(el);
 
 //SEED DATA BTN
 // document
@@ -49,6 +56,7 @@ let currentTheme = DEFAULT_THEME;
 // let currentTasksTotalCount = DEFAULT_TASKS_TOTAL;
 
 window.onload = () => {
+	renderDashboardPage();
 	// renderSite();
 	// setCurrentTheme(DEFAULT_THEME);
 	// setCurrentTasks(currentTasks);

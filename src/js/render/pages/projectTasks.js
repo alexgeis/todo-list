@@ -1,5 +1,5 @@
-import { domCreate } from "../DOM";
-import deleteIcon from "../../assets/trash-can-outline.png";
+import { domCreate } from "../../DOM";
+import deleteIcon from "../../../assets/trash-can-outline.png";
 
 function renderProjectTasks(index) {
 	//get all tasks from all projects
@@ -42,7 +42,7 @@ function renderProjectTasks(index) {
 			taskDeleteIcon.parentElement.remove(taskCard);
 			let index = taskDeleteIcon.parentElement.getAttribute("data-index");
 			currentTasks.splice(index, 1);
-			setCurrentTasks(currentTasks);
+			// setCurrentTasks(currentTasks);
 			localStorage.setItem("tasks", JSON.stringify(currentTasks));
 			renderTasks();
 		});

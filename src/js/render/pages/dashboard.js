@@ -1,7 +1,8 @@
 import { domCreate } from "../../DOM";
+import { renderAside } from "../components/aside/aside";
 import deleteIcon from "../../../assets/trash-can-outline.png";
 
-function renderDashboard() {
+function renderDashboardContent() {
 	//get all tasks from all projects
 	const currentProjects = JSON.parse(localStorage.getItem("projects"));
 	const currentTasks = [];
@@ -10,10 +11,10 @@ function renderDashboard() {
 		currentTasks.push(...project.tasks);
 	}
 	//update main header
-	const mainHeader = document.querySelector("#main-header");
+	const mainHeader = domCreate("div", "", { id: "main-header" });
 	mainHeader.textContent = "DASHBOARD";
 	//clear current tasks
-	const taskContainer = document.querySelector("#main-content");
+	const taskContainer = domCreate("div", "", { id: "main-content" });
 	taskContainer.innerHTML = "";
 	//render currentTasks tasks
 	for (let i = 0; i < currentTasks.length; i++) {
@@ -59,10 +60,17 @@ function renderDashboard() {
 		);
 		taskContainer.appendChild(taskCard);
 	}
-	// const mainSection = document.getElementById("main-section");
-	// mainSection.append(mainHeader,taskContainer)
-	// const content = document.getElementById("content");
-	// content.appendChild(mainSection)
+	const mainSection = domCreate("div", "", { id: "main-section" });
+	mainSection.append(mainHeader, taskContainer);
+	return mainSection;
+}
+
+function renderDashboard() {
+	const aside = renderAside();
+	const mainSection = renderDashboardContent();
+	const mainDiv = domCreate("main", "", { id: "main" });
+	mainDiv.append(aside, mainSection);
+	return mainDiv;
 }
 
 export { renderDashboard };

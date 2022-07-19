@@ -17,71 +17,74 @@ function renderHeader() {
 		src: checkLogo,
 		alt: "checked circle logo",
 	});
-	const siteTitle = domCreate("div", [""], { id: "header-site-title" });
+	const siteTitle = domCreate("div", "", { id: "header-site-title" });
+	siteTitle.textContent = "TODO LIST";
 	//seed data
-	const seedDataBtn = domCreate("button", [""], { id: "seed-projects-btn" });
-	const headerLeft = domCreate("div", [""], { id: "headerLeft" });
+	const seedDataBtn = domCreate("button", "", { id: "seed-projects-btn" });
+	seedDataBtn.textContent = "SEED DATA";
+	const headerLeft = domCreate("div", "", { id: "headerLeft" });
 	headerLeft.append(siteLogo, siteTitle, seedDataBtn);
 	////header CENTER
-	const searchLabel = domCreate("label", [""], { for: "site-search" });
+	const searchLabel = domCreate("label", "", { for: "site-search" });
 	searchLabel.textContent = "Search the site: ";
-	const searchInput = domCreate("input", [""], {
+	const searchInput = domCreate("input", "", {
 		id: "site-search",
 		type: "search",
 		name: "q",
 	});
-	const searchBtn = domCreate("button", [""]);
+	const searchBtn = domCreate("button", "");
 	searchBtn.textContent = "Search";
-	const headerCenter = domCreate("div", [""], { id: "headerCenter" });
+	const headerCenter = domCreate("div", "", { id: "headerCenter" });
 	headerCenter.append(searchLabel, searchInput, searchBtn);
 	////header RIGHT
 	//add icon menu
-	const addBtnIcon = domCreate("img", [""], {
+	const addBtnIcon = domCreate("img", "", {
 		id: "add-icon",
 		src: addIcon,
 		alt: "add button plus icon",
 	});
 	addBtnIcon.addEventListener("click", renderAddMenu);
-	const addIconMenu = domCreate("div", [""], { id: "add-icon-menu" });
-	const addTaskImg = domCreate("img", [""], {
+	const addIconMenu = domCreate("div", "", { id: "add-icon-menu" });
+	const addTaskImg = domCreate("img", "", {
 		id: "add-task-form",
 		src: addTaskIcon,
 		alt: "add task plus icon",
 	});
 	addTaskImg.addEventListener("click", renderTaskForm);
-	const addProjectImg = domCreate("img", [""], {
+	const addProjectImg = domCreate("img", "", {
 		id: "add-project-form",
 		src: addProjectIcon,
 		alt: "add project plus icon",
 	});
 	addProjectImg.addEventListener("click", renderProjectForm);
 	addIconMenu.append(addTaskImg, addProjectImg);
-	const addBtnEl = domCreate("div", [""], { id: "addBtn" });
+	const addBtnEl = domCreate("div", "", { id: "addBtn" });
 	addBtnEl.append(addBtnIcon, addIconMenu);
 	//login
-	const loginEl = domCreate("div", [""], { id: "login" });
+	const loginEl = domCreate("div", "", { id: "login" });
 	loginEl.textContent = "LOGIN";
 	//settings
-	const settingsIcon = domCreate("img", [""], {
+	const settingsIcon = domCreate("img", "", {
 		id: "settings gear icon",
 		src: gearIcon,
 		alt: "settings gear outline",
 	});
-	const settingsLink = domCreate("a", [""], {
+	const settingsLink = domCreate("a", "", {
 		href: "https://github.com/alexgeis/todo-list",
 		target: "_blank",
 	});
 	settingsLink.appendChild(settingsIcon);
-	const settingsEl = domCreate("div", [""], { id: "settings" });
+	const settingsEl = domCreate("div", "", { id: "settings" });
 	settingsEl.appendChild(settingsLink);
-	const headerRight = domCreate("div", [""], { id: "headerRight" });
+	const headerRight = domCreate("div", "", { id: "headerRight" });
 	headerRight.append(addBtnEl, loginEl, settingsEl);
 	//FULL HEADER APPEND
-	const header = domCreate("header", [""], { id: "header" });
+	const header = domCreate("header", "", { id: "header" });
 	header.append(headerLeft, headerCenter, headerRight);
-	//CONTENT APPEND
-	const pageContainer = document.getElementById("content");
-	pageContainer.appendChild(header);
+	return header;
+	// //CONTENT APPEND
+	// const pageContainer = document.getElementById("content");
+	// pageContainer.appendChild(header);
 }
 
-export { renderAddMenu, renderHeader };
+export { renderHeader };

@@ -28,7 +28,7 @@ function renderAddProjectForm() {
 	closeBtn.textContent = " X ";
 	closeBtn.addEventListener("click", closeProjectForm);
 	//title
-	const titleLabel = domCreate("label", [""], { for: "t-title" });
+	const titleLabel = domCreate("label", "", { for: "t-title" });
 	titleLabel.textContent = "Title *";
 	const titleInput = domCreate("input", ["form-control"], {
 		id: "t-title",
@@ -41,7 +41,7 @@ function renderAddProjectForm() {
 	titleInput.appendChild(titleErrMsg);
 	titleLabel.appendChild(titleInput);
 	//description
-	const descLabel = domCreate("label", [""], { for: "t-desc" });
+	const descLabel = domCreate("label", "", { for: "t-desc" });
 	descLabel.textContent = "Description";
 	const descInput = domCreate("input", ["form-control"], {
 		id: "t-desc",

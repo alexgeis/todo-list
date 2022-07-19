@@ -54,7 +54,7 @@ function renderAddTaskForm() {
 	closeBtn.textContent = " X ";
 	closeBtn.addEventListener("click", closeTaskForm);
 	//title
-	const titleLabel = domCreate("label", [""], { for: "t-title" });
+	const titleLabel = domCreate("label", "", { for: "t-title" });
 	titleLabel.textContent = "Title *";
 	const titleInput = domCreate("input", ["form-control"], {
 		id: "t-title",
@@ -67,7 +67,7 @@ function renderAddTaskForm() {
 	titleInput.appendChild(titleErrMsg);
 	titleLabel.appendChild(titleInput);
 	//description
-	const descLabel = domCreate("label", [""], { for: "t-desc" });
+	const descLabel = domCreate("label", "", { for: "t-desc" });
 	descLabel.textContent = "Description";
 	const descInput = domCreate("input", ["form-control"], {
 		id: "t-desc",
@@ -77,7 +77,7 @@ function renderAddTaskForm() {
 	});
 	descLabel.appendChild(descInput);
 	//date
-	const dateLabel = domCreate("label", [""], { for: "t-date" });
+	const dateLabel = domCreate("label", "", { for: "t-date" });
 	dateLabel.textContent = "Due Date";
 	const dateInput = domCreate("input", ["form-control"], {
 		id: "t-date",
@@ -86,7 +86,7 @@ function renderAddTaskForm() {
 	});
 	dateLabel.appendChild(dateInput);
 	//priority
-	const priorityLabel = domCreate("label", [""], { for: "t-priority" });
+	const priorityLabel = domCreate("label", "", { for: "t-priority" });
 	priorityLabel.textContent = "Priority (5 is highest) *";
 	const priorityInput = domCreate("input", ["form-control"], {
 		id: "t-priority",
@@ -101,7 +101,7 @@ function renderAddTaskForm() {
 	priorityInput.appendChild(priorityErrMsg);
 	priorityLabel.appendChild(priorityInput);
 	//notes
-	const notesLabel = domCreate("label", [""], { for: "t-notes" });
+	const notesLabel = domCreate("label", "", { for: "t-notes" });
 	notesLabel.textContent = "Notes";
 	const notesInput = domCreate("input", ["form-control"], {
 		id: "t-notes",
@@ -111,7 +111,7 @@ function renderAddTaskForm() {
 	});
 	notesLabel.appendChild(notesInput);
 	//project list
-	const projectListLabel = domCreate("label", [""], {
+	const projectListLabel = domCreate("label", "", {
 		for: "project-task-add",
 	});
 	projectListLabel.textContent = "Add to Existing Project";
@@ -119,7 +119,7 @@ function renderAddTaskForm() {
 		id: "project-task-add",
 		name: "project-task-add",
 	});
-	const projectListOptionDEFAULT = domCreate("option", [""], {
+	const projectListOptionDEFAULT = domCreate("option", "", {
 		value: "null",
 		disabled: "",
 		selected: "",
@@ -134,7 +134,7 @@ function renderAddTaskForm() {
 	}
 	for (let i = 0; i < totalProjectNames.length; i++) {
 		const name = totalProjectNames[i];
-		const projectListOption = domCreate("option", [""], {
+		const projectListOption = domCreate("option", "", {
 			value: name,
 		});
 		projectListOption.textContent = name;

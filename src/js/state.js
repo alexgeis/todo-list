@@ -5,7 +5,7 @@ let currentProjects = savedProjects;
 
 function setCurrentTasks(newTasks) {
 	currentTasks = newTasks;
-	localStorage.setItem("tasks", JSON.stringify(currentTasks));
+	// localStorage.setItem("tasks", JSON.stringify(currentTasks));
 }
 
 function setCurrentProjects(newProjects) {
