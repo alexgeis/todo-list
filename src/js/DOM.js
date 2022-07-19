@@ -7,9 +7,11 @@ function domCreate(arg1, arg2, arg3) {
 	//arg 1 = "string" - name of HTML element
 	const element = document.createElement(arg1);
 	// arg 2 = ["array of strings"] - class names to add
-	for (let i = 0; i < arg2.length; i++) {
-		const className = arg2[i];
-		element.classList.add(className);
+	if (arg2.length > 0) {
+		for (let i = 0; i < arg2.length; i++) {
+			const className = arg2[i];
+			element.classList.add(className);
+		}
 	}
 	// arg 3 = {object} - attribute name : value
 	for (const attribute in arg3) {

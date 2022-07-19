@@ -11,11 +11,13 @@ function renderAddMenu() {
 }
 
 function renderHeader() {
+	console.log("function entered");
 	////header LEFT
-	const siteLogo = domCreate("img", [""], {
+	const siteLogo = domCreate("img", ["fake-class"], {
 		src: checkLogo,
 		alt: "checked circle logo",
 	});
+	console.log("LINE REACHED");
 	const siteTitle = domCreate("div", [""], { id: "header-site-title" });
 	//seed data
 	const seedDataBtn = domCreate("button", [""], { id: "seed-projects-btn" });
@@ -78,7 +80,6 @@ function renderHeader() {
 	//CONTENT APPEND
 	const pageContainer = document.getElementById("content");
 	pageContainer.appendChild(header);
-	console.log("header appended");
 }
 
 export { renderAddMenu, renderHeader };
