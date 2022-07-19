@@ -1,5 +1,6 @@
 import { domCreate } from "../../../DOM";
 import { renderProjectTasks } from "../../pages/projectTasks";
+import { renderDashboardPage, renderAllProjectsPage } from "../../renderPages";
 
 function renderProjectAsideList() {
 	const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
@@ -81,6 +82,8 @@ function renderAside() {
 			allProjectsEl.classList.remove("aside-selected");
 			projectListEl.classList.remove("aside-selected");
 		}
+		projectPanel.style.display = "none";
+		renderDashboardPage();
 	});
 	allProjectsEl.addEventListener("click", function () {
 		if (!allProjectsEl.classList.contains("aside-selected")) {
@@ -88,6 +91,8 @@ function renderAside() {
 			dashboardEl.classList.remove("aside-selected");
 			projectListEl.classList.remove("aside-selected");
 		}
+		projectPanel.style.display = "none";
+		renderAllProjectsPage();
 	});
 	//FULL ASIDE APPEND
 	const asideEl = domCreate("aside", "", { id: "main-aside" });

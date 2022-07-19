@@ -1,15 +1,16 @@
-import { domCreate } from "../DOM";
-import deleteIcon from "../../assets/trash-can-outline.png";
+import { domCreate } from "../../DOM";
+import { renderAside } from "../components/aside/aside";
+import deleteIcon from "../../../assets/trash-can-outline.png";
 
-function renderProjectsAll() {
+function renderProjectsAllContent() {
 	//get all projects
 	const currentProjects = JSON.parse(localStorage.getItem("projects"));
 	console.log(currentProjects);
 	//update main header
-	const mainHeader = document.querySelector("#main-header");
+	const mainHeader = domCreate("div", "", { id: "main-header" });
 	mainHeader.textContent = "PROJECTS";
 	//clear current content
-	const projectContainer = document.querySelector("#main-content");
+	const projectContainer = domCreate("div", "", { id: "main-content" });
 	projectContainer.innerHTML = "";
 	//render currentProjects projects
 	for (let i = 0; i < currentProjects.length; i++) {
@@ -55,6 +56,17 @@ function renderProjectsAll() {
 		);
 		projectContainer.appendChild(projectCard);
 	}
+	const mainSection = domCreate("div", "", { id: "main-section" });
+	mainSection.append(mainHeader, projectContainer);
+	return mainSection;
+}
+
+function renderProjectsAll() {
+	const aside = renderAside();
+	const mainSection = renderProjectsAllContent();
+	const mainDiv = domCreate("main", "", { id: "main" });
+	mainDiv.append(aside, mainSection);
+	return mainDiv;
 }
 
 export { renderProjectsAll };
