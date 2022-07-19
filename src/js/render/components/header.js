@@ -4,6 +4,7 @@ import addIcon from "../../assets/plus-circle-outline.png";
 import addTaskIcon from "../../assets/checkbox-marked-circle-plus-outline.png";
 import addProjectIcon from "../../assets/list-group-plus.png";
 import gearIcon from "../../assets/cog-outline.png";
+import { renderTaskForm, renderProjectForm } from "../../form";
 
 function renderAddMenu() {
 	const addIconMenu = document.querySelector("#add-icon-menu");
@@ -40,17 +41,20 @@ function renderHeader() {
 		src: addIcon,
 		alt: "add button plus icon",
 	});
+	addBtnIcon.addEventListener("click", renderAddMenu);
 	const addIconMenu = domCreate("div", [""], { id: "add-icon-menu" });
 	const addTaskImg = domCreate("img", [""], {
 		id: "add-task-form",
 		src: addTaskIcon,
 		alt: "add task plus icon",
 	});
+	addTaskImg.addEventListener("click", renderTaskForm);
 	const addProjectImg = domCreate("img", [""], {
 		id: "add-project-form",
 		src: addProjectIcon,
 		alt: "add project plus icon",
 	});
+	addProjectImg.addEventListener("click", renderProjectForm);
 	addIconMenu.append(addTaskImg, addProjectImg);
 	const addBtnEl = domCreate("div", [""], { id: "addBtn" });
 	addBtnEl.append(addBtnIcon, addIconMenu);

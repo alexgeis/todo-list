@@ -51,27 +51,6 @@ let currentTheme = DEFAULT_THEME;
 // let currentTasksDoneCount = DEFAULT_TASKS_DONE;
 // let currentTasksTotalCount = DEFAULT_TASKS_TOTAL;
 
-//PAGE RENDERING
-
-// //PROJECT ASIDE ACCORDIAN
-
-//TASK/PROJECT FORMS
-document.querySelector("#add-icon").addEventListener("click", renderAddMenu);
-//render forms
-document
-	.querySelector("#add-task-form")
-	.addEventListener("click", renderTaskForm);
-document
-	.querySelector("#add-project-form")
-	.addEventListener("click", renderProjectForm);
-//task form
-
-//// task submit
-
-//project form
-
-// ////project submit
-
 window.onload = () => {
 	renderSite();
 	// setCurrentTheme(DEFAULT_THEME);
