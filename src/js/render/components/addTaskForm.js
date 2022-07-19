@@ -1,5 +1,5 @@
 import { domCreate } from "../../DOM";
-import { closeTaskForm } from "../../form";
+import { closeTaskForm, clearTaskForm } from "../../form";
 import { renderDashboard } from "../pages/dashboard";
 
 const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
@@ -52,6 +52,7 @@ function renderAddTaskForm() {
 		id: "close-task-form",
 	});
 	closeBtn.textContent = " X ";
+	closeBtn.addEventListener("click", closeTaskForm);
 	//title
 	const titleLabel = domCreate("label", [""], { for: "t-title" });
 	titleLabel.textContent = "Title *";
@@ -148,10 +149,12 @@ function renderAddTaskForm() {
 		id: "add-task-btn",
 	});
 	addBtn.textContent = "Add";
+	addBtn.addEventListener("click", addTaskSubmit);
 	const clearBtn = domCreate("button", ["btn"], {
 		id: "task-clear",
 	});
 	clearBtn.textContent = "Clear fields";
+	clearBtn.addEventListener("click", clearTaskForm);
 	taskFormBtns.append(addBtn, clearBtn);
 	//form container
 	const formContainer = domCreate("div", ["form-container"], {
