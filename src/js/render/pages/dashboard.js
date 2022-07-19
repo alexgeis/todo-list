@@ -1,8 +1,7 @@
 import { domCreate } from "../../DOM";
-import { renderAside } from "../components/aside/aside";
 import deleteIcon from "../../../assets/trash-can-outline.png";
 
-function renderDashboardContent() {
+function renderDashboard() {
 	//get all tasks from all projects
 	const currentProjects = JSON.parse(localStorage.getItem("projects"));
 	const currentTasks = [];
@@ -10,9 +9,6 @@ function renderDashboardContent() {
 		const project = currentProjects[i];
 		currentTasks.push(...project.tasks);
 	}
-	//update main header
-	const mainHeader = domCreate("div", "", { id: "main-header" });
-	mainHeader.textContent = "DASHBOARD";
 	//clear current tasks
 	const taskContainer = domCreate("div", "", { id: "main-content" });
 	taskContainer.innerHTML = "";
@@ -60,17 +56,7 @@ function renderDashboardContent() {
 		);
 		taskContainer.appendChild(taskCard);
 	}
-	const mainSection = domCreate("div", "", { id: "main-section" });
-	mainSection.append(mainHeader, taskContainer);
-	return mainSection;
-}
-
-function renderDashboard() {
-	const aside = renderAside();
-	const mainSection = renderDashboardContent();
-	const mainDiv = domCreate("main", "", { id: "main" });
-	mainDiv.append(aside, mainSection);
-	return mainDiv;
+	return taskContainer;
 }
 
 export { renderDashboard };
