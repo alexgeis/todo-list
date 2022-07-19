@@ -1,0 +1,89 @@
+<!-- ADD TASK FORM -->
+<section class="add_task_section">
+	<div class="form-container" id="new-project-form">
+		<h2 class="form_title">Add new task</h2>
+		<p class="form_subtitle">* required</p>
+		<span class="material-icons close-form" id="close-task-form"> X </span>
+		<label for="t-title"
+			>Title*
+			<input
+				class="form-control"
+				type="text"
+				name="task-title"
+				id="t-title"
+				placeholder="Title"
+			/><small class="err-msg" id="task-title-err-msg">
+				* Task title is required</small
+			></label
+		>
+		<label for="t-desc"
+			>Description
+			<input
+				class="form-control"
+				type="textarea"
+				name="t-desc"
+				id="t-desc"
+				placeholder="Description"
+		/></label>
+		<label for="t-date"
+			>Due Date
+			<!-- <input
+                type="number"
+                min="0"
+                max="2023"
+                step="1"
+                value="1917"
+                name="book-publishing-date"
+                id="t-date"
+            /> -->
+
+			<input class="form-control" type="date" name="t-date" id="t-date" />
+		</label>
+		<label for="t-priority"
+			>Priority* (1-5 -> 5 is highest)
+			<input
+				class="form-control"
+				type="number"
+				name="t-priority"
+				id="t-priority"
+				placeholder="3"
+				min="1"
+				max="5"
+			/><small class="err-msg" id="task-priority-err-msg">
+				* Priority is required</small
+			></label
+		>
+		<label for="t-notes"
+			>Notes
+			<input
+				class="form-control"
+				type="textarea"
+				name="t-notes"
+				id="t-notes"
+				placeholder="Notes"
+		/></label>
+
+		<label for="project-task-add"
+			>Add to Existing Project*
+			<select
+				class="form-control"
+				name="project-task-add"
+				id="project-task-add"
+			>
+				<option value="null" disabled="" selected="">
+					Select an existing project
+				</option>
+				<option value="true">Fake Project 1</option>
+				<option value="false">Fake Project 1</option>
+			</select>
+			<small class="err-msg" id="task-project-err-msg">
+				* Project association is required</small
+			>
+		</label>
+
+		<div class="new-task-buttons">
+			<button class="btn" id="add-task-btn">Add</button>
+			<button class="btn" id="task-clear">Clear fields</button>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,35 @@
+<!-- ADD PROJECT FORM -->
+<section class="add_project_section">
+    <div class="form-container" id="new-project-form">
+        <h2 class="form_title">Add new project</h2>
+        <p class="form_subtitle">* required</p>
+        <span class="material-icons close-form" id="close-project-form"> X </span>
+        <label for="p-title"
+            >Title*
+            <input
+                class="form-control"
+                type="text"
+                name="p-title"
+                id="p-title"
+                placeholder="Title"
+            /><small class="err-msg">* Project title is required</small></label
+        >
+        <label for="p-desc"
+            >Description*
+            <input
+                class="form-control"
+                type="textarea"
+                name="p-desc"
+                id="p-desc"
+                placeholder="Description"
+            /><small class="err-msg"
+                >* Project description is required</small
+            ></label
+        >
+
+        <div class="new-project-buttons">
+            <button class="btn" id="add-project-btn"">Add</button>
+            <button class="btn" id="project-clear">Clear fields</button>
+        </div>
+    </div>
+</section>
