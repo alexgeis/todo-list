@@ -1,5 +1,5 @@
 import { domCreate } from "../../DOM";
-import deleteIcon from "../../assets/trash-can-outline.png";
+import deleteIcon from "../../../assets/trash-can-outline.png";
 
 function renderDashboard() {
 	//get all tasks from all projects
