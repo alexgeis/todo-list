@@ -44,8 +44,8 @@ function renderDashboard() {
 			taskDeleteIcon.parentElement.remove(taskCard);
 			let index = taskDeleteIcon.parentElement.getAttribute("data-task-index");
 			currentTasks.splice(index, 1);
-			setCurrentTasks(currentTasks);
-			localStorage.setItem("tasks", JSON.stringify(currentTasks));
+			// setCurrentTasks(currentTasks);
+			// localStorage.setItem("tasks", JSON.stringify(currentTasks));
 			renderTasks();
 		});
 		//APPEND ELEMENTS

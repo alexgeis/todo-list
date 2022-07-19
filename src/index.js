@@ -8,7 +8,7 @@ import {
 	closeProjectForm,
 } from "./js/form";
 import { domCreate } from "./js/DOM";
-import { renderAddMenu } from "./js/render/header";
+import { renderAddMenu, renderHeader } from "./js/render/header";
 import { renderDashboard } from "./js/render/dashboard";
 import { renderProjectAsideList } from "./js/render/projectsAside";
 import { renderProjectsAll } from "./js/render/projectsAll";
@@ -24,6 +24,9 @@ import "./css/style.scss";
 //TEST DATA
 // import { taskData } from "./js/data/taskData";
 // localStorage.setItem("tasks", taskData);
+
+renderHeader();
+
 //SEED DATA BTN
 document
 	.querySelector("#seed-projects-btn")
@@ -43,6 +46,8 @@ let currentProjects = savedProjects;
 let currentTheme = DEFAULT_THEME;
 // let currentTasksDoneCount = DEFAULT_TASKS_DONE;
 // let currentTasksTotalCount = DEFAULT_TASKS_TOTAL;
+
+//PAGE RENDERING
 
 //PROJECT ASIDE ACCORDIAN
 document
