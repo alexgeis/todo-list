@@ -1,7 +1,23 @@
 import { domCreate } from "../../../DOM";
 import { renderProjectTasks } from "./projectTasks";
 
-function renderAside() {
+function renderAccToggle() {
+	const acc = document.querySelector("#project-accordion-btn");
+	const accPanel = document.querySelector("#project-panel-display");
+	function accordionToggle() {
+		acc.classList.toggle("active");
+		if (accPanel.style.display === "block") {
+			accPanel.style.display = "none";
+		} else {
+			accPanel.style.display = "block";
+		}
+	}
+	document
+		.querySelector("#project-accordion-btn")
+		.addEventListener("click", accordionToggle);
+}
+
+function renderAsideItems() {
 	//DASHBOARD
 	const dashboardEl = domCreate("div", ["aside-item", "aside-selected"], {
 		id: "dash-aside",
@@ -67,4 +83,10 @@ function renderProjectAsideList() {
 	}
 }
 
-export { renderAside, renderProjectAsideList };
+function renderAside() {
+	renderAsideItems();
+	renderProjectAsideList();
+	renderAccToggle();
+}
+
+export { renderAside };
