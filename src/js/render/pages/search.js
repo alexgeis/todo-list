@@ -1,22 +1,38 @@
 import { domCreate } from "../../DOM";
 import deleteIcon from "../../../assets/trash-can-outline.png";
 
-function renderProjectTasks(index) {
+function renderSearch(search) {
+	if (search === "") return;
 	//get all tasks from all projects
 	const currentProjects = JSON.parse(localStorage.getItem("projects"));
-	const renderProject = currentProjects[index];
-	console.log(renderProject.tasks);
-	const currentTasks = renderProject.tasks || [];
+	const currentTasks = [];
+	for (let i = 0; i < currentProjects.length; i++) {
+		const project = currentProjects[i];
+		currentTasks.push(...project.tasks);
+	}
+	const filterTasks = [];
+	for (let i = 0; i < currentTasks.length; i++) {
+		const task = currentTasks[i];
+		let lowerTitle = task.title.toLowerCase();
+		let lowerSearch = search.toLowerCase();
+		if (lowerTitle.includes(lowerSearch)) {
+			filterTasks.push(task);
+		}
+	}
 	//update main header
 	const mainHeader = document.querySelector("#main-header");
-	mainHeader.textContent = renderProject.title.toUpperCase();
+	mainHeader.textContent = "SEARCH RESULTS";
 	//clear current tasks
 	const taskContainer = document.querySelector("#main-content");
 	taskContainer.innerHTML = "";
-	//render currentTasks tasks
-	for (let i = 0; i < currentTasks.length; i++) {
-		const task = currentTasks[i];
-		const taskCard = domCreate("div", ["task-card"], { "data-index": i });
+	//no search results backup
+	if (filterTasks.length === 0) {
+		taskContainer.textContent = "No search results";
+	}
+	//render filterTasks tasks
+	for (let i = 0; i < filterTasks.length; i++) {
+		const task = filterTasks[i];
+		const taskCard = domCreate("div", ["task-card"], { "data-task-index": i });
 		//inner task card div items
 		//TITLE
 		const taskTitle = domCreate("div", ["task-title"]);
@@ -40,11 +56,10 @@ function renderProjectTasks(index) {
 		});
 		taskDeleteIcon.addEventListener("click", function () {
 			taskDeleteIcon.parentElement.remove(taskCard);
-			let index = taskDeleteIcon.parentElement.getAttribute("data-index");
-			currentTasks.splice(index, 1);
-			// setCurrentTasks(currentTasks);
-			localStorage.setItem("tasks", JSON.stringify(currentTasks));
-			renderProjectTasks(index);
+			let index = taskDeleteIcon.parentElement.getAttribute("data-task-index");
+			filterTasks.splice(index, 1);
+			// localStorage.setItem("filterTasks", JSON.stringify(filterTasks));
+			renderSearch(search);
 		});
 		//APPEND ELEMENTS
 		taskCard.append(
@@ -57,6 +72,7 @@ function renderProjectTasks(index) {
 		);
 		taskContainer.appendChild(taskCard);
 	}
+	// return taskContainer;
 }
 
-export { renderProjectTasks };
+export { renderSearch };

@@ -4,6 +4,7 @@ import { renderDashboardPage, renderAllProjectsPage } from "../renderPages";
 
 function renderProjectAsideList() {
 	const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
+	if (savedProjects.length === 0) return;
 	const totalProjectNames = [];
 	for (let i = 0; i < savedProjects.length; i++) {
 		const project = savedProjects[i];

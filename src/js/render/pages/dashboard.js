@@ -9,6 +9,7 @@ function renderDashboard() {
 		const project = currentProjects[i];
 		currentTasks.push(...project.tasks);
 	}
+	console.log(currentTasks);
 	//clear current tasks
 	const taskContainer = domCreate("div", "", { id: "main-content" });
 	taskContainer.innerHTML = "";
@@ -43,7 +44,7 @@ function renderDashboard() {
 			currentTasks.splice(index, 1);
 			// setCurrentTasks(currentTasks);
 			// localStorage.setItem("tasks", JSON.stringify(currentTasks));
-			renderTasks();
+			renderDashboard();
 		});
 		//APPEND ELEMENTS
 		taskCard.append(

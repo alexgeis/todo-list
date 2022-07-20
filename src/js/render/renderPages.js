@@ -3,7 +3,6 @@ import { renderDashboard } from "./pages/dashboard";
 import { renderHeader } from "./components/header";
 import { renderAside } from "./components/aside";
 import { renderProjectsAll } from "./pages/projectsAll";
-// import { renderProjectTasks } from "./projectTasks";
 
 const content = document.getElementById("content");
 const header = renderHeader();
@@ -15,35 +14,29 @@ const mainDiv = domCreate("main", "", { id: "main" });
 mainDiv.append(aside, mainSection);
 content.append(header, mainDiv);
 
+function replaceHelper(newSib) {
+	if (mainHeader.nextSibling) {
+		const nextSib = mainHeader.nextSibling;
+		mainSection.replaceChild(newSib, nextSib);
+	} else {
+		mainSection.appendChild(newSib);
+	}
+}
+
 function renderDashboardPage() {
 	mainHeader.textContent = "DASHBOARD";
 	const dashboard = renderDashboard();
-	if (mainHeader.nextSibling) {
-		const nextSib = mainHeader.nextSibling;
-		mainSection.replaceChild(dashboard, nextSib);
-	} else {
-		mainSection.appendChild(dashboard);
-	}
+	replaceHelper(dashboard);
 }
 function renderAllProjectsPage() {
 	mainHeader.textContent = "PROJECTS";
 	const allProjects = renderProjectsAll();
-	if (mainHeader.nextSibling) {
-		const nextSib = mainHeader.nextSibling;
-		mainSection.replaceChild(allProjects, nextSib);
-	} else {
-		mainSection.appendChild(allProjects);
-	}
-}
-function renderProjectPage() {
-	content.innerHTML = "";
-	const projectTasks = renderProjectTasks();
-	content.append(header, projectTasks);
+	replaceHelper(allProjects);
 }
 // function renderSearchPage() {
-// content.innerHTML = "";
-// 	const search = renderSearch();
-// 	content.append(header, search);
+// 	mainHeader.textContent = "SEARCH RESULTS";
+// 	// const allProjects = renderProjectsAll();
+// 	// replaceHelper(allProjects);
 // }
 
 export { renderDashboardPage, renderAllProjectsPage };

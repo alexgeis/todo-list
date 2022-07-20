@@ -5,6 +5,8 @@ import addTaskIcon from "../../../assets/checkbox-marked-circle-plus-outline.png
 import addProjectIcon from "../../../assets/list-group-plus.png";
 import gearIcon from "../../../assets/cog-outline.png";
 import { renderTaskForm, renderProjectForm } from "../../form";
+import { renderDashboardPage } from "../renderPages";
+import { renderSearch } from "../pages/search";
 
 function renderAddMenu() {
 	const addIconMenu = document.querySelector("#add-icon-menu");
@@ -32,10 +34,15 @@ function renderHeader() {
 		type: "search",
 		name: "q",
 	});
-	const searchBtn = domCreate("button", "");
-	searchBtn.textContent = "Search";
+	searchInput.addEventListener("keyup", (e) => {
+		let currentVal = e.target.value; // "mow"
+		renderSearch(currentVal);
+		if (currentVal === "") renderDashboardPage();
+	});
+	// const searchBtn = domCreate("button", "");
+	// searchBtn.textContent = "Search";
 	const headerCenter = domCreate("div", "", { id: "headerCenter" });
-	headerCenter.append(searchLabel, searchInput, searchBtn);
+	headerCenter.append(searchLabel, searchInput);
 	////header RIGHT
 	//add icon menu
 	const addBtnIcon = domCreate("img", "", {
