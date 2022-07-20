@@ -4,12 +4,22 @@ import deleteIcon from "../../../assets/trash-can-outline.png";
 function renderDashboard() {
 	//get all tasks from all projects
 	const currentProjects = JSON.parse(localStorage.getItem("projects"));
+	console.log({ currentProjects });
+
+	const taskData = [];
+	for (let i = 0; i < currentProjects.length; i++) {
+		const project = currentProjects[i];
+		const data = { title: project.title, tasks: project.tasks };
+		taskData.push(data);
+	}
+	console.log(taskData);
+
 	const currentTasks = [];
 	for (let i = 0; i < currentProjects.length; i++) {
 		const project = currentProjects[i];
 		currentTasks.push(...project.tasks);
 	}
-	console.log(currentTasks);
+	// console.log(currentTasks);
 	//clear current tasks
 	const taskContainer = domCreate("div", "", { id: "main-content" });
 	taskContainer.innerHTML = "";
