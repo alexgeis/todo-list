@@ -1,4 +1,5 @@
 import { domCreate } from "../../DOM";
+import { createTask } from "../../create";
 import { closeTaskForm, clearTaskForm } from "../../form";
 import { renderDashboard } from "../pages/dashboard";
 
@@ -31,8 +32,10 @@ function addTaskSubmit() {
 	for (const project in savedProjects) {
 		const title = savedProjects[project].title;
 
+		//currently matching dropdown project titles to the savedProjects project titles
+		//TODO - implement an ID system so duplicate names can be used
 		if (document.querySelector("#project-task-add").value === title) {
-			savedProjects[project].addTasktoProject(newTask);
+			savedProjects[project].tasks.push(newTask);
 			console.log(savedProjects[project].tasks);
 		}
 	}

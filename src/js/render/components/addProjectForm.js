@@ -1,4 +1,5 @@
 import { domCreate } from "../../DOM";
+import { createProject } from "../../create";
 import { setCurrentProjects } from "../../state";
 import { clearProjectForm, closeProjectForm } from "../../form";
 import { renderDashboard } from "../pages/dashboard";
