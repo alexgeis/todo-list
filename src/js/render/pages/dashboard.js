@@ -1,5 +1,6 @@
 import { domCreate } from "../../DOM";
 import deleteIcon from "../../../assets/trash-can-outline.png";
+import { renderProjectTasks } from "../pages/projectTasks";
 
 function renderDashboard() {
 	//get all tasks from all projects
@@ -9,7 +10,11 @@ function renderDashboard() {
 	const projectTaskData = [];
 	for (let i = 0; i < currentProjects.length; i++) {
 		const project = currentProjects[i];
-		const data = { projectTitle: project.title, tasks: project.tasks };
+		const data = {
+			projectTitle: project.title,
+			tasks: project.tasks,
+			index: i,
+		};
 		projectTaskData.push(data);
 	}
 	// console.table(projectTaskData);
@@ -36,6 +41,9 @@ function renderDashboard() {
 			//PROJECT TITLE
 			const projectTitle = domCreate("div", ["project-title-dash"]);
 			projectTitle.textContent = data.projectTitle;
+			projectTitle.addEventListener("click", function () {
+				renderProjectTasks(data.index);
+			});
 			//DESCRIPTION
 			const taskDesc = domCreate("div", ["task-description"]);
 			taskDesc.textContent = task.description;
