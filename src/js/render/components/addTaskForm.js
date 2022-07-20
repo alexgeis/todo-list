@@ -10,15 +10,21 @@ function addTaskSubmit() {
 	if (document.querySelector("#t-title").value === "") {
 		document.getElementById("task-title-err-msg").style.display = "block";
 		return;
+	} else if (document.querySelector("#t-title").value !== "") {
+		document.getElementById("task-title-err-msg").style.display = "none";
 	}
 	if (document.querySelector("#t-priority").value === "") {
 		document.getElementById("task-priority-err-msg").style.display = "block";
 		return;
+	} else if (document.querySelector("#t-priority").value !== "") {
+		document.getElementById("task-priority-err-msg").style.display = "none";
 	}
 	const projectAssociation = document.querySelector("#project-task-add");
 	if (projectAssociation.value === "null") {
 		document.querySelector("#task-project-err-msg").style.display = "block";
 		return;
+	} else if (projectAssociation.value !== "") {
+		document.querySelector("#task-project-err-msg").style.display = "none";
 	}
 
 	//task factory
@@ -65,10 +71,11 @@ function renderAddTaskForm() {
 		name: "task-title",
 		placeholder: "Title",
 	});
-	const titleErrMsg = domCreate("small", ["err-msg"]);
+	const titleErrMsg = domCreate("small", ["err-msg"], {
+		id: "task-title-err-msg",
+	});
 	titleErrMsg.textContent = " * Task title is required";
-	titleInput.appendChild(titleErrMsg);
-	titleLabel.appendChild(titleInput);
+	titleLabel.append(titleInput, titleErrMsg);
 	//description
 	const descLabel = domCreate("label", "", { for: "t-desc" });
 	descLabel.textContent = "Description";
@@ -99,10 +106,11 @@ function renderAddTaskForm() {
 		min: "1",
 		max: "5",
 	});
-	const priorityErrMsg = domCreate("small", ["err-msg"]);
-	priorityErrMsg.textContent = " * Priority is required";
-	priorityInput.appendChild(priorityErrMsg);
-	priorityLabel.appendChild(priorityInput);
+	const priorityErrMsg = domCreate("small", ["err-msg"], {
+		id: "task-priority-err-msg",
+	});
+	priorityErrMsg.textContent = " * Priority between 1-5 is required";
+	priorityLabel.append(priorityInput, priorityErrMsg);
 	//notes
 	const notesLabel = domCreate("label", "", { for: "t-notes" });
 	notesLabel.textContent = "Notes";
@@ -143,7 +151,9 @@ function renderAddTaskForm() {
 		projectListOption.textContent = name;
 		projectListSelect.appendChild(projectListOption);
 	}
-	const projectListErrMsg = domCreate("small", ["err-msg"]);
+	const projectListErrMsg = domCreate("small", ["err-msg"], {
+		id: "task-project-err-msg",
+	});
 	projectListErrMsg.textContent = " * Project association is required";
 	projectListLabel.append(projectListSelect, projectListErrMsg);
 	//add/clear btns

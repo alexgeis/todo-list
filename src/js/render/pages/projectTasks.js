@@ -5,7 +5,6 @@ function renderProjectTasks(index) {
 	//get all tasks from all projects
 	const currentProjects = JSON.parse(localStorage.getItem("projects"));
 	const renderProject = currentProjects[index];
-	console.log(renderProject.tasks);
 	const currentTasks = renderProject.tasks || [];
 	//update main header
 	const mainHeader = document.querySelector("#main-header");
