@@ -36,12 +36,37 @@ function renderDashboard() {
 				"data-task-index": i,
 			});
 			//TITLE
-			const taskTitle = domCreate("div", ["task-title"]);
+			const taskTitle = domCreate("div", ["task-title-dash"]);
 			taskTitle.textContent = task.title;
 			//PROJECT TITLE
 			const projectTitle = domCreate("div", ["project-title-dash"]);
 			projectTitle.textContent = data.projectTitle;
 			projectTitle.addEventListener("click", function () {
+				const dashboardEl = document.getElementById("dash-aside");
+				const projectListEl = document.getElementById("project-list-aside");
+				const allProjectsEl = document.getElementById("all-projects-aside");
+				if (!projectListEl.classList.contains("aside-selected")) {
+					projectListEl.classList.add("aside-selected");
+					dashboardEl.classList.remove("aside-selected");
+					allProjectsEl.classList.remove("aside-selected");
+				}
+				function accordionToggle() {
+					const projectListBtn = document.getElementById(
+						"project-accordion-btn"
+					);
+					const projectPanel = document.getElementById("project-panel-display");
+					projectListBtn.classList.toggle("active");
+					if (projectPanel.style.display === "block") {
+						projectPanel.style.display = "none";
+					} else {
+						projectPanel.style.display = "block";
+					}
+				}
+				accordionToggle();
+				const projectPanelList = document.getElementById("project-panel-list");
+				projectPanelList.childNodes[data.index].classList.add(
+					"project-list-selected"
+				);
 				renderProjectTasks(data.index);
 			});
 			//DESCRIPTION
