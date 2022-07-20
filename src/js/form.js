@@ -1,10 +1,12 @@
-const addTaskFormEl = document.querySelector(".add_task_section");
 function renderTaskForm() {
-	addTaskFormEl.setAttribute("style", "display: block;");
+	document
+		.querySelector(".add_task_section")
+		.setAttribute("style", "display: block;");
 }
-const addProjectFormEl = document.querySelector(".add_project_section");
 function renderProjectForm() {
-	addProjectFormEl.setAttribute("style", "display: block;");
+	document
+		.querySelector(".add_project_section")
+		.setAttribute("style", "display: block;");
 }
 
 function clearTaskForm() {
@@ -17,7 +19,9 @@ function clearTaskForm() {
 }
 
 function closeTaskForm() {
-	addTaskFormEl.setAttribute("style", "display: none;");
+	document
+		.querySelector(".add_task_section")
+		.setAttribute("style", "display: none;");
 }
 
 function clearProjectForm() {
@@ -26,7 +30,9 @@ function clearProjectForm() {
 }
 
 function closeProjectForm() {
-	addProjectFormEl.setAttribute("style", "display: none;");
+	document
+		.querySelector(".add_project_section")
+		.setAttribute("style", "display: none;");
 }
 
 export {

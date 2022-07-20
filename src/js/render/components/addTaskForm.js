@@ -175,6 +175,7 @@ function renderAddTaskForm() {
 	//wrapper
 	const addTaskSection = domCreate("section", ["add_task_section"]);
 	addTaskSection.appendChild(formContainer);
+	return addTaskSection;
 }
 
 export { addTaskSubmit, renderAddTaskForm };

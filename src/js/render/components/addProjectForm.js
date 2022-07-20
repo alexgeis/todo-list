@@ -78,6 +78,7 @@ function renderAddProjectForm() {
 	//wrapper
 	const addProjectSection = domCreate("section", ["add_project_section"]);
 	addProjectSection.appendChild(formContainer);
+	return addProjectSection;
 }
 
-export { renderAddProjectForm };
+export { addProjectSubmit, renderAddProjectForm };
