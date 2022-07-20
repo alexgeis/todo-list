@@ -57,6 +57,7 @@ function renderHeader() {
 		src: addTaskIcon,
 		alt: "add task plus icon",
 	});
+
 	addTaskImg.addEventListener("click", renderTaskForm);
 	const addProjectImg = domCreate("img", "", {
 		id: "add-project-form",

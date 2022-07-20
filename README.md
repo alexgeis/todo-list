@@ -104,12 +104,22 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+```sh
+"dependencies": {
+    "css-loader": "^6.7.1",
+    "gh-pages": "^4.0.0",
+    "html-loader": "^3.1.2",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "node-sass": "^7.0.1",
+    "path": "^0.12.7",
+    "sass-loader": "^13.0.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.2"
+  }
+```
 
 <!-- PREREQ EXAMPLE
 Packages used in this project: -->
@@ -165,9 +175,14 @@ Packages used in this project: -->
 
 ## Usage
 
-Useful examples of how a project can be used. Additional screenshots, code examples, demos, and/or links to more resources.
+The user can add a new task or project by using the "+" icon in the header navigation.
+![add task/project icon help](./src/assets/add-task-project-icon-help.png)
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+These tasks/projects can be viewed in the following pages:
+
+- _Dashboard_: displays all tasks across all projects
+- _All Projects_: displays all projects created
+- _Projects_ dropdown: displays your current projects and allows you to view tasks for each one
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -175,9 +190,27 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [ ] Theme toggle
-- [ ] Completed status
+Higher Priority:
+
+- [ ] Project association with task in Dashboard page
+  - [ ] ability to delete task from dashboard and it deletes from the correct project (currently deletes from an array containing a consolidation of all tasks)
+- [ ] Improve card display/style
+  - [ ] Completed status for tasks
+  - [ ] clickable associated project display (related to first roadmap point)
+- [ ] All Projects page cards - wrap in <a> tag to allow user to go directly to that project by clicking on it
+- [ ] "starter project" - provide empty project upon first time using application (you cannot add a task without a project, so could reduce confusion)
+- [ ] empty dashboard/projects/task display
+  - [ ] show "no results" or similar text
+  - [ ] show button to direct user to create a new project/task
+- [ ] ability to edit cards/projects by clicking on them (or an edit icon)
+- [ ] mobile responsiveness
+
+Lower Priority:
+
+- [ ] login/signup pages/functionality
+- [ ] settings page/functionality
 - [ ] Counters for total completed tasks and uncompleted tasks
+- [ ] Color theme toggle/choice
 
 See the [open issues](https://github.com/alexgeis/todo-list/issues) for a full list of proposed features (and known issues).
 
