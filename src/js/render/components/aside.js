@@ -62,6 +62,7 @@ function renderAside() {
 
 	const projectPanel = domCreate("div", "", { id: "project-panel-display" });
 	const projectListUL = renderProjectAsideList();
+	console.log(renderProjectAsideList);
 	console.log(projectListUL);
 	projectPanel.appendChild(projectListUL);
 	const projectListEl = domCreate("div", ["aside-item"], {
