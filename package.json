@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/alexgeis/todo-list/issues"
   },
-  "homepage": "https://github.com/alexgeis/todo-list#readme",
+  "homepage": "https://alexgeis.github.io/todo-list/",
   "dependencies": {
     "css-loader": "^6.7.1",
     "gh-pages": "^4.0.0",
