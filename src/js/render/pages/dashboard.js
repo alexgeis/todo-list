@@ -1,6 +1,7 @@
 import { domCreate } from "../../DOM";
 import deleteIcon from "../../../assets/trash-can-outline.png";
 import { renderProjectTasks } from "../pages/projectTasks";
+import { renderTaskForm, renderProjectForm } from "../../form";
 
 function renderDashboard() {
 	//get all tasks from all projects
@@ -21,11 +22,34 @@ function renderDashboard() {
 	//clear current tasks
 	const taskContainer = domCreate("div", "", { id: "main-content" });
 	taskContainer.innerHTML = "";
-	//no search results backup
-	if (filterTasks.length === 0) {
-		taskContainer.textContent = "No search results";
+	//no project results backup
+	if (currentProjects.length === 0) {
+		taskContainer.textContent = "No projects created yet";
+		const emptyDiv = domCreate("div");
+		const emptyProjectBtn = domCreate("button", ["empty-btn"], {
+			id: "empty-project-btn-dash",
+		});
+		emptyProjectBtn.textContent = "CREATE PROJECT";
+		emptyProjectBtn.addEventListener("click", renderProjectForm);
+		taskContainer.append(emptyDiv, emptyProjectBtn);
 	}
-	//render currentTasks tasks
+	//no task results backup
+	const currentTasks = [];
+	for (let i = 0; i < currentProjects.length; i++) {
+		const project = currentProjects[i];
+		currentTasks.push(...project.tasks);
+	}
+	if (currentProjects.length > 0 && currentTasks.length === 0) {
+		taskContainer.textContent = "No tasks created yet";
+		const emptyDiv = domCreate("div");
+		const emptyTaskBtn = domCreate("button", ["empty-btn"], {
+			id: "empty-task-btn-dash",
+		});
+		emptyTaskBtn.textContent = "CREATE TASK";
+		emptyTaskBtn.addEventListener("click", renderTaskForm);
+		taskContainer.append(emptyDiv, emptyTaskBtn);
+	}
+	//render projectTaskData tasks
 	for (let i = 0; i < projectTaskData.length; i++) {
 		const data = projectTaskData[i];
 		// console.log({ data });
