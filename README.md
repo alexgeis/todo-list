@@ -176,6 +176,7 @@ Packages used in this project: -->
 ## Usage
 
 The user can add a new task or project by using the "+" icon in the header navigation.
+
 ![add task/project icon help](./src/assets/add-task-project-icon-help.png)
 
 These tasks/projects can be viewed in the following pages:
