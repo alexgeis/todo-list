@@ -24,8 +24,6 @@ let currentProjects = savedProjects;
 let currentTheme = DEFAULT_THEME;
 
 window.onload = () => {
-	let result = renderProjectAsideList();
-	console.log(result);
 	renderDashboardPage();
 	// setCurrentTheme(DEFAULT_THEME);
 	// setCurrentTasks(currentTasks);

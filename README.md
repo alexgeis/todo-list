@@ -193,12 +193,12 @@ These tasks/projects can be viewed in the following pages:
 
 Higher Priority:
 
-- [ ] Project association with task in Dashboard page
-  - [ ] ability to delete task from dashboard and it deletes from the correct project (currently deletes from an array containing a consolidation of all tasks)
+- [x] Project association with task in Dashboard page
+  - [ ] ability to delete task from dashboard and it deletes from the correct project (currently deletes from an array copy containing a consolidation of all tasks)
 - [ ] Improve card display/style
   - [ ] Completed status for tasks
-  - [ ] clickable associated project display (related to first roadmap point)
-- [ ] All Projects page cards - wrap in <a> tag to allow user to go directly to that project by clicking on it
+  - [x] clickable associated project display (related to first roadmap point)
+- [x] All Projects page cards - allow user to go directly to that project by clicking on it
 - [ ] "starter project" - provide empty project upon first time using application (you cannot add a task without a project, so could reduce confusion)
 - [ ] empty dashboard/projects/task display
   - [ ] show "no results" or similar text

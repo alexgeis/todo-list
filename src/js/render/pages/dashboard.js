@@ -31,7 +31,7 @@ function renderDashboard() {
 		// console.log({ taskData }); /////////////////////
 		for (let i = 0; i < taskData.length; i++) {
 			const task = taskData[i];
-			console.log({ task });
+			// console.log({ task });
 			const taskCard = domCreate("div", ["task-card"], {
 				"data-task-index": i,
 			});

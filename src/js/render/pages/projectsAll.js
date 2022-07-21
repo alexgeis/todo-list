@@ -1,9 +1,11 @@
 import { domCreate } from "../../DOM";
 import deleteIcon from "../../../assets/trash-can-outline.png";
+import { renderProjectTasks } from "./projectTasks";
 
 function renderProjectsAll() {
 	//get all projects
 	const currentProjects = JSON.parse(localStorage.getItem("projects"));
+	console.log(currentProjects);
 	//clear current content
 	const projectContainer = domCreate("div", "", { id: "main-content" });
 	// projectContainer.innerHTML = "";
@@ -49,6 +51,30 @@ function renderProjectsAll() {
 			projectTasks,
 			projectDeleteIcon
 		);
+		projectCard.addEventListener("click", function () {
+			const dashboardEl = document.getElementById("dash-aside");
+			const projectListEl = document.getElementById("project-list-aside");
+			const allProjectsEl = document.getElementById("all-projects-aside");
+			if (!projectListEl.classList.contains("aside-selected")) {
+				projectListEl.classList.add("aside-selected");
+				dashboardEl.classList.remove("aside-selected");
+				allProjectsEl.classList.remove("aside-selected");
+			}
+			function accordionToggle() {
+				const projectListBtn = document.getElementById("project-accordion-btn");
+				const projectPanel = document.getElementById("project-panel-display");
+				projectListBtn.classList.toggle("active");
+				if (projectPanel.style.display === "block") {
+					projectPanel.style.display = "none";
+				} else {
+					projectPanel.style.display = "block";
+				}
+			}
+			accordionToggle();
+			const projectPanelList = document.getElementById("project-panel-list");
+			projectPanelList.childNodes[i].classList.add("project-list-selected");
+			renderProjectTasks(i);
+		});
 		projectContainer.appendChild(projectCard);
 	}
 	return projectContainer;
