@@ -4,7 +4,7 @@ import deleteIcon from "../../../assets/trash-can-outline.png";
 function renderSearch(search) {
 	if (search === "") return;
 	//get all tasks from all projects
-	const currentProjects = JSON.parse(localStorage.getItem("projects"));
+	const currentProjects = JSON.parse(localStorage.getItem("projects")) || [];
 	const currentTasks = [];
 	for (let i = 0; i < currentProjects.length; i++) {
 		const project = currentProjects[i];

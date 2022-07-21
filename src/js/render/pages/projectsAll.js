@@ -4,7 +4,7 @@ import { renderProjectTasks } from "./projectTasks";
 
 function renderProjectsAll() {
 	//get all projects
-	const currentProjects = JSON.parse(localStorage.getItem("projects"));
+	const currentProjects = JSON.parse(localStorage.getItem("projects")) || [];
 	console.log(currentProjects);
 	//clear current content
 	const projectContainer = domCreate("div", "", { id: "main-content" });

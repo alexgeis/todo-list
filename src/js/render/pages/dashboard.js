@@ -4,7 +4,7 @@ import { renderProjectTasks } from "../pages/projectTasks";
 
 function renderDashboard() {
 	//get all tasks from all projects
-	const currentProjects = JSON.parse(localStorage.getItem("projects"));
+	const currentProjects = JSON.parse(localStorage.getItem("projects")) || [];
 	// console.log({ currentProjects });
 
 	const projectTaskData = [];
@@ -21,6 +21,10 @@ function renderDashboard() {
 	//clear current tasks
 	const taskContainer = domCreate("div", "", { id: "main-content" });
 	taskContainer.innerHTML = "";
+	//no search results backup
+	if (filterTasks.length === 0) {
+		taskContainer.textContent = "No search results";
+	}
 	//render currentTasks tasks
 	for (let i = 0; i < projectTaskData.length; i++) {
 		const data = projectTaskData[i];
