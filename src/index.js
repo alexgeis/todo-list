@@ -19,7 +19,7 @@ const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
 // const DEFAULT_TASKS_DONE = currentlyDone.length;
 // const DEFAULT_TASKS_TOTAL = savedBooks.length;
 
-let currentTasks = savedTasks;
+// let currentTasks = savedTasks;
 let currentProjects = savedProjects;
 let currentTheme = DEFAULT_THEME;
 
