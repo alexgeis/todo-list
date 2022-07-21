@@ -4,6 +4,7 @@ import { renderDashboardPage, renderAllProjectsPage } from "../renderPages";
 
 function renderProjectAsideList() {
 	const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
+	console.log(savedProjects);
 	const projectList = domCreate("ul", "", { id: "project-panel-list" });
 
 	if (savedProjects.length === 0) return projectList;
