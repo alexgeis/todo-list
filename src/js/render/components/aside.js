@@ -4,14 +4,15 @@ import { renderDashboardPage, renderAllProjectsPage } from "../renderPages";
 
 function renderProjectAsideList() {
 	const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
-	if (savedProjects.length === 0) return;
+	const projectList = domCreate("ul", "", { id: "project-panel-list" });
+
+	if (savedProjects.length === 0) return projectList;
 	const totalProjectNames = [];
 	for (let i = 0; i < savedProjects.length; i++) {
 		const project = savedProjects[i];
 		totalProjectNames.push(project.title);
 	}
 	////dom logic
-	const projectList = domCreate("ul", "", { id: "project-panel-list" });
 	for (let i = 0; i < totalProjectNames.length; i++) {
 		const name = totalProjectNames[i];
 		const liEl = domCreate("li", ["project-list-item"], {
