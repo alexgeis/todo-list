@@ -23,6 +23,8 @@ function renderProjectsAll() {
 		//TASKS
 		const projectTasksList = domCreate("ul", ["project-tasks-list"]);
 		let taskArray = project.tasks;
+		if (taskArray.length === 0)
+			projectTasksList.textContent = "0 tasks in this project";
 		for (let i = 0; i < taskArray.length; i++) {
 			const task = taskArray[i];
 			const li = domCreate("li", ["project-task-list-item"]);
