@@ -4,6 +4,7 @@ import addIcon from "../../../assets/plus-circle-outline.png";
 import addTaskIcon from "../../../assets/checkbox-marked-circle-plus-outline.png";
 import addProjectIcon from "../../../assets/list-group-plus.png";
 import gearIcon from "../../../assets/cog-outline.png";
+import { seedProjectData } from "../../data/seed";
 import { renderTaskForm, renderProjectForm } from "../../form";
 import { renderDashboardPage } from "../renderPages";
 import { renderSearch } from "../pages/search";
@@ -22,11 +23,32 @@ function renderHeader() {
 		});
 		const siteTitle = domCreate("div", "", { id: "header-site-title" });
 		siteTitle.textContent = "TODO LIST";
-		//seed data
-		const seedDataBtn = domCreate("button", "", { id: "seed-projects-btn" });
-		seedDataBtn.textContent = "SEED DATA";
+		//add icon menu
+		const addBtnIcon = domCreate("img", "", {
+			id: "add-icon",
+			src: addIcon,
+			alt: "add button plus icon",
+		});
+		addBtnIcon.addEventListener("click", renderAddMenu);
+		const addIconMenu = domCreate("div", "", { id: "add-icon-menu" });
+		const addTaskImg = domCreate("img", "", {
+			id: "add-task-form",
+			src: addTaskIcon,
+			alt: "add task plus icon",
+		});
+
+		addTaskImg.addEventListener("click", renderTaskForm);
+		const addProjectImg = domCreate("img", "", {
+			id: "add-project-form",
+			src: addProjectIcon,
+			alt: "add project plus icon",
+		});
+		addProjectImg.addEventListener("click", renderProjectForm);
+		addIconMenu.append(addTaskImg, addProjectImg);
+		const addBtnEl = domCreate("div", "", { id: "addBtn" });
+		addBtnEl.append(addBtnIcon, addIconMenu);
 		const headerLeft = domCreate("div", "", { id: "headerLeft" });
-		headerLeft.append(siteLogo, siteTitle, seedDataBtn);
+		headerLeft.append(siteLogo, siteTitle, addBtnEl);
 		return headerLeft;
 	}
 	////header CENTER
@@ -52,32 +74,14 @@ function renderHeader() {
 	}
 	////header RIGHT
 	function createHeaderRight() {
-		//add icon menu
-		const addBtnIcon = domCreate("img", "", {
-			id: "add-icon",
-			src: addIcon,
-			alt: "add button plus icon",
+		//seed data
+		const seedDataBtn = domCreate("div", ["nav-item"], {
+			id: "seed-projects-btn",
 		});
-		addBtnIcon.addEventListener("click", renderAddMenu);
-		const addIconMenu = domCreate("div", "", { id: "add-icon-menu" });
-		const addTaskImg = domCreate("img", "", {
-			id: "add-task-form",
-			src: addTaskIcon,
-			alt: "add task plus icon",
-		});
-
-		addTaskImg.addEventListener("click", renderTaskForm);
-		const addProjectImg = domCreate("img", "", {
-			id: "add-project-form",
-			src: addProjectIcon,
-			alt: "add project plus icon",
-		});
-		addProjectImg.addEventListener("click", renderProjectForm);
-		addIconMenu.append(addTaskImg, addProjectImg);
-		const addBtnEl = domCreate("div", "", { id: "addBtn" });
-		addBtnEl.append(addBtnIcon, addIconMenu);
+		seedDataBtn.textContent = "SEED DATA";
+		seedDataBtn.addEventListener("click", seedProjectData);
 		//login
-		const loginEl = domCreate("div", "", { id: "login" });
+		const loginEl = domCreate("div", ["nav-item"], { id: "login" });
 		loginEl.textContent = "LOGIN";
 		//settings
 		const settingsIcon = domCreate("img", "", {
@@ -90,17 +94,31 @@ function renderHeader() {
 			target: "_blank",
 		});
 		settingsLink.appendChild(settingsIcon);
-		const settingsEl = domCreate("div", "", { id: "settings" });
+		const settingsEl = domCreate("div", ["nav-item"], { id: "settings" });
 		settingsEl.appendChild(settingsLink);
+
+		const navMenuLI1 = domCreate("li", ["nav-item"]);
+		navMenuLI1.appendChild(seedDataBtn);
+		const navMenuLI2 = domCreate("li", ["nav-item"]);
+		navMenuLI2.appendChild(loginEl);
+		const navMenuLI3 = domCreate("li", ["nav-item"]);
+		navMenuLI3.appendChild(settingsEl);
+		const navMenuUL = domCreate("ul", ["nav-menu"]);
+		navMenuUL.append(navMenuLI1, navMenuLI2, navMenuLI3);
+
 		//hamburger menu
 		const bar1 = domCreate("span", ["bar"]);
 		const bar2 = domCreate("span", ["bar"]);
 		const bar3 = domCreate("span", ["bar"]);
 		const hamburgerDiv = domCreate("div", ["hamburger"]);
 		hamburgerDiv.append(bar1, bar2, bar3);
+		hamburgerDiv.addEventListener("click", () => {
+			hamburgerDiv.classList.toggle("active");
+			navMenuUL.classList.toggle("active");
+		});
 		//headerRight append
 		const headerRight = domCreate("div", "", { id: "headerRight" });
-		headerRight.append(addBtnEl, loginEl, settingsEl, hamburgerDiv);
+		headerRight.append(navMenuUL, hamburgerDiv);
 		return headerRight;
 	}
 	//FULL HEADER APPEND
