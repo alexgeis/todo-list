@@ -1,5 +1,6 @@
 import { domCreate } from "../../DOM";
 import deleteIcon from "../../../assets/trash-can-outline.png";
+import { renderTaskForm } from "../../form";
 
 function renderProjectTasks(index) {
 	//get all tasks from all projects
@@ -12,6 +13,27 @@ function renderProjectTasks(index) {
 	//clear current tasks
 	const taskContainer = document.querySelector("#main-content");
 	taskContainer.innerHTML = "";
+	//backup text if no tasks
+	if (currentTasks.length === 0) {
+		taskContainer.textContent = "No tasks created yet";
+		const emptyDiv = domCreate("div");
+		const emptyTaskBtn = domCreate("button", ["empty-btn"], {
+			id: "empty-task-btn-dash",
+		});
+		emptyTaskBtn.textContent = "CREATE TASK";
+		emptyTaskBtn.addEventListener("click", renderTaskForm);
+		taskContainer.append(emptyDiv, emptyTaskBtn);
+		//autopopulate task form
+		const existingProjectSelect = document.getElementById("project-task-add");
+		const childArray = existingProjectSelect.childNodes;
+		existingProjectSelect.childNodes[0].defaultSelected = false;
+		for (let i = 1; i < childArray.length; i++) {
+			const option = childArray[i];
+			if (renderProject.title === option.value) {
+				existingProjectSelect.childNodes[i].defaultSelected = true;
+			}
+		}
+	}
 	//render currentTasks tasks
 	for (let i = 0; i < currentTasks.length; i++) {
 		const task = currentTasks[i];
