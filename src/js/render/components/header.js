@@ -15,80 +15,97 @@ function renderAddMenu() {
 
 function renderHeader() {
 	////header LEFT
-	const siteLogo = domCreate("img", ["fake-class"], {
-		src: checkLogo,
-		alt: "checked circle logo",
-	});
-	const siteTitle = domCreate("div", "", { id: "header-site-title" });
-	siteTitle.textContent = "TODO LIST";
-	//seed data
-	const seedDataBtn = domCreate("button", "", { id: "seed-projects-btn" });
-	seedDataBtn.textContent = "SEED DATA";
-	const headerLeft = domCreate("div", "", { id: "headerLeft" });
-	headerLeft.append(siteLogo, siteTitle, seedDataBtn);
+	function createHeaderLeft() {
+		const siteLogo = domCreate("img", ["fake-class"], {
+			src: checkLogo,
+			alt: "checked circle logo",
+		});
+		const siteTitle = domCreate("div", "", { id: "header-site-title" });
+		siteTitle.textContent = "TODO LIST";
+		//seed data
+		const seedDataBtn = domCreate("button", "", { id: "seed-projects-btn" });
+		seedDataBtn.textContent = "SEED DATA";
+		const headerLeft = domCreate("div", "", { id: "headerLeft" });
+		headerLeft.append(siteLogo, siteTitle, seedDataBtn);
+		return headerLeft;
+	}
 	////header CENTER
-	const searchLabel = domCreate("label", "", { for: "site-search" });
-	searchLabel.textContent = "Search the site: ";
-	const searchInput = domCreate("input", "", {
-		id: "site-search",
-		type: "search",
-		name: "q",
-	});
-	searchInput.addEventListener("keyup", (e) => {
-		let currentVal = e.target.value; // "mow"
-		renderSearch(currentVal);
-		if (currentVal === "") renderDashboardPage();
-	});
-	// const searchBtn = domCreate("button", "");
-	// searchBtn.textContent = "Search";
-	const headerCenter = domCreate("div", "", { id: "headerCenter" });
-	headerCenter.append(searchLabel, searchInput);
-	////header RIGHT
-	//add icon menu
-	const addBtnIcon = domCreate("img", "", {
-		id: "add-icon",
-		src: addIcon,
-		alt: "add button plus icon",
-	});
-	addBtnIcon.addEventListener("click", renderAddMenu);
-	const addIconMenu = domCreate("div", "", { id: "add-icon-menu" });
-	const addTaskImg = domCreate("img", "", {
-		id: "add-task-form",
-		src: addTaskIcon,
-		alt: "add task plus icon",
-	});
+	function createHeaderCenter() {
+		const searchLabel = domCreate("label", "", { for: "site-search" });
+		searchLabel.textContent = "Search the site: ";
+		const searchInput = domCreate("input", "", {
+			id: "site-search",
+			type: "search",
+			name: "q",
+		});
+		searchInput.addEventListener("keyup", (e) => {
+			let currentVal = e.target.value; // "mow"
+			renderSearch(currentVal);
+			if (currentVal === "") renderDashboardPage();
+		});
+		// const searchBtn = domCreate("button", "");
+		// searchBtn.textContent = "Search";
 
-	addTaskImg.addEventListener("click", renderTaskForm);
-	const addProjectImg = domCreate("img", "", {
-		id: "add-project-form",
-		src: addProjectIcon,
-		alt: "add project plus icon",
-	});
-	addProjectImg.addEventListener("click", renderProjectForm);
-	addIconMenu.append(addTaskImg, addProjectImg);
-	const addBtnEl = domCreate("div", "", { id: "addBtn" });
-	addBtnEl.append(addBtnIcon, addIconMenu);
-	//login
-	const loginEl = domCreate("div", "", { id: "login" });
-	loginEl.textContent = "LOGIN";
-	//settings
-	const settingsIcon = domCreate("img", "", {
-		id: "settings gear icon",
-		src: gearIcon,
-		alt: "settings gear outline",
-	});
-	const settingsLink = domCreate("a", "", {
-		href: "https://github.com/alexgeis/todo-list",
-		target: "_blank",
-	});
-	settingsLink.appendChild(settingsIcon);
-	const settingsEl = domCreate("div", "", { id: "settings" });
-	settingsEl.appendChild(settingsLink);
-	const headerRight = domCreate("div", "", { id: "headerRight" });
-	headerRight.append(addBtnEl, loginEl, settingsEl);
+		const headerCenter = domCreate("div", "", { id: "headerCenter" });
+		headerCenter.append(searchLabel, searchInput);
+		return headerCenter;
+	}
+	////header RIGHT
+	function createHeaderRight() {
+		//add icon menu
+		const addBtnIcon = domCreate("img", "", {
+			id: "add-icon",
+			src: addIcon,
+			alt: "add button plus icon",
+		});
+		addBtnIcon.addEventListener("click", renderAddMenu);
+		const addIconMenu = domCreate("div", "", { id: "add-icon-menu" });
+		const addTaskImg = domCreate("img", "", {
+			id: "add-task-form",
+			src: addTaskIcon,
+			alt: "add task plus icon",
+		});
+
+		addTaskImg.addEventListener("click", renderTaskForm);
+		const addProjectImg = domCreate("img", "", {
+			id: "add-project-form",
+			src: addProjectIcon,
+			alt: "add project plus icon",
+		});
+		addProjectImg.addEventListener("click", renderProjectForm);
+		addIconMenu.append(addTaskImg, addProjectImg);
+		const addBtnEl = domCreate("div", "", { id: "addBtn" });
+		addBtnEl.append(addBtnIcon, addIconMenu);
+		//login
+		const loginEl = domCreate("div", "", { id: "login" });
+		loginEl.textContent = "LOGIN";
+		//settings
+		const settingsIcon = domCreate("img", "", {
+			id: "settings gear icon",
+			src: gearIcon,
+			alt: "settings gear outline",
+		});
+		const settingsLink = domCreate("a", "", {
+			href: "https://github.com/alexgeis/todo-list",
+			target: "_blank",
+		});
+		settingsLink.appendChild(settingsIcon);
+		const settingsEl = domCreate("div", "", { id: "settings" });
+		settingsEl.appendChild(settingsLink);
+		//hamburger menu
+		const bar1 = domCreate("span", ["bar"]);
+		const bar2 = domCreate("span", ["bar"]);
+		const bar3 = domCreate("span", ["bar"]);
+		const hamburgerDiv = domCreate("div", ["hamburger"]);
+		hamburgerDiv.append(bar1, bar2, bar3);
+		//headerRight append
+		const headerRight = domCreate("div", "", { id: "headerRight" });
+		headerRight.append(addBtnEl, loginEl, settingsEl, hamburgerDiv);
+		return headerRight;
+	}
 	//FULL HEADER APPEND
 	const header = domCreate("header", "", { id: "header" });
-	header.append(headerLeft, headerCenter, headerRight);
+	header.append(createHeaderLeft(), createHeaderCenter(), createHeaderRight());
 	return header;
 	// //CONTENT APPEND
 	// const pageContainer = document.getElementById("content");

@@ -93,6 +93,23 @@ body {
         align-items: center;
     }
 }
+//HAMBURGER
+// header.dark > .header > .hamburger > .bar  {
+//     background-color: white;
+// }
+// .hamburger {
+//     display: none;
+//     cursor: pointer;
+// }
+// .bar {
+//     display:block;
+//     width: 25px;
+//     height: 3px;
+//     margin: 5px auto;
+//     -webkit-transition: all 0.3s ease-in-out;
+//     transition: all 0.3s ease-in-out;
+//     background-color: black;
+// }
 
 $shadowSize: 23px;
 $shadowColor: $primary-color;
