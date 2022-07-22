@@ -198,13 +198,12 @@ Higher Priority:
 - [ ] Improve card display/style
   - [ ] Completed status for tasks
   - [x] clickable associated project display (related to first roadmap point)
-- [x] All Projects page cards - allow user to go directly to that project by clicking on it
-- [ ] "starter project" - provide empty project upon first time using application (you cannot add a task without a project, so could reduce confusion)
-- [ ] empty dashboard/projects/task display
-  - [ ] show "no results" or similar text
-  - [ ] show button to direct user to create a new project/task
 - [ ] ability to edit cards/projects by clicking on them (or an edit icon)
 - [ ] mobile responsiveness
+- [x] All Projects page cards - allow user to go directly to that project by clicking on it
+- [x] empty dashboard/projects/task display
+  - [x] show "no results" or similar text
+  - [x] show button to direct user to create a new project/task
 
 Lower Priority:
 
