@@ -54,11 +54,12 @@ function renderHeader() {
 	////header CENTER
 	function createHeaderCenter() {
 		const searchLabel = domCreate("label", "", { for: "site-search" });
-		searchLabel.textContent = "Search the site: ";
+		searchLabel.textContent = "Search: ";
 		const searchInput = domCreate("input", "", {
 			id: "site-search",
 			type: "search",
 			name: "q",
+			placeholder: " type here...",
 		});
 		searchInput.addEventListener("keyup", (e) => {
 			let currentVal = e.target.value; // "mow"
@@ -106,24 +107,39 @@ function renderHeader() {
 		const navMenuUL = domCreate("ul", ["nav-menu"]);
 		navMenuUL.append(navMenuLI1, navMenuLI2, navMenuLI3);
 
-		//hamburger menu
-		const bar1 = domCreate("span", ["bar"]);
-		const bar2 = domCreate("span", ["bar"]);
-		const bar3 = domCreate("span", ["bar"]);
-		const hamburgerDiv = domCreate("div", ["hamburger"]);
-		hamburgerDiv.append(bar1, bar2, bar3);
-		hamburgerDiv.addEventListener("click", () => {
-			hamburgerDiv.classList.toggle("active");
-			navMenuUL.classList.toggle("active");
-		});
+		// //hamburger menu
+		// const bar1 = domCreate("span", ["bar"]);
+		// const bar2 = domCreate("span", ["bar"]);
+		// const bar3 = domCreate("span", ["bar"]);
+		// const hamburgerDiv = domCreate("div", ["hamburger"]);
+		// hamburgerDiv.append(bar1, bar2, bar3);
+		// hamburgerDiv.addEventListener("click", () => {
+		// 	hamburgerDiv.classList.toggle("active");
+		// 	navMenuUL.classList.toggle("active");
+		// });
 		//headerRight append
 		const headerRight = domCreate("div", "", { id: "headerRight" });
-		headerRight.append(navMenuUL, hamburgerDiv);
+		headerRight.appendChild(navMenuUL);
 		return headerRight;
 	}
+	//hamburger menu
+	const bar1 = domCreate("span", ["bar"]);
+	const bar2 = domCreate("span", ["bar"]);
+	const bar3 = domCreate("span", ["bar"]);
+	const hamburgerDiv = domCreate("div", ["hamburger"]);
+	hamburgerDiv.append(bar1, bar2, bar3);
+	hamburgerDiv.addEventListener("click", () => {
+		hamburgerDiv.classList.toggle("active");
+		navMenuUL.classList.toggle("active");
+	});
 	//FULL HEADER APPEND
 	const header = domCreate("header", "", { id: "header" });
-	header.append(createHeaderLeft(), createHeaderCenter(), createHeaderRight());
+	header.append(
+		createHeaderLeft(),
+		createHeaderCenter(),
+		createHeaderRight(),
+		hamburgerDiv
+	);
 	return header;
 	// //CONTENT APPEND
 	// const pageContainer = document.getElementById("content");
