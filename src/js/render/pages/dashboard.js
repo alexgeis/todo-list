@@ -24,7 +24,7 @@ function renderDashboard() {
 	taskContainer.innerHTML = "";
 	//no project results backup
 	if (currentProjects.length === 0) {
-		taskContainer.textContent = "No projects created yet";
+		taskContainer.textContent = "No projects";
 		const emptyDiv = domCreate("div");
 		const emptyProjectBtn = domCreate("button", ["empty-btn"], {
 			id: "empty-project-btn-dash",
@@ -40,7 +40,7 @@ function renderDashboard() {
 		currentTasks.push(...project.tasks);
 	}
 	if (currentProjects.length > 0 && currentTasks.length === 0) {
-		taskContainer.textContent = "No tasks created yet";
+		taskContainer.textContent = "No tasks";
 		const emptyDiv = domCreate("div");
 		const emptyTaskBtn = domCreate("button", ["empty-btn"], {
 			id: "empty-task-btn-dash",

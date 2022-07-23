@@ -370,8 +370,71 @@ $projectShadowSize: 23px;
     padding: .5rem;
 }
 
-//560px
+@media(max-width:1022px) {
+    .aside-item {
+        font-size: .8rem;
+    }
+}
 @media(max-width:778px) {
+    #main {
+        display: grid;
+        grid-template-columns: minmax(100px,1fr) 8fr;
+        grid-template-rows: minmax(calc(100vh - 38px),1fr)
+    }
+    #main-aside {
+        grid-column: 1 / 2;
+        background-color: $secondary-light;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        gap: 20px;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 2px 4px 2px;
+        z-index: 3;
+    }
+    #main-section {
+        grid-column: 2 / 5;
+        background-color: $primary-light;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 40px;
+    }
+    #main-content {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 20px;
+    }
+    .aside-item {
+        font-size: .7rem;
+padding: .2rem
+    }
+    #project-panel-list > * {
+        font-size: .7rem;
+    }
+    .aside-selected {
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -8px;
+            width: 14px;
+            height: 14px;
+            background-color: $primary-color;
+            transform: translate(50%, -50%) rotate(45deg);
+            clip-path: polygon(
+                -#{$shadowSize} -#{$shadowSize}, 
+                calc(100% + #{$shadowSize}) -#{$shadowSize}, 
+                calc(100% + #{$shadowSize}) calc(100% + #{$shadowSize})
+                );
+        }
+        &:hover {
+            // background-image: linear-gradient(to left, rgba(255,0,0,0) , $primary-color);
+            background: $primary-color;
+            text-decoration: none;
+            // color: white;
+          }
+    }
+    //hamburger
     .hamburger {
         display: block;
     }
