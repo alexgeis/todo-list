@@ -6,7 +6,7 @@ import { renderTaskForm, renderProjectForm } from "../../form";
 function renderDashboard() {
 	//get all tasks from all projects
 	const currentProjects = JSON.parse(localStorage.getItem("projects")) || [];
-	// console.log({ currentProjects });
+	console.log({ currentProjects });
 
 	const projectTaskData = [];
 	for (let i = 0; i < currentProjects.length; i++) {
@@ -52,7 +52,7 @@ function renderDashboard() {
 	//render projectTaskData tasks
 	for (let i = 0; i < projectTaskData.length; i++) {
 		const data = projectTaskData[i];
-		// console.log({ data });
+		console.log({ data });
 		//inner task card div items
 		//task card renders
 		let taskData = data.tasks;
@@ -116,9 +116,24 @@ function renderDashboard() {
 			});
 			taskDeleteIcon.addEventListener("click", function () {
 				taskDeleteIcon.parentElement.remove(taskCard);
-				let index =
-					taskDeleteIcon.parentElement.getAttribute("data-task-index");
-				currentTasks.splice(index, 1);
+				const taskTitle =
+					taskDeleteIcon.parentElement.childNodes[0].textContent;
+				const projectTitle =
+					taskDeleteIcon.parentElement.childNodes[1].textContent;
+				for (let i = 0; i < currentProjects.length; i++) {
+					const project = currentProjects[i];
+					for (let j = 0; j < project.tasks.length; j++) {
+						const task = project.tasks[j];
+						if (projectTitle === project.title && taskTitle === task.title) {
+							project.tasks.splice(j, 1);
+						}
+					}
+				}
+				localStorage.setItem("projects", JSON.stringify(currentProjects));
+				//// superficial delete
+				// let index =
+				// 	taskDeleteIcon.parentElement.getAttribute("data-task-index");
+				// currentTasks.splice(index, 1);
 				// setCurrentTasks(currentTasks);
 				// localStorage.setItem("tasks", JSON.stringify(currentTasks));
 				renderDashboard();
