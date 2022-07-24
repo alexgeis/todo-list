@@ -369,7 +369,22 @@ $projectShadowSize: 23px;
 .new-project-buttons > * {
     padding: .5rem;
 }
+.empty-btn {
+    padding: 5px 10px;
+    border-radius: 15px;
+    width: 120px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    &:hover{
+        cursor: pointer;
+        box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    }
+    &:active{
+        background-color: $primary-color;
+        color: $primary-light;
+    }
+}
 
+///MEDIA QUERIES///
 @media(max-width:1022px) {
     .aside-item {
         font-size: .8rem;
