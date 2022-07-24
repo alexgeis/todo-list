@@ -97,7 +97,24 @@ function renderHeader() {
 		settingsLink.appendChild(settingsIcon);
 		const settingsEl = domCreate("div", ["nav-item"], { id: "settings" });
 		settingsEl.appendChild(settingsLink);
-
+		//mobile responsive code for settings links
+		const smallDevice = window.matchMedia("(max-width: 778px)");
+		smallDevice.addEventListener("change", handleSmallDeviceChange);
+		function handleSmallDeviceChange(e) {
+			if (e.matches) {
+				settingsLink.removeChild(settingsIcon);
+				settingsLink.textContent = "SETTINGS";
+			}
+		}
+		const largeDevice = window.matchMedia("(min-width: 778px)");
+		largeDevice.addEventListener("change", handleLargeDeviceChange);
+		function handleLargeDeviceChange(e) {
+			if (e.matches) {
+				settingsLink.textContent = "";
+				settingsLink.appendChild(settingsIcon);
+			}
+		}
+		//
 		const navMenuLI1 = domCreate("li", ["nav-item"]);
 		navMenuLI1.appendChild(seedDataBtn);
 		const navMenuLI2 = domCreate("li", ["nav-item"]);
@@ -130,7 +147,8 @@ function renderHeader() {
 	hamburgerDiv.append(bar1, bar2, bar3);
 	hamburgerDiv.addEventListener("click", () => {
 		hamburgerDiv.classList.toggle("active");
-		navMenuUL.classList.toggle("active");
+		const navMenu = document.querySelector(".nav-menu");
+		navMenu.classList.toggle("active");
 	});
 	//FULL HEADER APPEND
 	const header = domCreate("header", "", { id: "header" });

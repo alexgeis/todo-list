@@ -66,6 +66,9 @@ body {
     align-items: center;
     gap: 15px;
 }
+#headerRight {
+    position: relative;
+}
 .nav-menu {
     list-style: none;
     @include flexJustify();
@@ -97,6 +100,12 @@ body {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+    }
+}
+#settings > a {
+    text-decoration: none;
+    &:visited {
+        color: black;
     }
 }
 // HAMBURGER
@@ -466,15 +475,16 @@ padding: .2rem
     .nav-menu {
         position: fixed;
         right: -100%;
-        top: 108px;
+        top: 59px;
         gap: 0;
         flex-direction: column;
         background-color: white;
         /* background-color: black; */
-        color: white;
+        color: black;
         width: 100%;
         text-align: center;
         transition: 0.3s;
+        z-index: 2;
     }
     .nav-item {
         margin: 16px 0;
