@@ -193,17 +193,17 @@ These tasks/projects can be viewed in the following pages:
 
 Higher Priority:
 
-- [x] Project association with task in Dashboard page
-  - [ ] ability to delete task from dashboard and it deletes from the correct project (currently deletes from an array copy containing a consolidation of all tasks)
+- [ ] mobile responsiveness
 - [ ] Improve card display/style
   - [ ] Completed status for tasks
   - [x] clickable associated project display (related to first roadmap point)
 - [ ] ability to edit cards/projects by clicking on them (or an edit icon)
-- [ ] mobile responsiveness
 - [x] All Projects page cards - allow user to go directly to that project by clicking on it
 - [x] empty dashboard/projects/task display
   - [x] show "no results" or similar text
   - [x] show button to direct user to create a new project/task
+- [x] Project association with task in Dashboard page
+  - [x] ability to delete task from dashboard and it deletes from the correct project (currently deletes from an array copy containing a consolidation of all tasks)
 
 Lower Priority:
 
