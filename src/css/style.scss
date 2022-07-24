@@ -407,39 +407,36 @@ $projectShadowSize: 23px;
 }
 @media(max-width:778px) {
     #main {
-        display: grid;
         grid-template-columns: minmax(100px,1fr) 8fr;
-        grid-template-rows: minmax(calc(100vh - 38px),1fr)
     }
     #main-aside {
-        grid-column: 1 / 2;
-        background-color: $secondary-light;
-        display: flex;
-        flex-direction: column;
         padding: 15px;
-        gap: 20px;
-        box-shadow: rgba(9, 30, 66, 0.25) 0px 2px 4px 2px;
-        z-index: 3;
-    }
-    #main-section {
-        grid-column: 2 / 5;
-        background-color: $primary-light;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 40px;
-    }
-    #main-content {
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        gap: 20px;
     }
     .aside-item {
         font-size: .7rem;
-padding: .2rem
+padding: .2rem;
+    }
+    #main-section {
+        padding: 20px;
+    }
+    #main-header {
+        font-size: 1rem;
+    }
+    #main-content {
+        grid-template-columns: 1fr; 
+    }
+    .task-card {
+        font-size: 80%;
+    }
+    .task-title-dash {
+        font-size: 1rem;
+    }
+    .project-title-dash {
+        font-size: .8rem;
     }
     #project-panel-list > * {
         font-size: .7rem;
+        overflow-wrap: break-word;
     }
     .aside-selected {
         &:before {
