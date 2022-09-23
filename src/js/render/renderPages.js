@@ -5,7 +5,6 @@ import { renderAside } from "./components/aside";
 import { renderAddTaskForm } from "./components/addTaskForm";
 import { renderAddProjectForm } from "./components/addProjectForm";
 import { renderProjectsAll } from "./pages/projectsAll";
-import { replaceHelper } from "../replaceHelper";
 
 const header = renderHeader();
 
@@ -34,6 +33,16 @@ function renderAllProjectsPage() {
 	const allProjects = renderProjectsAll();
 	replaceHelper(allProjects);
 }
+
+function replaceHelper(newSib) {
+	if (mainHeader.nextSibling) {
+		const nextSib = mainHeader.nextSibling;
+		mainSection.replaceChild(newSib, nextSib);
+	} else {
+		mainSection.appendChild(newSib);
+	}
+}
+
 // function renderSearchPage() {
 // 	mainHeader.textContent = "SEARCH RESULTS";
 // 	// const allProjects = renderProjectsAll();
